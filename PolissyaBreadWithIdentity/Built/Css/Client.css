@@ -17,7 +17,7 @@ input {
   border-bottom: 3px solid slategray;
   font-size: 18px; }
 
-button {
+button, input.btn {
   border: 1px solid slategray; }
 
 button, input {

@@ -19832,6 +19832,10 @@ var _reactDom = __webpack_require__(/*! react-dom */ "../node_modules/react-dom/
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _AdminApp = __webpack_require__(/*! ./Components/AdminApp */ "./Components/AdminApp.jsx");
 
 var _AdminApp2 = _interopRequireDefault(_AdminApp);
@@ -19840,7 +19844,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var render_path = document.getElementById("root");
 
-(0, _reactDom.render)(React.createElement(_AdminApp2.default, null), render_path);
+(0, _reactDom.render)(_react2.default.createElement(_AdminApp2.default, null), render_path);
 
 /***/ }),
 
@@ -19853,6 +19857,26 @@ var render_path = document.getElementById("root");
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App() {
+    return _react2.default.createElement(
+        "div",
+        { className: "app" },
+        "Hi, Admin!"
+    );
+};
+
+exports.default = App;
 
 /***/ }),
 

@@ -18,6 +18,9 @@ const config = {
         Client: [
             './Client.js',
             './Sass/client.scss'
+        ],
+        Login: [
+            './Sass/login.scss'
         ]
     },
     output: {

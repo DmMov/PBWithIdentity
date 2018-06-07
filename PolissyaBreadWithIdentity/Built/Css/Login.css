@@ -24,4 +24,21 @@ button, input {
   background: none;
   padding: 20px; }
 
-/*# sourceMappingURL=Admin.css.map*/
+#root {
+  height: 100vh; }
+
+.login-form {
+  padding: 20px;
+  grid-gap: 20px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.15); }
+  .login-form .field:focus {
+    border-bottom-color: #C6282C;
+    background-color: #f9f9f9; }
+  .login-form .login.btn {
+    transition: all 0.1s ease; }
+    .login-form .login.btn:hover {
+      background-color: #C6282C;
+      border-color: #C6282C;
+      color: white; }
+
+/*# sourceMappingURL=Login.css.map*/

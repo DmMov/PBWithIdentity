@@ -19858,6 +19858,26 @@ var render_path = document.getElementById("root");
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var App = function App() {
+    return _react2.default.createElement(
+        "div",
+        { className: "app" },
+        "Hi, Client!"
+    );
+};
+
+exports.default = App;
+
 /***/ }),
 
 /***/ "./Sass/client.scss":

@@ -1,0 +1,24 @@
+﻿@import 'Shared/default.scss';
+@import 'Shared/vars.scss';
+
+#root{
+    height: 100vh;
+}
+
+.login-form{
+    padding: $gap;
+    grid-gap: $gap;
+    box-shadow: $bs;
+    .field:focus{
+        border-bottom-color: $accent;
+        background-color: #f9f9f9;
+    }
+    .login.btn{
+        transition: $tr;
+        &:hover{
+            background-color: $accent;
+            border-color: $accent;
+            color: white;
+        }
+    }
+}
