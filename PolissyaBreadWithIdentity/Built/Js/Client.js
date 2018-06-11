@@ -19848,6 +19848,180 @@ var render_path = document.getElementById("root");
 
 /***/ }),
 
+/***/ "./Components/Client/Content/Content.jsx":
+/*!***********************************************!*\
+  !*** ./Components/Client/Content/Content.jsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Content = function Content() {
+    return _react2.default.createElement('main', null);
+};
+
+exports.default = Content;
+
+/***/ }),
+
+/***/ "./Components/Client/Footer/Footer.jsx":
+/*!*********************************************!*\
+  !*** ./Components/Client/Footer/Footer.jsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+    return _react2.default.createElement('footer', null);
+};
+
+exports.default = Footer;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/Header.jsx":
+/*!*********************************************!*\
+  !*** ./Components/Client/Header/Header.jsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Menu = __webpack_require__(/*! ./Menu/Menu */ "./Components/Client/Header/Menu/Menu.jsx");
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//#endregion 
+
+var Header = function Header() {
+    return _react2.default.createElement(
+        'header',
+        { className: 'header bg' },
+        _react2.default.createElement(_Menu2.default, null)
+    );
+};
+
+//#region Components
+exports.default = Header;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/Menu/Menu.jsx":
+/*!************************************************!*\
+  !*** ./Components/Client/Header/Menu/Menu.jsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Link = __webpack_require__(/*! ../../../Shared/Link */ "./Components/Shared/Link.jsx");
+
+var _Link2 = _interopRequireDefault(_Link);
+
+var _Image = __webpack_require__(/*! ../../../Shared/Image */ "./Components/Shared/Image.jsx");
+
+var _Image2 = _interopRequireDefault(_Image);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = function (_Component) {
+    _inherits(Menu, _Component);
+
+    function Menu(props) {
+        _classCallCheck(this, Menu);
+
+        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            var links = ["історія", "продукція", "запорука успіху", "традиції збережено", "контакти", "новини"];
+            return _react2.default.createElement(
+                'nav',
+                { className: 'menu grid container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'menu-images grid' },
+                    _react2.default.createElement(_Image2.default, { full_path: '../../../../../Built/Images/clear.png' }),
+                    _react2.default.createElement(_Image2.default, { full_path: '../../../../../Built/Images/firm.png' })
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'links-box grid' },
+                    links.map(function (v, i) {
+                        return _react2.default.createElement(_Link2.default, { key: i, value: v.toUpperCase() });
+                    })
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react.Component);
+
+exports.default = Menu;
+
+/***/ }),
+
 /***/ "./Components/ClientApp.jsx":
 /*!**********************************!*\
   !*** ./Components/ClientApp.jsx ***!
@@ -19866,17 +20040,102 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Header = __webpack_require__(/*! ./Client/Header/Header */ "./Components/Client/Header/Header.jsx");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Content = __webpack_require__(/*! ./Client/Content/Content */ "./Components/Client/Content/Content.jsx");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Footer = __webpack_require__(/*! ./Client/Footer/Footer */ "./Components/Client/Footer/Footer.jsx");
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//#endregion
 
 var App = function App() {
     return _react2.default.createElement(
-        "div",
-        { className: "app" },
-        "Hi, Client!"
+        'div',
+        { className: 'app' },
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(_Content2.default, null),
+        _react2.default.createElement(_Footer2.default, null)
     );
 };
 
+//#region Components
 exports.default = App;
+
+/***/ }),
+
+/***/ "./Components/Shared/Image.jsx":
+/*!*************************************!*\
+  !*** ./Components/Shared/Image.jsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Image = function Image(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "img-wrapper" },
+        _react2.default.createElement("img", { src: props.full_path })
+    );
+};
+
+exports.default = Image;
+
+/***/ }),
+
+/***/ "./Components/Shared/Link.jsx":
+/*!************************************!*\
+  !*** ./Components/Shared/Link.jsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Link = function Link(props) {
+    return _react2.default.createElement(
+        "li",
+        null,
+        _react2.default.createElement(
+            "a",
+            { href: "#" },
+            props.value
+        )
+    );
+};
+
+exports.default = Link;
 
 /***/ }),
 

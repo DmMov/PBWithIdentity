@@ -1,0 +1,81 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+@import 'vars.scss';
+
+.block{
+    display: block;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.normal{
+    font-style: normal;
+}
+
+.currency{
+    font-size: 80%;
+}
+
+.container{
+    padding: $gap 10%;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.relative{
+    position: relative;
+}
+
+.border{
+    border: 1px solid #eee;
+}
+
+.padding{
+    padding: 20px;
+}
+
+.condensed 
+{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.jura {
+    font-family: 'Jura', sans-serif;
+}
+
+.lora {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+
+.sc {
+    font-family: 'Spectral SC', serif;
+}
+
+.white{
+    color:white;
+}
+
+.br {
+    position: relative;
+    width: 100px;
+    height: 5px;
+    opacity: .9;
+    background-color: $accent;   
+    margin: 0 auto;
+}
+
+.ptsans{
+    font-family: 'PT Sans', sans-serif;
+}

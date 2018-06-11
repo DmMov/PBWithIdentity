@@ -6,11 +6,7 @@
 
 .grid {
   display: -ms-grid;
-  display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-flex-pack: center;
-      justify-content: center; }
+  display: grid; }
 
 input {
   border: none;
@@ -24,6 +20,16 @@ button, input {
   background: none;
   padding: 20px; }
 
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+img {
+  display: block;
+  width: 100%; }
+
 #root {
   height: 100vh; }
 
@@ -31,9 +37,11 @@ button, input {
   padding: 20px;
   grid-gap: 20px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.15); }
-  .login-form .field:focus {
-    border-bottom-color: #C6282C;
-    background-color: #f9f9f9; }
+  .login-form .field {
+    width: 20vw; }
+    .login-form .field:focus {
+      border-bottom-color: #C6282C;
+      background-color: #f9f9f9; }
   .login-form .login.btn {
     transition: all 0.1s ease; }
     .login-form .login.btn:hover {

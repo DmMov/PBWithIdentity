@@ -7,8 +7,6 @@
 
 .grid{
     display: grid;
-    align-content: center;
-    justify-content: center;
 }
 
 input {
@@ -22,4 +20,14 @@ button, input.btn {
 button, input {
     background: none;
     padding: 20px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+img{
+    display: block;
+    width: 100%;
 }

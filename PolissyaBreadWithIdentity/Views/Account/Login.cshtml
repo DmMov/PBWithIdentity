@@ -12,9 +12,10 @@
 </head>
 <body>
     <div id="root" class="grid">
+        <div><a href="/home">Назад</a></div>
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form grid", role = "form" }))
         {
-            <h2>@ViewBag.Title</h2>
+            <h1>@ViewBag.Title</h1>
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.TextBoxFor(m => m.Email, new { @class = "field", @placeholder = "Email" })

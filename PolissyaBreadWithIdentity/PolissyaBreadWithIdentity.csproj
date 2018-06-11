@@ -233,6 +233,12 @@
     <Content Include="Source\Client.js" />
     <Content Include="Source\Components\AdminApp.jsx" />
     <Content Include="Source\Components\ClientApp.jsx" />
+    <Content Include="Source\Components\Client\Content\Content.jsx" />
+    <Content Include="Source\Components\Client\Footer\Footer.jsx" />
+    <Content Include="Source\Components\Client\Header\Header.jsx" />
+    <Content Include="Source\Components\Client\Header\Menu\Menu.jsx" />
+    <Content Include="Source\Components\Shared\Image.jsx" />
+    <Content Include="Source\Components\Shared\Link.jsx" />
     <Content Include="Source\Images\bg1.jpg" />
     <Content Include="Source\Images\bg2.jpg" />
     <Content Include="Source\Images\bg3.jpg" />
@@ -277,9 +283,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Source\Components\Admin\" />
-    <Folder Include="Source\Components\Client\" />
     <Folder Include="Source\Sass\Admin\" />
-    <Folder Include="Source\Sass\Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -296,6 +300,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Source\Sass\login.scss" />
+    <Content Include="Source\Sass\Shared\helpers.scss" />
+    <Content Include="Source\Sass\Client\header.scss" />
+    <Content Include="Source\Sass\Client\menu.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
