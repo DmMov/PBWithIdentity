@@ -7,6 +7,10 @@ import Menu from './Menu/Menu';
 const Header = () => (
     <header className="header bg">
         <Menu />
+        <a href="/Admin" style={{
+            zIndex: '3',
+            position: 'absolute',
+        }}><button >AP</button></a>
     </header>
 );
 

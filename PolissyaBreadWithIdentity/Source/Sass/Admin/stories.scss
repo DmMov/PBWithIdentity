@@ -1,0 +1,19 @@
+@import '../Shared/vars.scss';
+
+$histAccent: rgb(35, 35, 35) ;
+
+.list.stories{
+    .title{
+        background-color: $histAccent;
+    }
+    .panel{
+        input:focus{
+            border-bottom-color: $histAccent;
+        }
+        button:hover{
+            background-color: $histAccent;
+            border-color: $histAccent;
+            color: white;
+        }
+    }
+}

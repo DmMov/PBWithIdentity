@@ -19934,7 +19934,19 @@ var Header = function Header() {
     return _react2.default.createElement(
         'header',
         { className: 'header bg' },
-        _react2.default.createElement(_Menu2.default, null)
+        _react2.default.createElement(_Menu2.default, null),
+        _react2.default.createElement(
+            'a',
+            { href: '/Admin', style: {
+                    zIndex: '3',
+                    position: 'absolute'
+                } },
+            _react2.default.createElement(
+                'button',
+                null,
+                'AP'
+            )
+        )
     );
 };
 

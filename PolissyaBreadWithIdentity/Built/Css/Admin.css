@@ -87,4 +87,70 @@ img {
 .ptsans {
   font-family: 'PT Sans', sans-serif; }
 
+.app.grid {
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 100vh;
+  -ms-grid-columns: (30vw)[3];
+      grid-template-columns: repeat(3, 30vw);
+  grid-gap: 2vw; }
+  .app.grid .list {
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
+    height: 90vh; }
+    .app.grid .list .title {
+      max-width: 100%;
+      padding: 20px;
+      text-transform: uppercase; }
+      .app.grid .list .title h1 {
+        color: white; }
+  .app.grid .panel {
+    padding: 10px;
+    max-width: 100%;
+    background-color: #f9f9f9;
+    grid-gap: 20px;
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto; }
+    .app.grid .panel input {
+      padding: 10px;
+      font-style: italic; }
+      .app.grid .panel input:focus {
+        background-color: #f1f1f1; }
+    .app.grid .panel button {
+      padding: 10px; }
+
+.list.stories .title {
+  background-color: #232323; }
+
+.list.stories .panel input:focus {
+  border-bottom-color: #232323; }
+
+.list.stories .panel button:hover {
+  background-color: #232323;
+  border-color: #232323;
+  color: white; }
+
+.list.categories .title {
+  background-color: orange; }
+
+.list.categories .panel input:focus {
+  border-bottom-color: orange; }
+
+.list.categories .panel button:hover {
+  background-color: orange;
+  border-color: orange;
+  color: white; }
+
+.list.products .title {
+  background-color: #C6282C; }
+
+.list.products .panel input:focus {
+  border-bottom-color: #C6282C; }
+
+.list.products .panel button:hover {
+  background-color: #C6282C;
+  border-color: #C6282C;
+  color: white; }
+
 /*# sourceMappingURL=Admin.css.map*/

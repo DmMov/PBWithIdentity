@@ -1,0 +1,17 @@
+@import '../Shared/vars.scss';
+
+.list.products{
+    .title{
+        background-color: $accent;
+    }
+    .panel{
+        input:focus{
+            border-bottom-color: $accent;
+        }
+        button:hover{
+            background-color: $accent;
+            border-color: $accent;
+            color: white;
+        }
+    }
+}

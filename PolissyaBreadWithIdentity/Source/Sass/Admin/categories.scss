@@ -1,0 +1,18 @@
+@import '../Shared/vars.scss';
+
+$catAccent: orange;
+.list.categories{
+    .title{
+        background-color: $catAccent;
+    }
+    .panel{
+        input:focus{
+            border-bottom-color: $catAccent;
+        }
+        button:hover{
+            background-color: $catAccent;
+            border-color: $catAccent;
+            color: white;
+        }
+    }
+}

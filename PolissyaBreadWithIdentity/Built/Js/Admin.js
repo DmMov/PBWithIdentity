@@ -19848,6 +19848,280 @@ var render_path = document.getElementById("root");
 
 /***/ }),
 
+/***/ "./Components/Admin/Categories/CategoriesList.jsx":
+/*!********************************************************!*\
+  !*** ./Components/Admin/Categories/CategoriesList.jsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var _Panel = __webpack_require__(/*! ../Common/Panel */ "./Components/Admin/Common/Panel.jsx");
+
+var _Panel2 = _interopRequireDefault(_Panel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CategoriesList = function (_Component) {
+    _inherits(CategoriesList, _Component);
+
+    function CategoriesList(props) {
+        _classCallCheck(this, CategoriesList);
+
+        var _this = _possibleConstructorReturn(this, (CategoriesList.__proto__ || Object.getPrototypeOf(CategoriesList)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(CategoriesList, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'categories list' },
+                _react2.default.createElement(_Title2.default, { value: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457' }),
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'categories', btnValue: '\u041D\u043E\u0432\u0430 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F' })
+            );
+        }
+    }]);
+
+    return CategoriesList;
+}(_react.Component);
+
+exports.default = CategoriesList;
+
+/***/ }),
+
+/***/ "./Components/Admin/Common/Panel.jsx":
+/*!*******************************************!*\
+  !*** ./Components/Admin/Common/Panel.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Panel = function Panel(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: props.uniqueClass + " panel grid" },
+        _react2.default.createElement("input", { type: "search", placeholder: "\u041F\u043E\u0448\u0443\u043A..." }),
+        _react2.default.createElement(
+            "button",
+            null,
+            props.btnValue.toUpperCase()
+        )
+    );
+};
+
+exports.default = Panel;
+
+/***/ }),
+
+/***/ "./Components/Admin/Common/Title.jsx":
+/*!*******************************************!*\
+  !*** ./Components/Admin/Common/Title.jsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Title = function Title(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "title" },
+        _react2.default.createElement(
+            "h1",
+            null,
+            props.value
+        )
+    );
+};
+
+exports.default = Title;
+
+/***/ }),
+
+/***/ "./Components/Admin/Products/ProductsList.jsx":
+/*!****************************************************!*\
+  !*** ./Components/Admin/Products/ProductsList.jsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var _Panel = __webpack_require__(/*! ../Common/Panel */ "./Components/Admin/Common/Panel.jsx");
+
+var _Panel2 = _interopRequireDefault(_Panel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductsList = function (_Component) {
+    _inherits(ProductsList, _Component);
+
+    function ProductsList(props) {
+        _classCallCheck(this, ProductsList);
+
+        var _this = _possibleConstructorReturn(this, (ProductsList.__proto__ || Object.getPrototypeOf(ProductsList)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(ProductsList, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'products list' },
+                _react2.default.createElement(_Title2.default, { value: '\u041F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F' }),
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'products', btnValue: '\u041D\u043E\u0432\u0438\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0442' })
+            );
+        }
+    }]);
+
+    return ProductsList;
+}(_react.Component);
+
+exports.default = ProductsList;
+
+/***/ }),
+
+/***/ "./Components/Admin/Stories/StoriesList.jsx":
+/*!**************************************************!*\
+  !*** ./Components/Admin/Stories/StoriesList.jsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
+var _Panel = __webpack_require__(/*! ../Common/Panel */ "./Components/Admin/Common/Panel.jsx");
+
+var _Panel2 = _interopRequireDefault(_Panel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var StoriesList = function (_Component) {
+    _inherits(StoriesList, _Component);
+
+    function StoriesList(props) {
+        _classCallCheck(this, StoriesList);
+
+        var _this = _possibleConstructorReturn(this, (StoriesList.__proto__ || Object.getPrototypeOf(StoriesList)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(StoriesList, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'stories list' },
+                _react2.default.createElement(_Title2.default, { value: '\u0406\u0441\u0442\u043E\u0440\u0456\u044F' }),
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'stories', btnValue: '\u041D\u043E\u0432\u0430 \u0456\u0441\u0442\u043E\u0440\u0456\u044F' })
+            );
+        }
+    }]);
+
+    return StoriesList;
+}(_react.Component);
+
+exports.default = StoriesList;
+
+/***/ }),
+
 /***/ "./Components/AdminApp.jsx":
 /*!*********************************!*\
   !*** ./Components/AdminApp.jsx ***!
@@ -19866,16 +20140,33 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _StoriesList = __webpack_require__(/*! ./Admin/Stories/StoriesList */ "./Components/Admin/Stories/StoriesList.jsx");
+
+var _StoriesList2 = _interopRequireDefault(_StoriesList);
+
+var _CategoriesList = __webpack_require__(/*! ./Admin/Categories/CategoriesList */ "./Components/Admin/Categories/CategoriesList.jsx");
+
+var _CategoriesList2 = _interopRequireDefault(_CategoriesList);
+
+var _ProductsList = __webpack_require__(/*! ./Admin/Products/ProductsList */ "./Components/Admin/Products/ProductsList.jsx");
+
+var _ProductsList2 = _interopRequireDefault(_ProductsList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//#endregion
 
 var App = function App() {
     return _react2.default.createElement(
-        "div",
-        { className: "app" },
-        "Hi, Admin!"
+        'div',
+        { className: 'app grid ' },
+        _react2.default.createElement(_StoriesList2.default, null),
+        _react2.default.createElement(_CategoriesList2.default, null),
+        _react2.default.createElement(_ProductsList2.default, null)
     );
 };
 
+//#region Components
 exports.default = App;
 
 /***/ }),
