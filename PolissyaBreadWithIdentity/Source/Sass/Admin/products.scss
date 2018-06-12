@@ -2,11 +2,15 @@
 
 .list.products{
     .title{
-        background-color: $accent;
+        background-color: white;
+        h1{
+            background-color: $accent;
+            
+        }
     }
     .panel{
         input:focus{
-            border-bottom-color: $accent;
+            border-color: $accent;
         }
         button:hover{
             background-color: $accent;

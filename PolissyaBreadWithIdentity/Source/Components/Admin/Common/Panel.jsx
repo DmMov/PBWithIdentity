@@ -4,7 +4,7 @@ const Panel = props => {
     return (
         <div className={`${props.uniqueClass} panel grid`}>
             <input type="search" placeholder="Пошук..." />
-            <button>{props.btnValue.toUpperCase()}</button>
+            <button onClick={props.toggle}>{props.btnValue.toUpperCase()}</button>
         </div>
     );
 }

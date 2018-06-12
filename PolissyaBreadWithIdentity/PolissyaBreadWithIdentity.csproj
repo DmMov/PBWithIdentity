@@ -237,6 +237,13 @@
     <Content Include="Source\Admin.js" />
     <Content Include="Source\Client.js" />
     <Content Include="Source\Components\AdminApp.jsx" />
+    <Content Include="Source\Components\Admin\Categories\CategoriesList.jsx" />
+    <Content Include="Source\Components\Admin\Common\Panel.jsx" />
+    <Content Include="Source\Components\Admin\Common\Title.jsx" />
+    <Content Include="Source\Components\Admin\Products\ProductsList.jsx" />
+    <Content Include="Source\Components\Admin\Stories\History.jsx" />
+    <Content Include="Source\Components\Admin\Stories\HistoryForm.jsx" />
+    <Content Include="Source\Components\Admin\Stories\StoriesList.jsx" />
     <Content Include="Source\Components\ClientApp.jsx" />
     <Content Include="Source\Components\Client\Content\Content.jsx" />
     <Content Include="Source\Components\Client\Footer\Footer.jsx" />
@@ -287,8 +294,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Source\Components\Admin\" />
-    <Folder Include="Source\Sass\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -308,6 +313,10 @@
     <Content Include="Source\Sass\Shared\helpers.scss" />
     <Content Include="Source\Sass\Client\header.scss" />
     <Content Include="Source\Sass\Client\menu.scss" />
+    <Content Include="Source\Sass\Admin\categories.scss" />
+    <Content Include="Source\Sass\Admin\main.scss" />
+    <Content Include="Source\Sass\Admin\products.scss" />
+    <Content Include="Source\Sass\Admin\stories.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

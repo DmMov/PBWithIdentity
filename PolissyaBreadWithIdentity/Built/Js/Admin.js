@@ -19942,7 +19942,7 @@ var Panel = function Panel(props) {
         _react2.default.createElement("input", { type: "search", placeholder: "\u041F\u043E\u0448\u0443\u043A..." }),
         _react2.default.createElement(
             "button",
-            null,
+            { onClick: props.toggle },
             props.btnValue.toUpperCase()
         )
     );
@@ -20055,6 +20055,142 @@ exports.default = ProductsList;
 
 /***/ }),
 
+/***/ "./Components/Admin/Stories/History.jsx":
+/*!**********************************************!*\
+  !*** ./Components/Admin/Stories/History.jsx ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var History = function History(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "history" },
+        _react2.default.createElement(
+            "h1",
+            { className: "date" },
+            props.data.Date
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "text" },
+            props.data.Text
+        ),
+        _react2.default.createElement("button", { className: "delete" }),
+        _react2.default.createElement("button", { className: "edit" })
+    );
+};
+
+exports.default = History;
+
+/***/ }),
+
+/***/ "./Components/Admin/Stories/HistoryForm.jsx":
+/*!**************************************************!*\
+  !*** ./Components/Admin/Stories/HistoryForm.jsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HistoryForm = function (_Component) {
+    _inherits(HistoryForm, _Component);
+
+    function HistoryForm(props) {
+        _classCallCheck(this, HistoryForm);
+
+        var _this = _possibleConstructorReturn(this, (HistoryForm.__proto__ || Object.getPrototypeOf(HistoryForm)).call(this, props));
+
+        _this.state = {
+            date: "",
+            text: ""
+        };
+
+        _this.onSubmit = _this.onSubmit.bind(_this);
+        _this.onChangeDate = _this.onChangeDate.bind(_this);
+        _this.onChangeText = _this.onChangeText.bind(_this);
+        return _this;
+    }
+
+    _createClass(HistoryForm, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "form",
+                { onSubmit: this.onSubmit },
+                _react2.default.createElement("input", { type: "text", placeholder: "\u0414\u0430\u0442\u0430...", value: this.state.date, onChange: this.onChangeDate }),
+                _react2.default.createElement("input", { type: "text", placeholder: "\u0406\u0441\u0442\u043E\u0440\u0456\u044F...", value: this.state.text, onChange: this.onChangeText }),
+                _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" })
+            );
+        }
+    }, {
+        key: "onChangeDate",
+        value: function onChangeDate(e) {
+            this.setState({
+                date: e.target.value
+            });
+        }
+    }, {
+        key: "onChangeText",
+        value: function onChangeText(e) {
+            this.setState({
+                text: e.target.value
+            });
+        }
+    }, {
+        key: "onSubmit",
+        value: function onSubmit(e) {
+            e.preventDefault();
+            var historyDate = this.state.date.trim();
+            var historyText = this.state.text.trim();
+            if (!historyDate || !historyText) {
+                return;
+            }
+            this.props.onHistorySubmit({ date: historyDate, text: historyText });
+            this.setState({ date: "", text: "" });
+        }
+    }]);
+
+    return HistoryForm;
+}(_react.Component);
+
+exports.default = HistoryForm;
+
+/***/ }),
+
 /***/ "./Components/Admin/Stories/StoriesList.jsx":
 /*!**************************************************!*\
   !*** ./Components/Admin/Stories/StoriesList.jsx ***!
@@ -20083,6 +20219,14 @@ var _Panel = __webpack_require__(/*! ../Common/Panel */ "./Components/Admin/Comm
 
 var _Panel2 = _interopRequireDefault(_Panel);
 
+var _HistoryForm = __webpack_require__(/*! ./HistoryForm */ "./Components/Admin/Stories/HistoryForm.jsx");
+
+var _HistoryForm2 = _interopRequireDefault(_HistoryForm);
+
+var _History = __webpack_require__(/*! ./History */ "./Components/Admin/Stories/History.jsx");
+
+var _History2 = _interopRequireDefault(_History);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20099,19 +20243,81 @@ var StoriesList = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (StoriesList.__proto__ || Object.getPrototypeOf(StoriesList)).call(this, props));
 
-        _this.state = {};
+        _this.state = {
+            stories: [],
+            formIsOpen: false
+        };
+
+        _this.FormToggle = _this.FormToggle.bind(_this);
+        _this.onAddHistory = _this.onAddHistory.bind(_this);
         return _this;
     }
 
     _createClass(StoriesList, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(
+            var _state = this.state,
+                formIsOpen = _state.formIsOpen,
+                stories = _state.stories;
+
+            return formIsOpen ? _react2.default.createElement(_HistoryForm2.default, { onHistorySubmit: this.onAddHistory }) : _react2.default.createElement(
                 'div',
                 { className: 'stories list' },
                 _react2.default.createElement(_Title2.default, { value: '\u0406\u0441\u0442\u043E\u0440\u0456\u044F' }),
-                _react2.default.createElement(_Panel2.default, { uniqueClass: 'stories', btnValue: '\u041D\u043E\u0432\u0430 \u0456\u0441\u0442\u043E\u0440\u0456\u044F' })
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'stories', btnValue: '\u041D\u043E\u0432\u0430 \u0456\u0441\u0442\u043E\u0440\u0456\u044F', toggle: this.FormToggle }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'scroll stories-box' },
+                    stories.map(function (v) {
+                        return _react2.default.createElement(_History2.default, { key: v.Id, data: v });
+                    })
+                )
             );
+        }
+    }, {
+        key: 'FormToggle',
+        value: function FormToggle() {
+            this.setState({
+                formIsOpen: !this.state.formIsOpen
+            });
+        }
+    }, {
+        key: 'onAddHistory',
+        value: function onAddHistory(history) {
+            var _this2 = this;
+
+            if (history) {
+
+                var data = new FormData();
+                data.append("date", history.date);
+                data.append("text", history.text);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", this.props.postUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this2.loadData() : null;
+                };
+                xhr.send(data);
+            }
+            this.FormToggle();
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData() {
+            var _this3 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this3.setState({ stories: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
         }
     }]);
 
@@ -20160,7 +20366,7 @@ var App = function App() {
     return _react2.default.createElement(
         'div',
         { className: 'app grid ' },
-        _react2.default.createElement(_StoriesList2.default, null),
+        _react2.default.createElement(_StoriesList2.default, { getUrl: 'admin/GetStories', postUrl: 'admin/AddHistory' }),
         _react2.default.createElement(_CategoriesList2.default, null),
         _react2.default.createElement(_ProductsList2.default, null)
     );

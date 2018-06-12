@@ -4,16 +4,35 @@ $histAccent: rgb(35, 35, 35) ;
 
 .list.stories{
     .title{
-        background-color: $histAccent;
+        background-color: white;
+
+        h1{
+            background-color: $histAccent;
+        }
     }
     .panel{
         input:focus{
-            border-bottom-color: $histAccent;
+            border-color: $histAccent;
         }
         button:hover{
             background-color: $histAccent;
             border-color: $histAccent;
             color: white;
+        }
+    }
+    .stories-box{
+        .history{
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 1em;
+            border: 1px solid white;
+            h1{
+                color: $histAccent;
+            }
+            &:hover{
+                border: 1px solid rgba(0, 0, 0, .1);
+                box-shadow: $bs;
+            }
         }
     }
 }

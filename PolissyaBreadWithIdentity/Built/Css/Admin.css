@@ -97,56 +97,94 @@ img {
       grid-template-columns: repeat(3, 30vw);
   grid-gap: 2vw; }
   .app.grid .list {
-    box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
-    height: 90vh; }
-    .app.grid .list .title {
-      max-width: 100%;
-      padding: 20px;
-      text-transform: uppercase; }
-      .app.grid .list .title h1 {
-        color: white; }
-  .app.grid .panel {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
     padding: 10px;
-    max-width: 100%;
-    background-color: #f9f9f9;
-    grid-gap: 20px;
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto; }
-    .app.grid .panel input {
+    height: 90vh;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+    .app.grid .list .title {
+      position: absolute;
+      left: 25px;
+      top: -32.5px;
+      padding: 10px; }
+      .app.grid .list .title h1 {
+        padding: 10px;
+        font-size: 18px;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 5px; }
+    .app.grid .list .panel {
+      margin-top: 20px;
+      border-radius: 1em;
       padding: 10px;
-      font-style: italic; }
-      .app.grid .panel input:focus {
-        background-color: #f1f1f1; }
-    .app.grid .panel button {
+      max-width: 100%;
+      grid-gap: 20px;
+      -ms-grid-columns: auto auto;
+          grid-template-columns: auto auto; }
+      .app.grid .list .panel input {
+        padding: 10px;
+        font-style: italic;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1); }
+        .app.grid .list .panel input:focus {
+          background-color: #f9f9f9; }
+      .app.grid .list .panel button {
+        padding: 10px;
+        border-radius: 5px; }
+    .app.grid .list .scroll {
+      position: absolute;
+      top: 97px;
+      bottom: 0;
+      left: 10px;
+      right: 10px;
+      overflow-y: auto;
       padding: 10px; }
 
 .list.stories .title {
-  background-color: #232323; }
+  background-color: white; }
+  .list.stories .title h1 {
+    background-color: #232323; }
 
 .list.stories .panel input:focus {
-  border-bottom-color: #232323; }
+  border-color: #232323; }
 
 .list.stories .panel button:hover {
   background-color: #232323;
   border-color: #232323;
   color: white; }
 
+.list.stories .stories-box .history {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 1em;
+  border: 1px solid white; }
+  .list.stories .stories-box .history h1 {
+    color: #232323; }
+  .list.stories .stories-box .history:hover {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+
 .list.categories .title {
-  background-color: orange; }
+  background-color: white; }
+  .list.categories .title h1 {
+    background-color: #1467b9; }
 
 .list.categories .panel input:focus {
-  border-bottom-color: orange; }
+  border-color: #1467b9; }
 
 .list.categories .panel button:hover {
-  background-color: orange;
-  border-color: orange;
+  background-color: #1467b9;
+  border-color: #1467b9;
   color: white; }
 
 .list.products .title {
-  background-color: #C6282C; }
+  background-color: white; }
+  .list.products .title h1 {
+    background-color: #C6282C; }
 
 .list.products .panel input:focus {
-  border-bottom-color: #C6282C; }
+  border-color: #C6282C; }
 
 .list.products .panel button:hover {
   background-color: #C6282C;

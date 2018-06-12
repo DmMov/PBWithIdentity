@@ -1,13 +1,16 @@
 @import '../Shared/vars.scss';
 
-$catAccent: orange;
+$catAccent: rgb(20, 103, 185);
 .list.categories{
     .title{
-        background-color: $catAccent;
+        background-color: white;
+        h1{
+            background-color: $catAccent;
+        }
     }
     .panel{
         input:focus{
-            border-bottom-color: $catAccent;
+            border-color: $catAccent;
         }
         button:hover{
             background-color: $catAccent;
