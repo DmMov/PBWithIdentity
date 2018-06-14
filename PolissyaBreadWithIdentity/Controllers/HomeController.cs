@@ -24,6 +24,7 @@ namespace PolissyaBreadWithIdentity.Controllers
                            select new
                            {
                                entity.Id,
+                               entity.Image,
                                entity.Name,
                                entity.Price,
                                entity.PackedPrice,

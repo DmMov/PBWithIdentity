@@ -26,6 +26,7 @@ namespace PolissyaBreadWithIdentity.Controllers
                            select new
                            {
                                entity.Id,
+                               entity.Image,
                                entity.Name,
                                entity.Price,
                                entity.PackedPrice,
@@ -57,7 +58,7 @@ namespace PolissyaBreadWithIdentity.Controllers
             return Json(product);
         }
 
-        public ActionResult GetTypes()
+        public ActionResult GetCategories()
         {
             var Categories = from entity in pc.Categories
                         select new
@@ -70,8 +71,9 @@ namespace PolissyaBreadWithIdentity.Controllers
             return Json(Categories, JsonRequestBehavior.AllowGet);
         }
 
+
         [HttpPost]
-        public ActionResult AddType(Category category)
+        public ActionResult AddCategory(Category category)
         {
             category.Id = Guid.NewGuid().ToString();
             pc.Categories.Add(category);
@@ -80,7 +82,7 @@ namespace PolissyaBreadWithIdentity.Controllers
         }
 
         [HttpDelete]
-        public ActionResult DeleteType(string id)
+        public ActionResult DeleteCategory(string id)
         {
             Category category = new Category { Id = id };
 

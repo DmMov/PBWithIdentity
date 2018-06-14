@@ -9,8 +9,8 @@ import ProductsList from './Admin/Products/ProductsList';
 const App = () =>
     (
         <div className="app grid ">
-            <StoriesList getUrl="admin/GetStories" postUrl="admin/AddHistory"/>
-            <CategoriesList />
+            <StoriesList getUrl="admin/GetStories" postUrl="admin/AddHistory" deleteUrl="admin/DeleteHistory"/>
+            <CategoriesList getUrl="admin/GetCategories" postUrl="admin/AddCategory" deleteUrl="admin/DeleteCategory"/>
             <ProductsList />
         </div>
     );

@@ -1,16 +1,15 @@
 import React from 'react';
 
-const History = props => {
+const Category = props => {
     const onClick = (e) => {
         props.onRemove(props.data);
     }
     return (
-        <div className="history">
-            <h1 className="date">{props.data.Date}</h1>
-            <span className="text">{props.data.Text}</span>
+        <div className="category">
+            <span className="name">{props.data.Name}</span>
             <button onClick={onClick} className="delete icon"></button>
         </div>
     );
 }
 
-export default History;
+export default Category;

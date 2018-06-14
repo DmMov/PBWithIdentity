@@ -1,7 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 @import url('https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
 @import 'vars.scss';
 
@@ -26,7 +25,7 @@
 }
 
 .container{
-    padding: $gap 10%;
+    padding:20px 10%;
 }
 
 .absolute{
@@ -79,3 +78,75 @@
 .ptsans{
     font-family: 'PT Sans', sans-serif;
 }
+.delete.icon {
+    transform: translate(10px);
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    color: #000;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 0;
+    top: 10px;
+    right: 10px;
+    width: 21px;
+    height: 21px;
+    &:hover{
+        color: $accent;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 21px;
+        height: 3px;
+        border-radius: 3px;
+        background-color: currentColor;
+        transform: rotate(-45deg);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 21px;
+        height: 3px;
+        border-radius: 3px;        
+        background-color: currentColor;
+        transform: rotate(45deg);
+    }
+}
+
+.edit.icon {
+    transition: all .25s ease-in-out;
+    opacity: 0;
+    color: #000;
+    position: absolute;
+    margin-left: 4px;
+    margin-top: 7px;
+    top: 10px;
+    right: 35px;
+    width: 18px;
+    height: 8px;
+    border-radius: 1px;
+    border: solid 1px currentColor;
+    transform: rotate(-45deg) translate(10px, 10px);
+    &:hover{
+        color: dodgerblue;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        left: -11px;
+        top: -1px;
+        width: 0px;
+        height: 0px;
+        border-left: solid 5px transparent;
+        border-right: solid 5px currentColor;
+        border-top: solid 4px transparent;
+        border-bottom: solid 4px transparent;
+    }
+
+}
+  
+  
+  

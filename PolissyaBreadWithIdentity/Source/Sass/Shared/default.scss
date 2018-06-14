@@ -1,25 +1,25 @@
-﻿* {
+﻿@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+
+* {
     padding: 0;
     margin: 0;
     color: slategray;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .grid{
     display: grid;
 }
 
-input {
+input, textarea {
     border: none;
     border-bottom: 3px solid slategray;
     font-size: 18px;
 }
-button, input.btn {
-    border: 1px solid slategray;
-}
 button, input {
     background: none;
-    padding: 20px;
+    border: none;
 }
 a{
     text-decoration: none;

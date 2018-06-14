@@ -20009,7 +20009,7 @@ var Menu = function (_Component) {
             var links = ["історія", "продукція", "запорука успіху", "традиції збережено", "контакти", "новини"];
             return _react2.default.createElement(
                 'nav',
-                { className: 'menu grid container' },
+                { className: 'menu grid' },
                 _react2.default.createElement(
                     'div',
                     { className: 'menu-images grid' },

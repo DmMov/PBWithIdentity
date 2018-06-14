@@ -1,24 +1,21 @@
-* {
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);* {
   padding: 0;
   margin: 0;
   color: slategray;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  font-family: 'PT Sans', sans-serif; }
 
 .grid {
   display: -ms-grid;
   display: grid; }
 
-input {
+input, textarea {
   border: none;
   border-bottom: 3px solid slategray;
   font-size: 18px; }
 
-button, input.btn {
-  border: 1px solid slategray; }
-
 button, input {
   background: none;
-  padding: 20px; }
+  border: none; }
 
 a {
   text-decoration: none; }
@@ -38,8 +35,8 @@ img {
       align-content: center; }
 
 .login-form {
-  padding: 20px;
-  grid-gap: 20px;
+  padding: 10px;
+  grid-gap: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
   .login-form .field {
     width: 20vw; }

@@ -18,7 +18,7 @@ class Menu extends Component {
             "новини"
         ];
         return (
-            <nav className="menu grid container">
+            <nav className="menu grid">
                 <div className="menu-images grid">
                     <Image full_path="../../../../../Built/Images/clear.png" />
                     <Image full_path="../../../../../Built/Images/firm.png" />

@@ -1,0 +1,28 @@
+@import "../Shared/vars.scss";
+
+.category-form{
+    padding: 20px $gap;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $gap;
+    box-shadow: $bs;
+
+    .field{
+        grid-column: 1/ -1;
+        padding: $gap;
+        border-bottom: 3px solid rgba(0, 0, 0, .1);
+        &:focus{
+            background-color: #f9f9f9;
+            border-bottom-color: rgb(18, 83, 148);
+        }
+    }
+    .btn{
+        padding: $gap;
+        font-size: 15px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        &:hover{
+            background-color: rgb(18, 83, 148);
+            border-color: rgb(18, 83, 148);
+            color: white;
+        }
+    }
+}

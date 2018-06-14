@@ -1,6 +1,17 @@
-﻿$sg: slategray;
-$gap: 20px;
+﻿@import url('https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One');
+
+$sg: slategray;
+$gap: 10px;
 $accent: #C6282C;
 $tr: all .1s ease;
 $bs: 0 0 10px rgba(0, 0, 0, .15);
 $fb: #4867AA;
+
+
+//#region fonts 
+$unicase: 'Cormorant Unicase', serif;
+$comfortaa: 'Comfortaa', cursive;
+$one: 'Poiret One', cursive;
+$garamond: 'Cormorant Garamond', serif;
+$infant: 'Cormorant Infant', serif;
+//#endregion

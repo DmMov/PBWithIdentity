@@ -1,12 +1,9 @@
 @import '../Shared/vars.scss';
-
-$catAccent: rgb(20, 103, 185);
+@import "./category-form.scss";
+$catAccent: rgb(18, 83, 148);
 .list.categories{
     .title{
-        background-color: white;
-        h1{
-            background-color: $catAccent;
-        }
+        border-bottom: 3px solid $catAccent;
     }
     .panel{
         input:focus{
@@ -16,6 +13,27 @@ $catAccent: rgb(20, 103, 185);
             background-color: $catAccent;
             border-color: $catAccent;
             color: white;
+        }
+    }
+    .categories-box{
+        .category{
+            position: relative;
+            .name{
+                display: block;
+                font-size: 24px;
+                padding: $gap;
+            }
+            .delete.icon{
+                top: 15px;
+                right: 15px;
+            }            
+            &:hover{
+                background-color: #f9f9f9;
+                .delete.icon{
+                    transform: translate(0);
+                    opacity: 1;
+                }
+            }
         }
     }
 }

@@ -2,11 +2,7 @@
 
 .list.products{
     .title{
-        background-color: white;
-        h1{
-            background-color: $accent;
-            
-        }
+        border-bottom: 3px solid $accent;
     }
     .panel{
         input:focus{

@@ -1,0 +1,31 @@
+@import "../Shared/vars.scss";
+
+.history-form{
+    padding: 20px $gap;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $gap;
+    box-shadow: $bs;
+    .field{
+        grid-column: 1/ -1;
+        padding: $gap;
+        border-bottom: 3px solid rgba(0, 0, 0, .1);
+        &:nth-child(2){
+            height: 300px;
+            resize: none;
+        }
+        &:focus{
+            background-color: #f9f9f9;
+            border-bottom-color: rgb(35, 35, 35);
+        }
+    }
+    .btn{
+        padding: $gap;
+        font-size: 15px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        &:hover{
+            background-color: rgb(35, 35, 35);
+            border-color: rgb(35, 35, 35);
+            color: white;
+        }
+    }
+}

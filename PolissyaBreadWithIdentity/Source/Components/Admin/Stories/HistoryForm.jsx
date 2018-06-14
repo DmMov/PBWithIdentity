@@ -14,11 +14,14 @@ class HistoryForm extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
-                <input type="text" placeholder="Дата..." value={this.state.date} onChange={this.onChangeDate} />
-                <input type="text"  placeholder="Історія..." value={this.state.text} onChange={this.onChangeText} />
-                <input className="btn" type="submit" value="Зберегти" />
-            </form>
+            <div className="form-wrapper">
+                <form className="history-form grid" onSubmit={this.onSubmit}>
+                    <input className="field" type="text" placeholder="Дата..." value={this.state.date} onChange={this.onChangeDate} />
+                    <textarea className="field" type="text"  placeholder="Історія..." value={this.state.text} onChange={this.onChangeText} />
+                    <input className="btn" type="submit" value="Зберегти" />
+                    <button className="btn" onClick={this.props.toggle}>Відмінити</button>
+                </form>
+            </div>
         );
     }
 

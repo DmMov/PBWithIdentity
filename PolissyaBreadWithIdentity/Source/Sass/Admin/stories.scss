@@ -1,14 +1,10 @@
 @import '../Shared/vars.scss';
-
+@import './history-form.scss';
 $histAccent: rgb(35, 35, 35) ;
 
 .list.stories{
     .title{
-        background-color: white;
-
-        h1{
-            background-color: $histAccent;
-        }
+        border-bottom: 3px solid $histAccent;
     }
     .panel{
         input:focus{
@@ -24,14 +20,25 @@ $histAccent: rgb(35, 35, 35) ;
         .history{
             margin: 10px 0;
             padding: 10px;
-            border-radius: 1em;
             border: 1px solid white;
+            position: relative;
+            .text{
+                display: block;
+                padding: 10px;
+                background-color: rgba(0, 0, 0, .02);
+                font-family: $garamond;
+                font-size: 20px;
+            }
             h1{
                 color: $histAccent;
+                
             }
             &:hover{
                 border: 1px solid rgba(0, 0, 0, .1);
-                box-shadow: $bs;
+                .delete.icon{
+                    transform: translate(0);
+                    opacity: 1;
+                }
             }
         }
     }

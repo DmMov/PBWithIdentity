@@ -19876,6 +19876,14 @@ var _Panel = __webpack_require__(/*! ../Common/Panel */ "./Components/Admin/Comm
 
 var _Panel2 = _interopRequireDefault(_Panel);
 
+var _Category = __webpack_require__(/*! ./Category */ "./Components/Admin/Categories/Category.jsx");
+
+var _Category2 = _interopRequireDefault(_Category);
+
+var _CategoryForm = __webpack_require__(/*! ./CategoryForm */ "./Components/Admin/Categories/CategoryForm.jsx");
+
+var _CategoryForm2 = _interopRequireDefault(_CategoryForm);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19883,6 +19891,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//#region Components
+
+
+//#endregion
 
 var CategoriesList = function (_Component) {
     _inherits(CategoriesList, _Component);
@@ -19892,19 +19905,99 @@ var CategoriesList = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (CategoriesList.__proto__ || Object.getPrototypeOf(CategoriesList)).call(this, props));
 
-        _this.state = {};
+        _this.state = {
+            categories: [],
+            formIsOpen: false
+        };
+        _this.onAddCategory = _this.onAddCategory.bind(_this);
+        _this.onRemoveCategory = _this.onRemoveCategory.bind(_this);
+        _this.FormToggle = _this.FormToggle.bind(_this);
         return _this;
     }
 
     _createClass(CategoriesList, [{
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(
+            var _state = this.state,
+                formIsOpen = _state.formIsOpen,
+                categories = _state.categories;
+
+            var remove = this.onRemoveCategory;
+
+            return formIsOpen ? _react2.default.createElement(_CategoryForm2.default, { onCategorySubmit: this.onAddCategory, toggle: this.FormToggle }) : _react2.default.createElement(
                 'div',
                 { className: 'categories list' },
                 _react2.default.createElement(_Title2.default, { value: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u0457' }),
-                _react2.default.createElement(_Panel2.default, { uniqueClass: 'categories', btnValue: '\u041D\u043E\u0432\u0430 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F' })
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'categories', btnValue: '\u041D\u043E\u0432\u0430 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F', toggle: this.FormToggle }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'scroll categories-box' },
+                    categories.map(function (v) {
+                        return _react2.default.createElement(_Category2.default, { key: v.Id, data: v, onRemove: remove });
+                    })
+                )
             );
+        }
+    }, {
+        key: 'FormToggle',
+        value: function FormToggle() {
+            this.setState({
+                formIsOpen: !this.state.formIsOpen
+            });
+        }
+    }, {
+        key: 'onAddCategory',
+        value: function onAddCategory(category) {
+            var _this2 = this;
+
+            if (category) {
+
+                var data = new FormData();
+                data.append("name", category.name);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", this.props.postUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this2.loadData() : "error";
+                };
+                xhr.send(data);
+            }
+            this.FormToggle();
+        }
+    }, {
+        key: 'onRemoveCategory',
+        value: function onRemoveCategory(category) {
+            var _this3 = this;
+
+            if (category) {
+                var data = new FormData();
+                data.append("id", category.Id);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("delete", this.props.deleteUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this3.loadData() : null;
+                };
+                xhr.send(data);
+            }
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData() {
+            var _this4 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this4.setState({ categories: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
         }
     }]);
 
@@ -19912,6 +20005,133 @@ var CategoriesList = function (_Component) {
 }(_react.Component);
 
 exports.default = CategoriesList;
+
+/***/ }),
+
+/***/ "./Components/Admin/Categories/Category.jsx":
+/*!**************************************************!*\
+  !*** ./Components/Admin/Categories/Category.jsx ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Category = function Category(props) {
+    var onClick = function onClick(e) {
+        props.onRemove(props.data);
+    };
+    return _react2.default.createElement(
+        "div",
+        { className: "category" },
+        _react2.default.createElement(
+            "span",
+            { className: "name" },
+            props.data.Name
+        ),
+        _react2.default.createElement("button", { onClick: onClick, className: "delete icon" })
+    );
+};
+
+exports.default = Category;
+
+/***/ }),
+
+/***/ "./Components/Admin/Categories/CategoryForm.jsx":
+/*!******************************************************!*\
+  !*** ./Components/Admin/Categories/CategoryForm.jsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CategoryForm = function (_Component) {
+    _inherits(CategoryForm, _Component);
+
+    function CategoryForm(props) {
+        _classCallCheck(this, CategoryForm);
+
+        var _this = _possibleConstructorReturn(this, (CategoryForm.__proto__ || Object.getPrototypeOf(CategoryForm)).call(this, props));
+
+        _this.state = {
+            name: ""
+        };
+
+        _this.onSubmit = _this.onSubmit.bind(_this);
+        _this.onChangeName = _this.onChangeName.bind(_this);
+        return _this;
+    }
+
+    _createClass(CategoryForm, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "form-wrapper" },
+                _react2.default.createElement(
+                    "form",
+                    { className: "category-form form grid", onSubmit: this.onSubmit },
+                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u041D\u0430\u0437\u0432\u0430 \u0442\u0438\u043F\u0443...", value: this.state.name, onChange: this.onChangeName }),
+                    _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" }),
+                    _react2.default.createElement("input", { className: "btn", type: "button", onClick: this.props.toggle, value: "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438" })
+                )
+            );
+        }
+    }, {
+        key: "onChangeName",
+        value: function onChangeName(e) {
+            this.setState({
+                name: e.target.value
+            });
+        }
+    }, {
+        key: "onSubmit",
+        value: function onSubmit(e) {
+            e.preventDefault();
+            var categoryName = this.state.name.trim();
+            if (!categoryName) {
+                return;
+            }
+            this.props.onCategorySubmit({ name: categoryName });
+            this.setState({ name: "" });
+        }
+    }]);
+
+    return CategoryForm;
+}(_react.Component);
+
+exports.default = CategoryForm;
 
 /***/ }),
 
@@ -20076,6 +20296,9 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var History = function History(props) {
+    var onClick = function onClick(e) {
+        props.onRemove(props.data);
+    };
     return _react2.default.createElement(
         "div",
         { className: "history" },
@@ -20089,8 +20312,7 @@ var History = function History(props) {
             { className: "text" },
             props.data.Text
         ),
-        _react2.default.createElement("button", { className: "delete" }),
-        _react2.default.createElement("button", { className: "edit" })
+        _react2.default.createElement("button", { onClick: onClick, className: "delete icon" })
     );
 };
 
@@ -20149,11 +20371,20 @@ var HistoryForm = function (_Component) {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
-                "form",
-                { onSubmit: this.onSubmit },
-                _react2.default.createElement("input", { type: "text", placeholder: "\u0414\u0430\u0442\u0430...", value: this.state.date, onChange: this.onChangeDate }),
-                _react2.default.createElement("input", { type: "text", placeholder: "\u0406\u0441\u0442\u043E\u0440\u0456\u044F...", value: this.state.text, onChange: this.onChangeText }),
-                _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" })
+                "div",
+                { className: "form-wrapper" },
+                _react2.default.createElement(
+                    "form",
+                    { className: "history-form grid", onSubmit: this.onSubmit },
+                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u0414\u0430\u0442\u0430...", value: this.state.date, onChange: this.onChangeDate }),
+                    _react2.default.createElement("textarea", { className: "field", type: "text", placeholder: "\u0406\u0441\u0442\u043E\u0440\u0456\u044F...", value: this.state.text, onChange: this.onChangeText }),
+                    _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" }),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "btn", onClick: this.props.toggle },
+                        "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438"
+                    )
+                )
             );
         }
     }, {
@@ -20235,6 +20466,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//#region Components
+
+
+//#endregion
+
 var StoriesList = function (_Component) {
     _inherits(StoriesList, _Component);
 
@@ -20247,9 +20483,11 @@ var StoriesList = function (_Component) {
             stories: [],
             formIsOpen: false
         };
-
+        //#region bind
         _this.FormToggle = _this.FormToggle.bind(_this);
         _this.onAddHistory = _this.onAddHistory.bind(_this);
+        _this.onRemoveHistory = _this.onRemoveHistory.bind(_this);
+        //#endregion
         return _this;
     }
 
@@ -20260,7 +20498,8 @@ var StoriesList = function (_Component) {
                 formIsOpen = _state.formIsOpen,
                 stories = _state.stories;
 
-            return formIsOpen ? _react2.default.createElement(_HistoryForm2.default, { onHistorySubmit: this.onAddHistory }) : _react2.default.createElement(
+            var remove = this.onRemoveHistory;
+            return formIsOpen ? _react2.default.createElement(_HistoryForm2.default, { onHistorySubmit: this.onAddHistory, toggle: this.FormToggle }) : _react2.default.createElement(
                 'div',
                 { className: 'stories list' },
                 _react2.default.createElement(_Title2.default, { value: '\u0406\u0441\u0442\u043E\u0440\u0456\u044F' }),
@@ -20269,7 +20508,7 @@ var StoriesList = function (_Component) {
                     'div',
                     { className: 'scroll stories-box' },
                     stories.map(function (v) {
-                        return _react2.default.createElement(_History2.default, { key: v.Id, data: v });
+                        return _react2.default.createElement(_History2.default, { key: v.Id, data: v, onRemove: remove });
                     })
                 )
             );
@@ -20302,15 +20541,32 @@ var StoriesList = function (_Component) {
             this.FormToggle();
         }
     }, {
+        key: 'onRemoveHistory',
+        value: function onRemoveHistory(history) {
+            var _this3 = this;
+
+            if (history) {
+                var data = new FormData();
+                data.append("id", history.Id);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("delete", this.props.deleteUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this3.loadData() : null;
+                };
+                xhr.send(data);
+            }
+        }
+    }, {
         key: 'loadData',
         value: function loadData() {
-            var _this3 = this;
+            var _this4 = this;
 
             var xhr = new XMLHttpRequest();
             xhr.open("get", this.props.getUrl, true);
             xhr.onload = function () {
                 var data = JSON.parse(xhr.responseText);
-                _this3.setState({ stories: data });
+                _this4.setState({ stories: data });
             };
             xhr.send();
         }
@@ -20366,8 +20622,8 @@ var App = function App() {
     return _react2.default.createElement(
         'div',
         { className: 'app grid ' },
-        _react2.default.createElement(_StoriesList2.default, { getUrl: 'admin/GetStories', postUrl: 'admin/AddHistory' }),
-        _react2.default.createElement(_CategoriesList2.default, null),
+        _react2.default.createElement(_StoriesList2.default, { getUrl: 'admin/GetStories', postUrl: 'admin/AddHistory', deleteUrl: 'admin/DeleteHistory' }),
+        _react2.default.createElement(_CategoriesList2.default, { getUrl: 'admin/GetCategories', postUrl: 'admin/AddCategory', deleteUrl: 'admin/DeleteCategory' }),
         _react2.default.createElement(_ProductsList2.default, null)
     );
 };
