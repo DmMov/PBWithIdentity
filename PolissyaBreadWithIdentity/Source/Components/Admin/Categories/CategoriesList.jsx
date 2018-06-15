@@ -14,9 +14,6 @@ class CategoriesList extends Component {
             categories: [],
             formIsOpen: false
         };
-        this.onAddCategory = this.onAddCategory.bind(this);
-        this.onRemoveCategory = this.onRemoveCategory.bind(this);
-        this.FormToggle = this.FormToggle.bind(this);
     }
     render() {
         const {formIsOpen, categories} = this.state;
@@ -38,12 +35,12 @@ class CategoriesList extends Component {
         );
     }
 
-    FormToggle(){
+    FormToggle = () => {
         this.setState({
             formIsOpen: !this.state.formIsOpen
         });
     }
-    onAddCategory(category) {
+    onAddCategory = category => {
         if (category) {
  
             let data = new FormData();
@@ -56,7 +53,7 @@ class CategoriesList extends Component {
         }
         this.FormToggle();
     }
-    onRemoveCategory(category){
+    onRemoveCategory = category => {
         if (category) {
             let data = new FormData();
             data.append("id", category.Id);

@@ -7,10 +7,6 @@ class HistoryForm extends Component {
             date: "", 
             text: ""  
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeDate = this.onChangeDate.bind(this);
-        this.onChangeText = this.onChangeText.bind(this);
     }
     render() {
         return (
@@ -25,18 +21,18 @@ class HistoryForm extends Component {
         );
     }
 
-    onChangeDate(e){
+    onChangeDate = e =>{
         this.setState({
             date: e.target.value
         });
     }
-    onChangeText(e){
+    onChangeText = e =>{
         this.setState({
             text: e.target.value
         });
     }
 
-    onSubmit(e){
+    onSubmit = e => {
         e.preventDefault();
         var historyDate = this.state.date.trim();
         var historyText = this.state.text.trim();

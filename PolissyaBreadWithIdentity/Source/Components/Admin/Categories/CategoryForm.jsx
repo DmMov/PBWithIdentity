@@ -6,9 +6,6 @@ class CategoryForm extends Component {
         this.state = {
             name: ""
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeName = this.onChangeName.bind(this);
     }
     render() {
         return (
@@ -22,13 +19,13 @@ class CategoryForm extends Component {
         );
     }
 
-    onChangeName(e){
+    onChangeName = e =>{
         this.setState({
             name: e.target.value
         });
     }
 
-    onSubmit(e){
+    onSubmit = e =>{
         e.preventDefault();
         let categoryName = this.state.name.trim();
         if (!categoryName) {

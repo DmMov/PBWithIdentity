@@ -19905,13 +19905,46 @@ var CategoriesList = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (CategoriesList.__proto__ || Object.getPrototypeOf(CategoriesList)).call(this, props));
 
+        _this.FormToggle = function () {
+            _this.setState({
+                formIsOpen: !_this.state.formIsOpen
+            });
+        };
+
+        _this.onAddCategory = function (category) {
+            if (category) {
+
+                var data = new FormData();
+                data.append("name", category.name);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", _this.props.postUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this.loadData() : "error";
+                };
+                xhr.send(data);
+            }
+            _this.FormToggle();
+        };
+
+        _this.onRemoveCategory = function (category) {
+            if (category) {
+                var data = new FormData();
+                data.append("id", category.Id);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("delete", _this.props.deleteUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this.loadData() : null;
+                };
+                xhr.send(data);
+            }
+        };
+
         _this.state = {
             categories: [],
             formIsOpen: false
         };
-        _this.onAddCategory = _this.onAddCategory.bind(_this);
-        _this.onRemoveCategory = _this.onRemoveCategory.bind(_this);
-        _this.FormToggle = _this.FormToggle.bind(_this);
         return _this;
     }
 
@@ -19939,58 +19972,15 @@ var CategoriesList = function (_Component) {
             );
         }
     }, {
-        key: 'FormToggle',
-        value: function FormToggle() {
-            this.setState({
-                formIsOpen: !this.state.formIsOpen
-            });
-        }
-    }, {
-        key: 'onAddCategory',
-        value: function onAddCategory(category) {
-            var _this2 = this;
-
-            if (category) {
-
-                var data = new FormData();
-                data.append("name", category.name);
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("post", this.props.postUrl, true);
-                xhr.onload = function () {
-                    return xhr.status == 200 ? _this2.loadData() : "error";
-                };
-                xhr.send(data);
-            }
-            this.FormToggle();
-        }
-    }, {
-        key: 'onRemoveCategory',
-        value: function onRemoveCategory(category) {
-            var _this3 = this;
-
-            if (category) {
-                var data = new FormData();
-                data.append("id", category.Id);
-
-                var xhr = new XMLHttpRequest();
-                xhr.open("delete", this.props.deleteUrl, true);
-                xhr.onload = function () {
-                    return xhr.status == 200 ? _this3.loadData() : null;
-                };
-                xhr.send(data);
-            }
-        }
-    }, {
         key: 'loadData',
         value: function loadData() {
-            var _this4 = this;
+            var _this2 = this;
 
             var xhr = new XMLHttpRequest();
             xhr.open("get", this.props.getUrl, true);
             xhr.onload = function () {
                 var data = JSON.parse(xhr.responseText);
-                _this4.setState({ categories: data });
+                _this2.setState({ categories: data });
             };
             xhr.send();
         }
@@ -20084,12 +20074,25 @@ var CategoryForm = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (CategoryForm.__proto__ || Object.getPrototypeOf(CategoryForm)).call(this, props));
 
+        _this.onChangeName = function (e) {
+            _this.setState({
+                name: e.target.value
+            });
+        };
+
+        _this.onSubmit = function (e) {
+            e.preventDefault();
+            var categoryName = _this.state.name.trim();
+            if (!categoryName) {
+                return;
+            }
+            _this.props.onCategorySubmit({ name: categoryName });
+            _this.setState({ name: "" });
+        };
+
         _this.state = {
             name: ""
         };
-
-        _this.onSubmit = _this.onSubmit.bind(_this);
-        _this.onChangeName = _this.onChangeName.bind(_this);
         return _this;
     }
 
@@ -20107,24 +20110,6 @@ var CategoryForm = function (_Component) {
                     _react2.default.createElement("input", { className: "btn", type: "button", onClick: this.props.toggle, value: "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438" })
                 )
             );
-        }
-    }, {
-        key: "onChangeName",
-        value: function onChangeName(e) {
-            this.setState({
-                name: e.target.value
-            });
-        }
-    }, {
-        key: "onSubmit",
-        value: function onSubmit(e) {
-            e.preventDefault();
-            var categoryName = this.state.name.trim();
-            if (!categoryName) {
-                return;
-            }
-            this.props.onCategorySubmit({ name: categoryName });
-            this.setState({ name: "" });
         }
     }]);
 
@@ -20252,18 +20237,85 @@ var ProductsList = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (ProductsList.__proto__ || Object.getPrototypeOf(ProductsList)).call(this, props));
 
-        _this.state = {};
+        _this.FormToggle = function () {
+            _this.setState({
+                formIsOpen: !_this.state.formIsOpen
+            });
+        };
+
+        _this.onAddProduct = function (product) {
+            if (product) {
+
+                var data = new FormData();
+                data.append("date", product.name);
+                data.append("text", product.price);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("post", _this.props.postUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this.loadData() : null;
+                };
+                xhr.send(data);
+            }
+            _this.FormToggle();
+        };
+
+        _this.onRemoveProduct = function (product) {
+            if (product) {
+                var data = new FormData();
+                data.append("id", product.Id);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("delete", _this.props.deleteUrl, true);
+                xhr.onload = function () {
+                    return xhr.status == 200 ? _this.loadData() : null;
+                };
+                xhr.send(data);
+            }
+        };
+
+        _this.state = {
+            formIsOpen: false,
+            products: []
+        };
         return _this;
     }
 
     _createClass(ProductsList, [{
+        key: 'loadData',
+        value: function loadData() {
+            var _this2 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this2.setState({ products: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var products = this.state.products;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'products list' },
                 _react2.default.createElement(_Title2.default, { value: '\u041F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F' }),
-                _react2.default.createElement(_Panel2.default, { uniqueClass: 'products', btnValue: '\u041D\u043E\u0432\u0438\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0442' })
+                _react2.default.createElement(_Panel2.default, { uniqueClass: 'products', btnValue: '\u041D\u043E\u0432\u0438\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0442' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'scroll products-box' },
+                    products.map(function (v) {
+                        return _react2.default.createElement(Product, { key: v.Id, data: v, onRemove: remove });
+                    })
+                )
             );
         }
     }]);
@@ -20356,14 +20408,33 @@ var HistoryForm = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (HistoryForm.__proto__ || Object.getPrototypeOf(HistoryForm)).call(this, props));
 
+        _this.onChangeDate = function (e) {
+            _this.setState({
+                date: e.target.value
+            });
+        };
+
+        _this.onChangeText = function (e) {
+            _this.setState({
+                text: e.target.value
+            });
+        };
+
+        _this.onSubmit = function (e) {
+            e.preventDefault();
+            var historyDate = _this.state.date.trim();
+            var historyText = _this.state.text.trim();
+            if (!historyDate || !historyText) {
+                return;
+            }
+            _this.props.onHistorySubmit({ date: historyDate, text: historyText });
+            _this.setState({ date: "", text: "" });
+        };
+
         _this.state = {
             date: "",
             text: ""
         };
-
-        _this.onSubmit = _this.onSubmit.bind(_this);
-        _this.onChangeDate = _this.onChangeDate.bind(_this);
-        _this.onChangeText = _this.onChangeText.bind(_this);
         return _this;
     }
 
@@ -20386,32 +20457,6 @@ var HistoryForm = function (_Component) {
                     )
                 )
             );
-        }
-    }, {
-        key: "onChangeDate",
-        value: function onChangeDate(e) {
-            this.setState({
-                date: e.target.value
-            });
-        }
-    }, {
-        key: "onChangeText",
-        value: function onChangeText(e) {
-            this.setState({
-                text: e.target.value
-            });
-        }
-    }, {
-        key: "onSubmit",
-        value: function onSubmit(e) {
-            e.preventDefault();
-            var historyDate = this.state.date.trim();
-            var historyText = this.state.text.trim();
-            if (!historyDate || !historyText) {
-                return;
-            }
-            this.props.onHistorySubmit({ date: historyDate, text: historyText });
-            this.setState({ date: "", text: "" });
         }
     }]);
 
