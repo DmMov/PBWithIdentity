@@ -19866,13 +19866,162 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Stories = __webpack_require__(/*! ./Stories/Stories */ "./Components/Client/Content/Stories/Stories.jsx");
+
+var _Stories2 = _interopRequireDefault(_Stories);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Content = function Content() {
-    return _react2.default.createElement('main', null);
+    return _react2.default.createElement(
+        'main',
+        null,
+        _react2.default.createElement(_Stories2.default, { getUrl: 'Home/GetStories' })
+    );
 };
 
 exports.default = Content;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/Stories/History.jsx":
+/*!*******************************************************!*\
+  !*** ./Components/Client/Content/Stories/History.jsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var History = function History(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "history" },
+        _react2.default.createElement(
+            "h1",
+            { className: "date" },
+            props.data.Date
+        ),
+        _react2.default.createElement(
+            "span",
+            { className: "text" },
+            props.data.Text
+        )
+    );
+};
+
+exports.default = History;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/Stories/Stories.jsx":
+/*!*******************************************************!*\
+  !*** ./Components/Client/Content/Stories/Stories.jsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _History = __webpack_require__(/*! ./History */ "./Components/Client/Content/Stories/History.jsx");
+
+var _History2 = _interopRequireDefault(_History);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var StoriesList = function (_Component) {
+    _inherits(StoriesList, _Component);
+
+    function StoriesList(props) {
+        _classCallCheck(this, StoriesList);
+
+        var _this = _possibleConstructorReturn(this, (StoriesList.__proto__ || Object.getPrototypeOf(StoriesList)).call(this, props));
+
+        _this.state = {
+            stories: []
+        };
+        return _this;
+    }
+
+    _createClass(StoriesList, [{
+        key: 'render',
+        value: function render() {
+            var stories = this.state.stories;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'stories container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'title' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        '\u0406\u0441\u0442\u043E\u0440\u0456\u044F'
+                    ),
+                    _react2.default.createElement('div', { className: 'hr' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'stories-box grid' },
+                    stories.map(function (v) {
+                        return _react2.default.createElement(_History2.default, { key: v.Id, data: v });
+                    })
+                )
+            );
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData() {
+            var _this2 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this2.setState({ stories: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
+        }
+    }]);
+
+    return StoriesList;
+}(_react.Component);
+
+exports.default = StoriesList;
 
 /***/ }),
 
@@ -19904,6 +20053,222 @@ exports.default = Footer;
 
 /***/ }),
 
+/***/ "./Components/Client/Header/DescriptionSlider/DescriptionElement.jsx":
+/*!***************************************************************************!*\
+  !*** ./Components/Client/Header/DescriptionSlider/DescriptionElement.jsx ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DescriptionElement = function DescriptionElement(props) {
+    return _react2.default.createElement(
+        "li",
+        { className: "content-slide", style: {
+                transform: "translate(-" + props.translate * 100 + "%)"
+            } },
+        _react2.default.createElement(
+            "p",
+            null,
+            props.slideValue
+        )
+    );
+};
+
+exports.default = DescriptionElement;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/DescriptionSlider/DescriptionSlider.jsx":
+/*!**************************************************************************!*\
+  !*** ./Components/Client/Header/DescriptionSlider/DescriptionSlider.jsx ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Descriptions = __webpack_require__(/*! ./Descriptions */ "./Components/Client/Header/DescriptionSlider/Descriptions.jsx");
+
+var _Descriptions2 = _interopRequireDefault(_Descriptions);
+
+var _SliderBtn = __webpack_require__(/*! ./SliderBtn */ "./Components/Client/Header/DescriptionSlider/SliderBtn.jsx");
+
+var _SliderBtn2 = _interopRequireDefault(_SliderBtn);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DescriptionSlider = function (_Component) {
+    _inherits(DescriptionSlider, _Component);
+
+    function DescriptionSlider(props) {
+        _classCallCheck(this, DescriptionSlider);
+
+        var _this = _possibleConstructorReturn(this, (DescriptionSlider.__proto__ || Object.getPrototypeOf(DescriptionSlider)).call(this, props));
+
+        _this.state = {
+            currentIndex: 0,
+            descriptions: ["   Розширене та модернізоване виробництво багатьох сортів хліба, булочних та кондитерськіх виробів, а також реалізація цієї продукції оптом та вроздріб.", "   Високопрофесійний колектив технологів, досвідчених пекарів, які забезпечують безперервний цикл виробництва.", "   Поєднання сучасних технологій зі збереженням українських традицій.", "   Спрямованість у майбутнє, яка дозволяє ТДВ \"Поліссяхліб\" залишатися лідером на ринку харчової промисловості Рівненщини."]
+        };
+        _this.prevSlide = _this.prevSlide.bind(_this);
+        _this.nextSlide = _this.nextSlide.bind(_this);
+
+        return _this;
+    }
+    //#region Next Prev Slide Func
+
+
+    _createClass(DescriptionSlider, [{
+        key: 'prevSlide',
+        value: function prevSlide() {
+            var _state = this.state,
+                currentIndex = _state.currentIndex,
+                descriptions = _state.descriptions;
+
+            var i = currentIndex;
+            i == 0 ? i = descriptions.length - 1 : i--;
+            this.setState({
+                currentIndex: i
+            });
+        }
+    }, {
+        key: 'nextSlide',
+        value: function nextSlide() {
+            var _state2 = this.state,
+                currentIndex = _state2.currentIndex,
+                descriptions = _state2.descriptions;
+
+            var i = this.state.currentIndex;
+            i == descriptions.length - 1 ? i = 0 : i++;
+            this.setState({
+                currentIndex: i
+            });
+        }
+        //#endregion
+
+    }, {
+        key: 'render',
+        value: function render() {
+            var _state3 = this.state,
+                currentIndex = _state3.currentIndex,
+                descriptions = _state3.descriptions;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'description-slider relative' },
+                _react2.default.createElement(_SliderBtn2.default, { btnDirection: 'left', clickFunc: this.prevSlide }),
+                _react2.default.createElement(_Descriptions2.default, { slides: descriptions, multiplier: currentIndex }),
+                _react2.default.createElement(_SliderBtn2.default, { btnDirection: 'right', clickFunc: this.nextSlide })
+            );
+        }
+    }]);
+
+    return DescriptionSlider;
+}(_react.Component);
+
+exports.default = DescriptionSlider;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/DescriptionSlider/Descriptions.jsx":
+/*!*********************************************************************!*\
+  !*** ./Components/Client/Header/DescriptionSlider/Descriptions.jsx ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DescriptionElement = __webpack_require__(/*! ./DescriptionElement */ "./Components/Client/Header/DescriptionSlider/DescriptionElement.jsx");
+
+var _DescriptionElement2 = _interopRequireDefault(_DescriptionElement);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Descriptions = function Descriptions(props) {
+    return _react2.default.createElement(
+        'ul',
+        { className: 'slides-box grid' },
+        props.slides.map(function (v, i) {
+            return _react2.default.createElement(_DescriptionElement2.default, { key: i, slideValue: v, translate: props.multiplier });
+        })
+    );
+};
+
+exports.default = Descriptions;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/DescriptionSlider/SliderBtn.jsx":
+/*!******************************************************************!*\
+  !*** ./Components/Client/Header/DescriptionSlider/SliderBtn.jsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SliderBtn = function SliderBtn(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'slider-btn-wrapper btn-' + props.btnDirection + '-wrapper', onClick: props.clickFunc },
+        _react2.default.createElement('div', { className: 'slider-btn btn-' + props.btnDirection })
+    );
+};
+
+exports.default = SliderBtn;
+
+/***/ }),
+
 /***/ "./Components/Client/Header/Header.jsx":
 /*!*********************************************!*\
   !*** ./Components/Client/Header/Header.jsx ***!
@@ -19926,14 +20291,19 @@ var _Menu = __webpack_require__(/*! ./Menu/Menu */ "./Components/Client/Header/M
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
+var _HeaderContent = __webpack_require__(/*! ./HeaderContent */ "./Components/Client/Header/HeaderContent.jsx");
+
+var _HeaderContent2 = _interopRequireDefault(_HeaderContent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //#endregion 
 
+//#region Components
 var Header = function Header() {
     return _react2.default.createElement(
         'header',
-        { className: 'header bg' },
+        { className: 'header container grid' },
         _react2.default.createElement(_Menu2.default, null),
         _react2.default.createElement(
             'a',
@@ -19941,17 +20311,67 @@ var Header = function Header() {
                     zIndex: '3',
                     position: 'absolute'
                 } },
+            'Admin Panel'
+        ),
+        _react2.default.createElement(_HeaderContent2.default, null)
+    );
+};
+
+exports.default = Header;
+
+/***/ }),
+
+/***/ "./Components/Client/Header/HeaderContent.jsx":
+/*!****************************************************!*\
+  !*** ./Components/Client/Header/HeaderContent.jsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DescriptionSlider = __webpack_require__(/*! ./DescriptionSlider/DescriptionSlider */ "./Components/Client/Header/DescriptionSlider/DescriptionSlider.jsx");
+
+var _DescriptionSlider2 = _interopRequireDefault(_DescriptionSlider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var HeaderContent = function HeaderContent() {
+    return _react2.default.createElement(
+        'div',
+        { className: 'header-content ' },
+        _react2.default.createElement(
+            'div',
+            { className: 'header-title' },
             _react2.default.createElement(
-                'button',
-                null,
-                'AP'
+                'span',
+                { className: 'value' },
+                '\u0422\u0440\u0430\u0434\u0438\u0446\u0456\u0457 \u0417\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u043E'
+            )
+        ),
+        _react2.default.createElement(_DescriptionSlider2.default, null),
+        _react2.default.createElement(
+            'div',
+            { className: 'pr-wrapper' },
+            _react2.default.createElement(
+                'a',
+                { className: 'our-pr', href: '#' },
+                '\u041D\u0430\u0448\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F'
             )
         )
     );
 };
 
-//#region Components
-exports.default = Header;
+exports.default = HeaderContent;
 
 /***/ }),
 

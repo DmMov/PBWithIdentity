@@ -1,0 +1,64 @@
+@import '../Shared/vars.scss';
+
+.description-slider{
+    padding: $gap;
+    .slides-box{
+        padding: $gap;
+        grid-template-columns: repeat(4, 100%);
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        
+        .content-slide{
+            
+            padding: 10px;
+            transition: all 1s ease;
+            p{
+                color: white;
+                font-size: 34px;
+                font-family: $unicase;
+                
+            }
+        }
+    }
+
+    .slider-btn-wrapper {
+        display: grid;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        align-content: center;
+        transition: all .25s ease-in-out;
+
+        &:hover .slider-btn {
+            opacity: .75;
+        }
+
+        .slider-btn {
+            transform: rotate(-45deg);
+            margin: 20px;
+            width: 35px;
+            height: 35px;
+            transition: all .25s ease-in-out;
+        }
+
+        .btn-left {
+            border-left: solid 3px white;
+            border-top: solid 3px white;
+        }
+
+        .btn-right {
+            border-bottom: solid 3px white;
+            border-right: solid 3px white;
+        }
+    }
+
+    .btn-left-wrapper {
+        left: -10%;
+    }
+
+    .btn-right-wrapper {
+        right: -10%;
+    }
+}

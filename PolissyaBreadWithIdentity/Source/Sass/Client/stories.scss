@@ -1,0 +1,41 @@
+@import '../Shared/vars.scss';
+
+.stories{
+    .title{
+        text-align: center;
+        h1{
+            font-family: $sc;
+            font-size: 3em;
+        }
+        .hr{
+            width: 100px;
+            border-bottom: 3px solid $accent;
+            margin: 5px auto;
+        }
+    }
+    .stories-box{
+        grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+        grid-gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        justify-content: space-evenly;
+        .history{
+            box-shadow: $bs;
+            margin: 0 auto;
+            .date{
+                padding: $gap;
+                background-color: $accent;
+                font-family: $unicase;
+                font-weight: 900;
+                color: white;
+            }
+            .text{
+                display: block;
+                padding: 20px $gap;                
+                font-family: $garamond;
+                font-size: 1.3em;
+                text-align: center;
+            }
+        }
+    }
+}

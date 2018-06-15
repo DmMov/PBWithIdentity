@@ -2,15 +2,19 @@
 
 //#region Components
 import Menu from './Menu/Menu';
+import HeaderContent from './HeaderContent';
 //#endregion 
 
 const Header = () => (
-    <header className="header bg">
+    <header className="header container grid">
         <Menu />
         <a href="/Admin" style={{
             zIndex: '3',
             position: 'absolute',
-        }}><button >AP</button></a>
+        }}>Admin Panel</a>
+        
+        <HeaderContent />
+        
     </header>
 );
 

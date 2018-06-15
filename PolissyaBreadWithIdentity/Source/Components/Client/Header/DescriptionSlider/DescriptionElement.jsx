@@ -5,7 +5,7 @@ const DescriptionElement = props => {
         <li className="content-slide" style={{
             transform: `translate(-${props.translate * 100}%)`
         }}>
-            <p className="ptsans">{ props.slideValue }</p>
+            <p>{ props.slideValue }</p>
         </li>
     );
 }

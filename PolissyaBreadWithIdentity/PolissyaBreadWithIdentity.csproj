@@ -238,6 +238,8 @@
     <Content Include="Source\Client.js" />
     <Content Include="Source\Components\AdminApp.jsx" />
     <Content Include="Source\Components\Admin\Categories\CategoriesList.jsx" />
+    <Content Include="Source\Components\Admin\Categories\Category.jsx" />
+    <Content Include="Source\Components\Admin\Categories\CategoryForm.jsx" />
     <Content Include="Source\Components\Admin\Common\Panel.jsx" />
     <Content Include="Source\Components\Admin\Common\Title.jsx" />
     <Content Include="Source\Components\Admin\Products\ProductsList.jsx" />
@@ -246,12 +248,15 @@
     <Content Include="Source\Components\Admin\Stories\StoriesList.jsx" />
     <Content Include="Source\Components\ClientApp.jsx" />
     <Content Include="Source\Components\Client\Content\Content.jsx" />
+    <Content Include="Source\Components\Client\Content\Stories\History.jsx" />
+    <Content Include="Source\Components\Client\Content\Stories\Stories.jsx" />
     <Content Include="Source\Components\Client\Footer\Footer.jsx" />
-    <Content Include="Source\Components\Client\Header\DescroptionSlider\DescriptionElement.jsx" />
-    <Content Include="Source\Components\Client\Header\DescroptionSlider\Descriptions.jsx" />
-    <Content Include="Source\Components\Client\Header\DescroptionSlider\DescroptionSlider.jsx" />
-    <Content Include="Source\Components\Client\Header\DescroptionSlider\SliderBtn.jsx" />
+    <Content Include="Source\Components\Client\Header\DescriptionSlider\DescriptionElement.jsx" />
+    <Content Include="Source\Components\Client\Header\DescriptionSlider\Descriptions.jsx" />
+    <Content Include="Source\Components\Client\Header\DescriptionSlider\DescriptionSlider.jsx" />
+    <Content Include="Source\Components\Client\Header\DescriptionSlider\SliderBtn.jsx" />
     <Content Include="Source\Components\Client\Header\Header.jsx" />
+    <Content Include="Source\Components\Client\Header\HeaderContent.jsx" />
     <Content Include="Source\Components\Client\Header\Menu\Menu.jsx" />
     <Content Include="Source\Components\Shared\Image.jsx" />
     <Content Include="Source\Components\Shared\Link.jsx" />
@@ -263,6 +268,18 @@
     <Content Include="Source\Images\firm.png" />
     <Content Include="Source\Images\Fresh-Bread.png" />
     <Content Include="Source\Images\slog.png" />
+    <Content Include="Source\Sass\admin.scss" />
+    <Content Include="Source\Sass\Admin\categories.scss" />
+    <Content Include="Source\Sass\Admin\main.scss" />
+    <Content Include="Source\Sass\Admin\products.scss" />
+    <Content Include="Source\Sass\Admin\stories.scss" />
+    <Content Include="Source\Sass\client.scss" />
+    <Content Include="Source\Sass\Client\header.scss" />
+    <Content Include="Source\Sass\Client\menu.scss" />
+    <Content Include="Source\Sass\login.scss" />
+    <Content Include="Source\Sass\Shared\default.scss" />
+    <Content Include="Source\Sass\Shared\helpers.scss" />
+    <Content Include="Source\Sass\Shared\vars.scss" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -307,20 +324,12 @@
     <Content Include="Built\Css\Client.css.map" />
     <Content Include="Built\Css\Login.css.map" />
     <None Include="packages.config" />
-    <Content Include="Source\Sass\admin.scss" />
-    <Content Include="Source\Sass\client.scss" />
-    <Content Include="Source\Sass\Shared\default.scss" />
-    <Content Include="Source\Sass\Shared\vars.scss" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Source\Sass\login.scss" />
-    <Content Include="Source\Sass\Shared\helpers.scss" />
-    <Content Include="Source\Sass\Client\header.scss" />
-    <Content Include="Source\Sass\Client\menu.scss" />
-    <Content Include="Source\Sass\Admin\categories.scss" />
-    <Content Include="Source\Sass\Admin\main.scss" />
-    <Content Include="Source\Sass\Admin\products.scss" />
-    <Content Include="Source\Sass\Admin\stories.scss" />
+    <Content Include="Source\Sass\Admin\category-form.scss" />
+    <Content Include="Source\Sass\Admin\history-form.scss" />
+    <Content Include="Source\Sass\Client\description-slider.scss" />
+    <Content Include="Source\Sass\Client\stories.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

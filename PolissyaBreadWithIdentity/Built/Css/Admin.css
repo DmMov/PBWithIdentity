@@ -1,8 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);@import url(https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC);@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);* {
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);@import url(https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC);@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC:900);* {
   padding: 0;
   margin: 0;
   color: slategray;
-  font-family: 'PT Sans', sans-serif; }
+  font-family: 'PT Sans', sans-serif;
+  box-sizing: border-box; }
 
 .grid {
   display: -ms-grid;

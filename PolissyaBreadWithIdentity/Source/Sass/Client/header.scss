@@ -1,12 +1,49 @@
+@import '../Shared/vars.scss';
+
 .header{
     height: 100vh;
-    width: 100vw;
     position: relative;
     background-image: url(/Built/Images/bg2.jpg);
     background-position: center;
     background-size: cover;
-    
+    align-content: center;
+    justify-content: center;
     z-index: 0;
+    .header-content{
+        z-index: 1;
+        .header-title{
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid $accent;
+            border-bottom: 2px solid $accent;
+            
+            .value{
+                font-size: 4em;
+                font-family: $sc;
+                color: white;
+            }
+        }
+        .pr-wrapper{
+            text-align: center;
+            margin-top: 40px;
+            .our-pr {
+                padding: 10px 20px;
+                border: 2px solid $accent;
+                background-color: $accent;
+                
+                color: white;
+                text-transform: uppercase;
+                transition: all .1s ease;
+                &:hover{
+                    border-color: white;
+                    background: none;
+                }
+            }
+        }
+        
+    }
     &::before{
         content: '';
         z-index: 1;

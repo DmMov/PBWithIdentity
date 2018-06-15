@@ -1,8 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);@import url(https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC);@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);* {
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);@import url(https://fonts.googleapis.com/css?family=Jura:300|Lora|Spectral+SC);@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC:900);* {
   padding: 0;
   margin: 0;
   color: slategray;
-  font-family: 'PT Sans', sans-serif; }
+  font-family: 'PT Sans', sans-serif;
+  box-sizing: border-box; }
 
 .grid {
   display: -ms-grid;
@@ -147,12 +148,41 @@ img {
 
 .header {
   height: 100vh;
-  width: 100vw;
   position: relative;
   background-image: url(/Built/Images/bg2.jpg);
   background-position: center;
   background-size: cover;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   z-index: 0; }
+  .header .header-content {
+    z-index: 1; }
+    .header .header-content .header-title {
+      width: 60%;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid #C6282C;
+      border-bottom: 2px solid #C6282C; }
+      .header .header-content .header-title .value {
+        font-size: 4em;
+        font-family: "Playfair Display SC", serif;
+        color: white; }
+    .header .header-content .pr-wrapper {
+      text-align: center;
+      margin-top: 40px; }
+      .header .header-content .pr-wrapper .our-pr {
+        padding: 10px 20px;
+        border: 2px solid #C6282C;
+        background-color: #C6282C;
+        color: white;
+        text-transform: uppercase;
+        transition: all .1s ease; }
+        .header .header-content .pr-wrapper .our-pr:hover {
+          border-color: white;
+          background: none; }
   .header::before {
     content: '';
     z-index: 1;
@@ -209,5 +239,84 @@ img {
       background-color: #C6282C; }
       .menu .links-box li.active a {
         color: white; }
+
+.description-slider {
+  padding: 10px; }
+  .description-slider .slides-box {
+    padding: 10px;
+    -ms-grid-columns: (100%)[4];
+        grid-template-columns: repeat(4, 100%);
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center; }
+    .description-slider .slides-box .content-slide {
+      padding: 10px;
+      transition: all 1s ease; }
+      .description-slider .slides-box .content-slide p {
+        color: white;
+        font-size: 34px;
+        font-family: "Cormorant Unicase", serif; }
+  .description-slider .slider-btn-wrapper {
+    display: -ms-grid;
+    display: grid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    transition: all .25s ease-in-out; }
+    .description-slider .slider-btn-wrapper:hover .slider-btn {
+      opacity: .75; }
+    .description-slider .slider-btn-wrapper .slider-btn {
+      transform: rotate(-45deg);
+      margin: 20px;
+      width: 35px;
+      height: 35px;
+      transition: all .25s ease-in-out; }
+    .description-slider .slider-btn-wrapper .btn-left {
+      border-left: solid 3px white;
+      border-top: solid 3px white; }
+    .description-slider .slider-btn-wrapper .btn-right {
+      border-bottom: solid 3px white;
+      border-right: solid 3px white; }
+  .description-slider .btn-left-wrapper {
+    left: -10%; }
+  .description-slider .btn-right-wrapper {
+    right: -10%; }
+
+.stories .title {
+  text-align: center; }
+  .stories .title h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 3em; }
+  .stories .title .hr {
+    width: 100px;
+    border-bottom: 3px solid #C6282C;
+    margin: 5px auto; }
+
+.stories .stories-box {
+  -ms-grid-columns: (minmax(250px, auto))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -ms-flex-pack: space-evenly;
+      justify-content: space-evenly; }
+  .stories .stories-box .history {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    margin: 0 auto; }
+    .stories .stories-box .history .date {
+      padding: 10px;
+      background-color: #C6282C;
+      font-family: "Cormorant Unicase", serif;
+      font-weight: 900;
+      color: white; }
+    .stories .stories-box .history .text {
+      display: block;
+      padding: 20px 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3em;
+      text-align: center; }
 
 /*# sourceMappingURL=Client.css.map*/
