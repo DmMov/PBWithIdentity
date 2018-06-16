@@ -11,7 +11,7 @@ const App = () =>
         <div className="app grid ">
             <StoriesList getUrl="admin/GetStories" postUrl="admin/AddHistory" deleteUrl="admin/DeleteHistory"/>
             <CategoriesList getUrl="admin/GetCategories" postUrl="admin/AddCategory" deleteUrl="admin/DeleteCategory"/>
-            <ProductsList />
+            <ProductsList  getUrl="admin/GetProducts" postUrl="admin/AddProduct" deleteUrl="admin/DeleteProduct" getCategoriesUrl="admin/GetCategories"/>
         </div>
     );
 

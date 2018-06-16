@@ -6,22 +6,23 @@ class CategoryForm extends Component {
         this.state = {
             selectedFile: null,
             name: "",
-            price: 0,
-            packed_price: 0,
-            mass: 0,
+            price: "",
+            packed_price: "",
+            mass: "",
             realization: "",
+            category: "default"
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
-        this.onChangeName = this.onChangeName.bind(this);
     }
     fileSelectedHandler = e =>{
         this.setState({
             selectedFile: e.target.files[0]
         });
     }
-    fileUploadHandler = () => {
 
+    onCategoryChange = e =>{
+        this.setState({
+            category: e.target.value
+        });
     }
     //#region onChangeFields
     onChangeName = e => {
@@ -31,53 +32,60 @@ class CategoryForm extends Component {
     }
     onChangePrice = e =>{
         this.setState({
-            name: e.target.value
+            price: e.target.value
         });
     }
     onChangePackedPrice = e =>{
         this.setState({
-            name: e.target.value
+            packed_price: e.target.value
         });
     }
     onChangeMass = e =>{
         this.setState({
-            name: e.target.value
+            mass: e.target.value
         });
     }
     onChangeRealization = e =>{
         this.setState({
-            name: e.target.value
+            realization: e.target.value
         });
     }
     //#endregion
     
     onSubmit = e =>{
         e.preventDefault();
-        const {name, price, packed_price, mass, realization} = this.state;
+        const {selectedFile, name, price, packed_price, mass, realization} = this.state;
         let pName = name.trim();
         let pPrice = price;
         let pPackedPrice = packed_price;
         let pMass = mass;
         let pRealization = realization.trim();
-        if (!pName || pPrice<=0 || pPackedPrice<=0 || pMass<=0 || !pRealization) {
+        let pImage= selectedFile;
+        if (!pName  || pMass<=0 || !pRealization || pImage==null) {
             return;
         }
-        this.props.onCategorySubmit({ name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization});
-        this.setState({name: "", price: 0, packed_price: 0, mass: 0, realization: "" });
+        this.props.onProductSubmit({selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization});
+        this.setState({selectedFile: null, name: "", price: "", packed_price: "", mass: "", realization: "" });
     }
     render() {
         const {name, price, packed_price, mass, realization} = this.state;
         
         return (
             <div className="form-wrapper">
-                <form className="category-form form grid" onSubmit={this.onSubmit}>
+                <form className="product-form form grid" onSubmit={this.onSubmit}>
                     <input className="field" type="text" placeholder="Назва продукту..." value={name} onChange={this.onChangeName} />
-                    <input className="field" type="text" placeholder="Ціна..." value={parseFloat(price)} onChange={this.onChangePrice} />
-                    <input className="field" type="text" placeholder="Ціна різаного та упакованого..." value={parseFloat(packed_price)} onChange={this.onChangePackedPrice} />
-                    <input className="field" type="text" placeholder="Масса продукту..." value={parseInt(mass)} onChange={this.onChangeMass} />
+                    <input className="field" type="text" placeholder="Ціна..." value={price} onChange={this.onChangePrice} />
+                    <input className="field" type="text" placeholder="Ціна різаного та упакованого..." value={packed_price} onChange={this.onChangePackedPrice} />
+                    <input className="field" type="text" placeholder="Масса продукту..." value={mass} onChange={this.onChangeMass} />
                     <input className="field" type="text" placeholder="Термін реалізації..." value={realization} onChange={this.onChangeRealization} />
                     <input className="field" type="file" onChange={this.fileSelectedHandler} />
-                    <input type="select"/>
+                    <select name="" id="" onChange={this.onCategoryChange}>
+                        {
+                            this.props.data.map((v)=>{
+                                return <option key={v.Id} value={v.Name}>{v.Name}</option>
+                            })
+                        }
+                    </select>
                     
                     <input className="btn" type="submit" value="Зберегти " />
                     <input className="btn" type="button" onClick={this.props.toggle} value="Відмінити" />

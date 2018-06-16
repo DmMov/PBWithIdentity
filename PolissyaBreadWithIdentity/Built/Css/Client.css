@@ -9,11 +9,6 @@
   display: -ms-grid;
   display: grid; }
 
-input, textarea {
-  border: none;
-  border-bottom: 3px solid slategray;
-  font-size: 18px; }
-
 button, input {
   background: none;
   border: none; }
@@ -296,8 +291,8 @@ img {
     margin: 5px auto; }
 
 .stories .stories-box {
-  -ms-grid-columns: (minmax(250px, auto))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  -ms-grid-columns: (minmax(300px, auto))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   grid-gap: 20px;
   padding-top: 20px;
   padding-bottom: 20px;

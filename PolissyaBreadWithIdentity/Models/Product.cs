@@ -15,6 +15,7 @@ namespace PolissyaBreadWithIdentity.Models
         public int Mass { get; set; }
         public string Realization { get; set; }
 
+        
         public string CategoryId { get; set; }
         public Category Category { get; set; }
     }

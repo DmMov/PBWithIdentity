@@ -9,11 +9,6 @@
   display: -ms-grid;
   display: grid; }
 
-input, textarea {
-  border: none;
-  border-bottom: 3px solid slategray;
-  font-size: 18px; }
-
 button, input {
   background: none;
   border: none; }
