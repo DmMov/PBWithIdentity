@@ -18,20 +18,18 @@ class ProductsList extends Component {
         this.setState({
             formIsOpen: !this.state.formIsOpen
         });
-        console.log(this.state.formIsOpen);
     }
     onAddProduct = product => {
         if (product) {
- 
             const data = new FormData();
-            data.append("image", product.selectedFile ,product.selectedFile.name);
+            data.append("image", product.selectedFile);
             data.append("name", product.name);
-            data.append("price", product.price);
-            data.append("packed_price", product.packed_price);
+            data.append("price", parseFloat(product.price));
+            data.append("packed_price", parseFloat(product.packed_price));
             data.append("mass", product.mass);
             data.append("realization", product.realization);
-            
- 
+            data.append("category", product.category);
+
             let xhr = new XMLHttpRequest();
             xhr.open("post", this.props.postUrl, true);
             xhr.onload = () => ( xhr.status == 200 ? this.loadDataProducts() : null);

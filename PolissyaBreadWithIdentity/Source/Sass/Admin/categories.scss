@@ -2,38 +2,38 @@
 @import "./category-form.scss";
 $catAccent: rgb(18, 83, 148);
 .list.categories{
-    .title{
-        border-bottom: 3px solid $catAccent;
-    }
-    .panel{
-        input:focus{
-            border-color: $catAccent;
-        }
-        button:hover{
-            background-color: $catAccent;
-            border-color: $catAccent;
-            color: white;
-        }
-    }
+    width: 80%;
+    margin: 0 auto;
     .categories-box{
-        .category{
-            position: relative;
-            .name{
-                display: block;
-                font-size: 24px;
-                padding: $gap;
-            }
-            .delete.icon{
-                top: 15px;
-                right: 15px;
-            }            
-            &:hover{
-                background-color: #f9f9f9;
-                .delete.icon{
-                    transform: translate(0);
-                    opacity: 1;
+        
+        .categories-wrapper{
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: auto;
+            .category{
+                position: relative;
+                .name{
+                    display: block;
+                    font-size: 2em;
+                    font-family: $unicase;
+                    padding: $gap;
                 }
-            }
+                .delete.icon{
+                    top: 15px;
+                    right: 15px;
+                    color: $sg;
+                    &:hover{
+                        color: $accent;
+                    }
+                }            
+                &:hover{
+                    background-color: #f9f9f9;
+                    .delete.icon{
+                        transform: translate(0);
+                        opacity: 1;
+                    }
+                }
+            }  
         }
+        
     }
 }

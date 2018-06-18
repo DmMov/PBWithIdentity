@@ -28,12 +28,14 @@ class StoriesList extends Component {
             <div className="stories list">
                 <Title value="Історія" />
                 <Panel uniqueClass="stories" btnValue="Нова історія" toggle={this.FormToggle}/> 
-                <div className="scroll stories-box">
-                    {
-                        stories.map((v)=>{
-                            return <History key={v.Id} data={v} onRemove={remove}/>
-                        })
-                    }
+                <div className="scroll  stories-box">
+                    <div className="stories-wrapper grid">
+                        {
+                            stories.map((v)=>{
+                                return <History key={v.Id} data={v} onRemove={remove}/>
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         );

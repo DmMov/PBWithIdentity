@@ -1,17 +1,5 @@
 @import '../Shared/vars.scss';
-
+@import './product-form.scss';
 .list.products{
-    .title{
-        border-bottom: 3px solid $accent;
-    }
-    .panel{
-        input:focus{
-            border-color: $accent;
-        }
-        button:hover{
-            background-color: $accent;
-            border-color: $accent;
-            color: white;
-        }
-    }
+    margin: 0;
 }

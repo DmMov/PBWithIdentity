@@ -26,12 +26,18 @@ namespace PolissyaBreadWithIdentity.Models
             string password = "ad46D_ewr3";
             var result = userManager.Create(admin, password);
 
+            ApplicationUser me = new ApplicationUser { Email = "DmMov@some.com", UserName = "I_Am" };
+            string me_pass = "SomePass13";
+            IdentityResult I_Am = userManager.Create(me, me_pass);
+
             // если создание пользователя прошло успешно
-            if (result.Succeeded)
+            if (result.Succeeded && I_Am.Succeeded)
             {
                 // добавляем для пользователя роль
                 userManager.AddToRole(admin.Id, role1.Name);
                 userManager.AddToRole(admin.Id, role2.Name);
+
+                userManager.AddToRole(me.Id, role1.Name);
             }
 
             base.Seed(context);

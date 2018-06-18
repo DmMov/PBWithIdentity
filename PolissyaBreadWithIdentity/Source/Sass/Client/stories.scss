@@ -7,11 +7,6 @@
             font-family: $sc;
             font-size: 3em;
         }
-        .hr{
-            width: 100px;
-            border-bottom: 3px solid $accent;
-            margin: 5px auto;
-        }
     }
     .stories-box{
         grid-template-columns: repeat(auto-fit, minmax(300px, auto));

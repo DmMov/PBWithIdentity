@@ -1,0 +1,37 @@
+@import '../Shared/vars.scss';
+
+.product-form{
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: $bs;
+    padding: 20px;
+    grid-gap: 20px;
+    margin-bottom: 20vh;
+    grid-template-columns: 1fr 1fr;
+    .field{
+        grid-column: 1/-1;
+        padding: 10px;
+        font-family: $condensed;
+        font-size: 18px;
+        color: $sg;
+        border-bottom: 3px solid $sg;
+        &:focus{
+            background-color: #f9f9f9;
+            border-color: $accent;
+        }
+    }
+    .btn{
+        padding: 10px;
+        border: 1px solid $sg;
+        font-family: $condensed;
+        font-size: 16px;
+    }
+    select{
+        padding: 10px;
+        font-family: $condensed;
+        font-size: 16px;
+        option{
+            background-color: $accent;
+        }
+    }
+}

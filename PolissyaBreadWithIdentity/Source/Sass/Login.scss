@@ -8,12 +8,30 @@
 }
 
 .login-form {
-    padding: $gap;
-    grid-gap: $gap;
+    padding: 20px;
+    grid-gap: 20px;
     box-shadow: $bs;
+    
+    h1{
+        font-family: $condensed;
+    }
+    
+    .validation-summary-errors.text-danger{
+        ul{
+            li{
+                font-family: $condensed;
+                font-style: italic;
+                color:  $accent;
+            }
+        }
+    }
 
     .field {
+        padding: $gap;
+        font-family: $condensed;
+        font-size: 18px;
         width: 20vw;
+        border-bottom: 3px solid $sg;
         &:focus {
             border-bottom-color: $accent;
             background-color: #f9f9f9;
@@ -22,11 +40,43 @@
 
     .login.btn {
         transition: $tr;
-
+        padding: 10px;
+        border: 1px solid $sg;
+        font-family: $condensed;
+        font-size: 15px;
         &:hover {
-            background-color: $accent;
+            //background-color: $accent;
             border-color: $accent;
-            color: white;
+            color: $accent;
+        }
+    }
+}
+
+.back-wrapper{
+    padding: 20px;
+    position: relative;
+    width: 150px;
+    a{
+        font-family: $condensed;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        top: 27px;
+        left: 10px;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-bottom: 1px solid $sg;
+        border-left: 1px solid $sg;
+        transform: rotate(45deg);
+    }
+    &:hover{
+        a{
+            color: $accent;
+        }
+        &::before{
+            border-color: $accent;
         }
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Title from '../Common/Title';
+
 class CategoryForm extends Component {
     constructor(props) {
         super(props);
@@ -10,6 +12,7 @@ class CategoryForm extends Component {
     render() {
         return (
             <div className="form-wrapper">
+                <Title value="Нова Категорія" />
                 <form className="category-form form grid" onSubmit={this.onSubmit}>
                     <input className="field" type="text" placeholder="Назва типу..." value={this.state.name} onChange={this.onChangeName} />
                     <input className="btn" type="submit" value="Зберегти" />

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,9 +40,21 @@ namespace PolissyaBreadWithIdentity.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct(Product product, HttpPostedFileBase image, Category category)
         {
+            //var originalImage = new Bitmap(image.InputStream, false);
+
+            if (image != null)
+            {
+                // получаем имя файла
+                string fileName = System.IO.Path.GetFileName(image.FileName);
+                // сохраняем файл в папку Files в проекте
+                image.SaveAs(Server.MapPath("~/Built/Images/ProductsImages/" + fileName));
+            }
+
             product.Id = Guid.NewGuid().ToString();
+            product.Image = image.FileName;
+            product.CategoryId = category.Id;
             pc.Products.Add(product);
             pc.SaveChanges();
             return Json(product);

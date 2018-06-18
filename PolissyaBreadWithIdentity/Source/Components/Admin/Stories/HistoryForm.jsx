@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Title from '../Common/Title';
+
 class HistoryForm extends Component {
     constructor(props) {
         super(props);
@@ -11,6 +13,7 @@ class HistoryForm extends Component {
     render() {
         return (
             <div className="form-wrapper">
+                <Title value="Нова Історія" />
                 <form className="history-form grid" onSubmit={this.onSubmit}>
                     <input className="field" type="text" placeholder="Дата..." value={this.state.date} onChange={this.onChangeDate} />
                     <textarea className="field" type="text"  placeholder="Історія..." value={this.state.text} onChange={this.onChangeText} />

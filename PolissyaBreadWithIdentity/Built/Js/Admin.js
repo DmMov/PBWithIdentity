@@ -19964,10 +19964,14 @@ var CategoriesList = function (_Component) {
                 _react2.default.createElement(_Panel2.default, { uniqueClass: 'categories', btnValue: '\u041D\u043E\u0432\u0430 \u043A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F', toggle: this.FormToggle }),
                 _react2.default.createElement(
                     'div',
-                    { className: 'scroll categories-box' },
-                    categories.map(function (v) {
-                        return _react2.default.createElement(_Category2.default, { key: v.Id, data: v, onRemove: remove });
-                    })
+                    { className: 'scroll  categories-box' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'categories-wrapper grid' },
+                        categories.map(function (v) {
+                            return _react2.default.createElement(_Category2.default, { key: v.Id, data: v, onRemove: remove });
+                        })
+                    )
                 )
             );
         }
@@ -20058,6 +20062,10 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20097,17 +20105,18 @@ var CategoryForm = function (_Component) {
     }
 
     _createClass(CategoryForm, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "form-wrapper" },
+                'div',
+                { className: 'form-wrapper' },
+                _react2.default.createElement(_Title2.default, { value: '\u041D\u043E\u0432\u0430 \u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0456\u044F' }),
                 _react2.default.createElement(
-                    "form",
-                    { className: "category-form form grid", onSubmit: this.onSubmit },
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u041D\u0430\u0437\u0432\u0430 \u0442\u0438\u043F\u0443...", value: this.state.name, onChange: this.onChangeName }),
-                    _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" }),
-                    _react2.default.createElement("input", { className: "btn", type: "button", onClick: this.props.toggle, value: "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438" })
+                    'form',
+                    { className: 'category-form form grid', onSubmit: this.onSubmit },
+                    _react2.default.createElement('input', { className: 'field', type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430 \u0442\u0438\u043F\u0443...', value: this.state.name, onChange: this.onChangeName }),
+                    _react2.default.createElement('input', { className: 'btn', type: 'submit', value: '\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438' }),
+                    _react2.default.createElement('input', { className: 'btn', type: 'button', onClick: this.props.toggle, value: '\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438' })
                 )
             );
         }
@@ -20185,11 +20194,115 @@ var Title = function Title(props) {
             "h1",
             null,
             props.value
-        )
+        ),
+        _react2.default.createElement("div", { className: "hr" })
     );
 };
 
 exports.default = Title;
+
+/***/ }),
+
+/***/ "./Components/Admin/Menu/Menu.jsx":
+/*!****************************************!*\
+  !*** ./Components/Admin/Menu/Menu.jsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Menu = function (_Component) {
+    _inherits(Menu, _Component);
+
+    function Menu(props) {
+        _classCallCheck(this, Menu);
+
+        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(Menu, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            var links = [{
+                name: 'stories',
+                value: 'Історії'
+            }, {
+                name: 'categories',
+                value: 'Категорії'
+            }, {
+                name: 'products',
+                value: 'Продукція'
+            }];
+            return _react2.default.createElement(
+                'nav',
+                { className: 'menu grid' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'Home' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'menu-images grid' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'image-wrapper' },
+                            _react2.default.createElement('img', { src: '../../../../Built/Images/clear.png' })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'image-wrapper' },
+                            _react2.default.createElement('img', { src: '../../../../Built/Images/firm.png' })
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    { className: 'btn-box grid' },
+                    links.map(function (v, i) {
+                        return _react2.default.createElement(
+                            'button',
+                            { key: i, name: v.name, onClick: _this2.props.toggle },
+                            v.value
+                        );
+                    }),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.props.logOff },
+                        '\u0412\u0438\u0439\u0442\u0438'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(_react.Component);
+
+exports.default = Menu;
 
 /***/ }),
 
@@ -20217,14 +20330,15 @@ var Product = function Product(props) {
     var onClick = function onClick(e) {
         props.onRemove(props.data);
     };
-    var path = "";
+    var path = "../../../../Built/Images/ProductsImages/";
     var _props$data = props.data,
         Image = _props$data.Image,
         Name = _props$data.Name,
         Price = _props$data.Price,
         PackedPrice = _props$data.PackedPrice,
         Mass = _props$data.Mass,
-        Realization = _props$data.Realization;
+        Realization = _props$data.Realization,
+        Category = _props$data.Category;
 
     return _react2.default.createElement(
         "div",
@@ -20239,13 +20353,13 @@ var Product = function Product(props) {
             { className: "name" },
             Name
         ),
-        Price == null ? null : _react2.default.createElement(
+        Price === null ? null : _react2.default.createElement(
             "span",
             { className: "price" },
             "\u20B4",
             Price
         ),
-        PackedPrice == null ? null : _react2.default.createElement(
+        PackedPrice === null ? null : _react2.default.createElement(
             "span",
             { className: "price packed" },
             "\u20B4",
@@ -20289,7 +20403,13 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20311,40 +20431,18 @@ var CategoryForm = function (_Component) {
             });
         };
 
-        _this.onCategoryChange = function (e) {
+        _this.onChangeSelect = function (e) {
             _this.setState({
                 category: e.target.value
             });
         };
 
-        _this.onChangeName = function (e) {
-            _this.setState({
-                name: e.target.value
-            });
-        };
+        _this.onFieldsChange = function (e) {
+            var target = e.target;
+            var value = target.type === 'checkbox' ? target.checked : target.value;
+            var name = target.name;
 
-        _this.onChangePrice = function (e) {
-            _this.setState({
-                price: e.target.value
-            });
-        };
-
-        _this.onChangePackedPrice = function (e) {
-            _this.setState({
-                packed_price: e.target.value
-            });
-        };
-
-        _this.onChangeMass = function (e) {
-            _this.setState({
-                mass: e.target.value
-            });
-        };
-
-        _this.onChangeRealization = function (e) {
-            _this.setState({
-                realization: e.target.value
-            });
+            _this.setState(_defineProperty({}, name, value));
         };
 
         _this.onSubmit = function (e) {
@@ -20355,19 +20453,22 @@ var CategoryForm = function (_Component) {
                 price = _this$state.price,
                 packed_price = _this$state.packed_price,
                 mass = _this$state.mass,
-                realization = _this$state.realization;
+                realization = _this$state.realization,
+                category = _this$state.category;
 
-            var pName = name.trim();
-            var pPrice = price;
-            var pPackedPrice = packed_price;
-            var pMass = mass;
-            var pRealization = realization.trim();
-            var pImage = selectedFile;
+            console.log(category.type);
+            var pName = name.trim(),
+                pPrice = price,
+                pPackedPrice = packed_price,
+                pMass = mass,
+                pRealization = realization.trim(),
+                pImage = selectedFile,
+                pCategory = category.Name;
             if (!pName || pMass <= 0 || !pRealization || pImage == null) {
                 return;
             }
-            _this.props.onProductSubmit({ selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization });
-            _this.setState({ selectedFile: null, name: "", price: "", packed_price: "", mass: "", realization: "" });
+            _this.props.onProductSubmit({ selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization, category: pCategory });
+            _this.setState({ selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: _this.props.data[0].Name });
         };
 
         _this.state = {
@@ -20375,52 +20476,51 @@ var CategoryForm = function (_Component) {
             name: "",
             price: "",
             packed_price: "",
-            mass: "",
+            mass: 0,
             realization: "",
-            category: "default"
+            category: _this.props.data[0].Name
         };
         return _this;
     }
-    //#region onChangeFields
-
-    //#endregion
 
     _createClass(CategoryForm, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var _state = this.state,
                 name = _state.name,
                 price = _state.price,
                 packed_price = _state.packed_price,
                 mass = _state.mass,
-                realization = _state.realization;
-
+                realization = _state.realization,
+                category = _state.category;
+            var onFieldsChange = this.onFieldsChange;
 
             return _react2.default.createElement(
-                "div",
-                { className: "form-wrapper" },
+                'div',
+                { className: 'form-wrapper' },
+                _react2.default.createElement(_Title2.default, { value: '\u041D\u043E\u0432\u0438\u0439 \u041F\u0440\u043E\u0434\u0443\u043A\u0442' }),
                 _react2.default.createElement(
-                    "form",
-                    { className: "product-form form grid", onSubmit: this.onSubmit },
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u041D\u0430\u0437\u0432\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...", value: name, onChange: this.onChangeName }),
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u0426\u0456\u043D\u0430...", value: price, onChange: this.onChangePrice }),
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u0426\u0456\u043D\u0430 \u0440\u0456\u0437\u0430\u043D\u043E\u0433\u043E \u0442\u0430 \u0443\u043F\u0430\u043A\u043E\u0432\u0430\u043D\u043E\u0433\u043E...", value: packed_price, onChange: this.onChangePackedPrice }),
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u041C\u0430\u0441\u0441\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...", value: mass, onChange: this.onChangeMass }),
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u0422\u0435\u0440\u043C\u0456\u043D \u0440\u0435\u0430\u043B\u0456\u0437\u0430\u0446\u0456\u0457...", value: realization, onChange: this.onChangeRealization }),
-                    _react2.default.createElement("input", { className: "field", type: "file", onChange: this.fileSelectedHandler }),
+                    'form',
+                    { className: 'product-form form grid', onSubmit: this.onSubmit },
+                    _react2.default.createElement('input', { className: 'field', name: 'name', type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...', value: name, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { className: 'field', name: 'price', type: 'text', placeholder: '\u0426\u0456\u043D\u0430...', value: price, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { className: 'field', name: 'packed_price', type: 'text', placeholder: '\u0426\u0456\u043D\u0430 \u0440\u0456\u0437\u0430\u043D\u043E\u0433\u043E \u0442\u0430 \u0443\u043F\u0430\u043A\u043E\u0432\u0430\u043D\u043E\u0433\u043E...', value: packed_price, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { className: 'field', name: 'mass', type: 'number', placeholder: '\u041C\u0430\u0441\u0441\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...', value: mass, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { className: 'field', name: 'realization', type: 'text', placeholder: '\u0422\u0435\u0440\u043C\u0456\u043D \u0440\u0435\u0430\u043B\u0456\u0437\u0430\u0446\u0456\u0457...', value: realization, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { className: 'file', type: 'file', onChange: this.fileSelectedHandler }),
                     _react2.default.createElement(
-                        "select",
-                        { name: "", id: "", onChange: this.onCategoryChange },
+                        'select',
+                        { value: category, name: 'category', onChange: onFieldsChange },
                         this.props.data.map(function (v) {
                             return _react2.default.createElement(
-                                "option",
-                                { key: v.Id, value: v.Name },
+                                'option',
+                                { key: v.Id, value: v.Id },
                                 v.Name
                             );
                         })
                     ),
-                    _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438 " }),
-                    _react2.default.createElement("input", { className: "btn", type: "button", onClick: this.props.toggle, value: "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438" })
+                    _react2.default.createElement('input', { className: 'btn', type: 'submit', value: '\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438 ' }),
+                    _react2.default.createElement('input', { className: 'btn', type: 'button', onClick: this.props.toggle, value: '\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438' })
                 )
             );
         }
@@ -20489,19 +20589,18 @@ var ProductsList = function (_Component) {
             _this.setState({
                 formIsOpen: !_this.state.formIsOpen
             });
-            console.log(_this.state.formIsOpen);
         };
 
         _this.onAddProduct = function (product) {
             if (product) {
-
                 var data = new FormData();
-                data.append("image", product.selectedFile, product.selectedFile.name);
+                data.append("image", product.selectedFile);
                 data.append("name", product.name);
-                data.append("price", product.price);
-                data.append("packed_price", product.packed_price);
+                data.append("price", parseFloat(product.price));
+                data.append("packed_price", parseFloat(product.packed_price));
                 data.append("mass", product.mass);
                 data.append("realization", product.realization);
+                data.append("category", product.category);
 
                 var xhr = new XMLHttpRequest();
                 xhr.open("post", _this.props.postUrl, true);
@@ -20664,6 +20763,10 @@ var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Title = __webpack_require__(/*! ../Common/Title */ "./Components/Admin/Common/Title.jsx");
+
+var _Title2 = _interopRequireDefault(_Title);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20711,21 +20814,22 @@ var HistoryForm = function (_Component) {
     }
 
     _createClass(HistoryForm, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "form-wrapper" },
+                'div',
+                { className: 'form-wrapper' },
+                _react2.default.createElement(_Title2.default, { value: '\u041D\u043E\u0432\u0430 \u0406\u0441\u0442\u043E\u0440\u0456\u044F' }),
                 _react2.default.createElement(
-                    "form",
-                    { className: "history-form grid", onSubmit: this.onSubmit },
-                    _react2.default.createElement("input", { className: "field", type: "text", placeholder: "\u0414\u0430\u0442\u0430...", value: this.state.date, onChange: this.onChangeDate }),
-                    _react2.default.createElement("textarea", { className: "field", type: "text", placeholder: "\u0406\u0441\u0442\u043E\u0440\u0456\u044F...", value: this.state.text, onChange: this.onChangeText }),
-                    _react2.default.createElement("input", { className: "btn", type: "submit", value: "\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438" }),
+                    'form',
+                    { className: 'history-form grid', onSubmit: this.onSubmit },
+                    _react2.default.createElement('input', { className: 'field', type: 'text', placeholder: '\u0414\u0430\u0442\u0430...', value: this.state.date, onChange: this.onChangeDate }),
+                    _react2.default.createElement('textarea', { className: 'field', type: 'text', placeholder: '\u0406\u0441\u0442\u043E\u0440\u0456\u044F...', value: this.state.text, onChange: this.onChangeText }),
+                    _react2.default.createElement('input', { className: 'btn', type: 'submit', value: '\u0417\u0431\u0435\u0440\u0435\u0433\u0442\u0438' }),
                     _react2.default.createElement(
-                        "button",
-                        { className: "btn", onClick: this.props.toggle },
-                        "\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438"
+                        'button',
+                        { className: 'btn', onClick: this.props.toggle },
+                        '\u0412\u0456\u0434\u043C\u0456\u043D\u0438\u0442\u0438'
                     )
                 )
             );
@@ -20823,10 +20927,14 @@ var StoriesList = function (_Component) {
                 _react2.default.createElement(_Panel2.default, { uniqueClass: 'stories', btnValue: '\u041D\u043E\u0432\u0430 \u0456\u0441\u0442\u043E\u0440\u0456\u044F', toggle: this.FormToggle }),
                 _react2.default.createElement(
                     'div',
-                    { className: 'scroll stories-box' },
-                    stories.map(function (v) {
-                        return _react2.default.createElement(_History2.default, { key: v.Id, data: v, onRemove: remove });
-                    })
+                    { className: 'scroll  stories-box' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'stories-wrapper grid' },
+                        stories.map(function (v) {
+                            return _react2.default.createElement(_History2.default, { key: v.Id, data: v, onRemove: remove });
+                        })
+                    )
                 )
             );
         }
@@ -20915,9 +21023,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _Menu = __webpack_require__(/*! ./Admin/Menu/Menu */ "./Components/Admin/Menu/Menu.jsx");
+
+var _Menu2 = _interopRequireDefault(_Menu);
 
 var _StoriesList = __webpack_require__(/*! ./Admin/Stories/StoriesList */ "./Components/Admin/Stories/StoriesList.jsx");
 
@@ -20933,19 +21047,62 @@ var _ProductsList2 = _interopRequireDefault(_ProductsList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//#endregion
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var App = function App() {
-    return _react2.default.createElement(
-        'div',
-        { className: 'app grid ' },
-        _react2.default.createElement(_StoriesList2.default, { getUrl: 'admin/GetStories', postUrl: 'admin/AddHistory', deleteUrl: 'admin/DeleteHistory' }),
-        _react2.default.createElement(_CategoriesList2.default, { getUrl: 'admin/GetCategories', postUrl: 'admin/AddCategory', deleteUrl: 'admin/DeleteCategory' }),
-        _react2.default.createElement(_ProductsList2.default, { getUrl: 'admin/GetProducts', postUrl: 'admin/AddProduct', deleteUrl: 'admin/DeleteProduct', getCategoriesUrl: 'admin/GetCategories' })
-    );
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 //#region Components
+
+
+//#endregion
+
+
+var App = function (_Component) {
+    _inherits(App, _Component);
+
+    function App(props) {
+        _classCallCheck(this, App);
+
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.ActiveToggle = function (e) {
+            _this.setState({
+                activeList: e.target.name
+            });
+            console.log(_this.state.activeList);
+        };
+
+        _this.state = { activeList: 'stories' };
+        return _this;
+    }
+
+    _createClass(App, [{
+        key: 'render',
+        value: function render() {
+            var activeList = this.state.activeList;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'app grid ' },
+                _react2.default.createElement(_Menu2.default, { toggle: this.ActiveToggle }),
+                activeList === 'stories' ? _react2.default.createElement(_StoriesList2.default, { getUrl: 'admin/GetStories', postUrl: 'admin/AddHistory', deleteUrl: 'admin/DeleteHistory' }) : activeList === 'categories' ? _react2.default.createElement(_CategoriesList2.default, { getUrl: 'admin/GetCategories', postUrl: 'admin/AddCategory', deleteUrl: 'admin/DeleteCategory' }) : activeList === 'products' ? _react2.default.createElement(_ProductsList2.default, { getUrl: 'admin/GetProducts', postUrl: 'admin/AddProduct', deleteUrl: 'admin/DeleteProduct', getCategoriesUrl: 'admin/GetCategories' }) : _react2.default.createElement(
+                    'div',
+                    { className: 'def' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        'Error'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return App;
+}(_react.Component);
+
 exports.default = App;
 
 /***/ }),

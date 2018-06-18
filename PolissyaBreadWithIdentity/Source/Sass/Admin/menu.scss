@@ -1,0 +1,28 @@
+@import '../Shared/vars.scss';
+
+.menu{
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    box-shadow: $bs;
+    grid-template-columns: auto auto;
+    padding: 20px;
+    background-color: white;
+    .menu-images{
+        grid-template-columns: 90px 140px;
+        grid-gap: 20px;
+        align-items: center;
+    }
+
+    .btn-box{
+        grid-template-columns: repeat(4, auto);
+        justify-self: end;
+        grid-gap: 20px;
+        button{
+            font-family: $condensed;
+            font-size: 16px;
+            padding: 10px;
+        }
+    }
+}

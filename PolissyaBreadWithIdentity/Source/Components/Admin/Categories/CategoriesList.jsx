@@ -24,12 +24,14 @@ class CategoriesList extends Component {
             <div className="categories list">
                 <Title value="Категорії" />
                 <Panel uniqueClass="categories" btnValue="Нова категорія" toggle={this.FormToggle}/>
-                <div className="scroll categories-box">
-                    {
-                        categories.map((v)=>{
-                            return <Category key={v.Id} data={v} onRemove={remove}/>
-                        })
-                    }
+                <div className="scroll  categories-box">
+                    <div className="categories-wrapper grid">
+                        {
+                            categories.map((v)=>{
+                                return <Category key={v.Id} data={v} onRemove={remove}/>
+                            })
+                        }
+                    </div>
                 </div> 
             </div>
         );

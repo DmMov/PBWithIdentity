@@ -1,8 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC:900);* {
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);@import url(https://fonts.googleapis.com/css?family=Comfortaa|Cormorant+Garamond|Cormorant+Infant|Cormorant+Unicase|Poiret+One);@import url(https://fonts.googleapis.com/css?family=Didact+Gothic);@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC:900);@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);* {
   padding: 0;
   margin: 0;
   color: slategray;
-  font-family: 'PT Sans', sans-serif;
   box-sizing: border-box; }
 
 .grid {
@@ -31,19 +30,54 @@ img {
       align-content: center; }
 
 .login-form {
-  padding: 10px;
-  grid-gap: 10px;
+  padding: 20px;
+  grid-gap: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  .login-form h1 {
+    font-family: "Roboto Condensed", sans-serif; }
+  .login-form .validation-summary-errors.text-danger ul li {
+    font-family: "Roboto Condensed", sans-serif;
+    font-style: italic;
+    color: #C6282C; }
   .login-form .field {
-    width: 20vw; }
+    padding: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 18px;
+    width: 20vw;
+    border-bottom: 3px solid slategray; }
     .login-form .field:focus {
       border-bottom-color: #C6282C;
       background-color: #f9f9f9; }
   .login-form .login.btn {
-    transition: all 0.1s ease; }
+    transition: all 0.1s ease;
+    padding: 10px;
+    border: 1px solid slategray;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15px; }
     .login-form .login.btn:hover {
-      background-color: #C6282C;
       border-color: #C6282C;
-      color: white; }
+      color: #C6282C; }
+
+.back-wrapper {
+  padding: 20px;
+  position: relative;
+  width: 150px; }
+  .back-wrapper a {
+    font-family: "Roboto Condensed", sans-serif; }
+  .back-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 10px;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-bottom: 1px solid slategray;
+    border-left: 1px solid slategray;
+    transform: rotate(45deg); }
+  .back-wrapper:hover a {
+    color: #C6282C; }
+  .back-wrapper:hover::before {
+    border-color: #C6282C; }
 
 /*# sourceMappingURL=Login.css.map*/

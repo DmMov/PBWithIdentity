@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="root" class="grid">
-        <div><a href="/home">Назад</a></div>
+        <div class="back-wrapper"><a href="/home">Повернутися</a></div>
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form grid", role = "form" }))
         {
             <h1>@ViewBag.Title</h1>

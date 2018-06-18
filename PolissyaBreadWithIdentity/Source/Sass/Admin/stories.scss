@@ -3,43 +3,39 @@
 $histAccent: rgb(35, 35, 35) ;
 
 .list.stories{
-    .title{
-        border-bottom: 3px solid $histAccent;
-    }
-    .panel{
-        input:focus{
-            border-color: $histAccent;
-        }
-        button:hover{
-            background-color: $histAccent;
-            border-color: $histAccent;
-            color: white;
-        }
-    }
     .stories-box{
-        .history{
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid white;
-            position: relative;
+        
+        padding: 10px;
+        .stories-wrapper{
+            grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+            grid-gap: 20px;
+            .history{
+                margin: 10px 0;
+                position: relative;
+                box-shadow: $bs;
+                margin: 0 auto;
+            .date{
+                padding: $gap;
+                background-color: $accent;
+                font-family: $unicase;
+                font-weight: 900;
+                color: white;
+            }
             .text{
                 display: block;
-                padding: 10px;
-                background-color: rgba(0, 0, 0, .02);
+                padding: 20px $gap;                
                 font-family: $garamond;
-                font-size: 20px;
-            }
-            h1{
-                color: $histAccent;
-                
+                font-size: 1.3em;
+                text-align: center;
             }
             &:hover{
-                border: 1px solid rgba(0, 0, 0, .1);
                 .delete.icon{
                     transform: translate(0);
                     opacity: 1;
                 }
             }
         }
+        }
+        
     }
 }
