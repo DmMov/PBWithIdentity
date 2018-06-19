@@ -24,8 +24,8 @@ class ProductsList extends Component {
             const data = new FormData();
             data.append("image", product.selectedFile);
             data.append("name", product.name);
-            data.append("price", parseFloat(product.price));
-            data.append("packed_price", parseFloat(product.packed_price));
+            data.append("price", product.price);
+            data.append("packed_price", product.packed_price);
             data.append("mass", product.mass);
             data.append("realization", product.realization);
             data.append("category", product.category);

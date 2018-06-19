@@ -20,6 +20,10 @@
             border-color: $accent;
         }
     }
+    .field[type=number]{
+        width: 100%;
+        appearance: textfield;
+    }
     .btn{
         padding: 10px;
         border: 1px solid $sg;

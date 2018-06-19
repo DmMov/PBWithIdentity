@@ -20431,12 +20431,6 @@ var CategoryForm = function (_Component) {
             });
         };
 
-        _this.onChangeSelect = function (e) {
-            _this.setState({
-                category: e.target.value
-            });
-        };
-
         _this.onFieldsChange = function (e) {
             var target = e.target;
             var value = target.type === 'checkbox' ? target.checked : target.value;
@@ -20463,12 +20457,12 @@ var CategoryForm = function (_Component) {
                 pMass = mass,
                 pRealization = realization.trim(),
                 pImage = selectedFile,
-                pCategory = category.Name;
+                pCategory = category;
             if (!pName || pMass <= 0 || !pRealization || pImage == null) {
                 return;
             }
             _this.props.onProductSubmit({ selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization, category: pCategory });
-            _this.setState({ selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: _this.props.data[0].Name });
+            _this.setState({ selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: _this.props.data[0].Id });
         };
 
         _this.state = {
@@ -20478,7 +20472,7 @@ var CategoryForm = function (_Component) {
             packed_price: "",
             mass: 0,
             realization: "",
-            category: _this.props.data[0].Name
+            category: _this.props.data[0].Id
         };
         return _this;
     }
@@ -20596,8 +20590,8 @@ var ProductsList = function (_Component) {
                 var data = new FormData();
                 data.append("image", product.selectedFile);
                 data.append("name", product.name);
-                data.append("price", parseFloat(product.price));
-                data.append("packed_price", parseFloat(product.packed_price));
+                data.append("price", product.price);
+                data.append("packed_price", product.packed_price);
                 data.append("mass", product.mass);
                 data.append("realization", product.realization);
                 data.append("category", product.category);

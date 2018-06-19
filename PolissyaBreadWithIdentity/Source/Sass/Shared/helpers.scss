@@ -78,7 +78,7 @@
     transform: translate(10px);
     transition: all .25s ease-in-out;
     opacity: 0;
-    color: white;
+    color: black;
     position: absolute;
     margin-top: 0;
     margin-left: 0;
@@ -87,7 +87,8 @@
     width: 21px;
     height: 21px;
     &:hover{
-        cursor: pointer;        
+        cursor: pointer;     
+        color: $accent;   
     }
     &:before {
         content: '';

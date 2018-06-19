@@ -12,17 +12,12 @@ class CategoryForm extends Component {
             packed_price: "",
             mass: 0,
             realization: "",
-            category: this.props.data[0].Name 
+            category: this.props.data[0].Id 
         };
     }
     fileSelectedHandler = e =>{
         this.setState({
             selectedFile: e.target.files[0]
-        });
-    }
-    onChangeSelect = e =>{
-        this.setState({
-            category: e.target.value
         });
     }
     onFieldsChange = e => {
@@ -39,12 +34,12 @@ class CategoryForm extends Component {
         e.preventDefault();
         const {selectedFile, name, price, packed_price, mass, realization, category} = this.state;
         console.log(category.type)
-        let pName = name.trim(), pPrice = price, pPackedPrice = packed_price, pMass = mass, pRealization = realization.trim(), pImage= selectedFile, pCategory = category.Name;
+        let pName = name.trim(), pPrice = price, pPackedPrice = packed_price, pMass = mass, pRealization = realization.trim(), pImage = selectedFile, pCategory = category;
         if (!pName  || pMass<=0 || !pRealization || pImage==null) {
             return;
         }
         this.props.onProductSubmit({selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization, category: pCategory});
-        this.setState({selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: this.props.data[0].Name});
+        this.setState({selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: this.props.data[0].Id});
     }
     render() {
         const {name, price, packed_price, mass, realization, category} = this.state;

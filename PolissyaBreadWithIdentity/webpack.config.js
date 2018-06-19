@@ -111,7 +111,7 @@ const config = {
         new ExtractTextPlugin(
             './Css/[name].css'
         ),
-        new CleanWebpackPlugin(['Built'], {exclude:  ['Built/Images'],}),
+        new CleanWebpackPlugin(['Built'], {exclude:  ['Images']}),
         new CopyWebpackPlugin(
             [
                 {from:'./Images', to: 'Images'}

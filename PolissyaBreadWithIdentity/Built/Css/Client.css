@@ -80,7 +80,7 @@ img {
   transform: translate(10px);
   transition: all .25s ease-in-out;
   opacity: 0;
-  color: white;
+  color: black;
   position: absolute;
   margin-top: 0;
   margin-left: 0;
@@ -89,7 +89,8 @@ img {
   width: 21px;
   height: 21px; }
   .delete.icon:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    color: #C6282C; }
   .delete.icon:before {
     content: '';
     position: absolute;
@@ -166,8 +167,9 @@ img {
       margin-top: 40px; }
       .header .header-content .pr-wrapper .our-pr {
         padding: 10px 20px;
-        border: 2px solid #C6282C;
+        border: 1px solid #C6282C;
         background-color: #C6282C;
+        font-family: "Roboto Condensed", sans-serif;
         color: white;
         text-transform: uppercase;
         transition: all .1s ease; }
@@ -183,6 +185,16 @@ img {
     right: 0;
     bottom: 0;
     background-color: rgba(4, 9, 30, 0.5); }
+  .header::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 15vh solid white;
+    border-left: 100vw solid transparent; }
 
 .menu {
   position: absolute;
@@ -203,8 +215,8 @@ img {
           -ms-grid-row-align: center;
           align-self: center; }
   .menu .links-box {
-    -ms-grid-columns: (auto)[6];
-        grid-template-columns: repeat(6, auto);
+    -ms-grid-columns: (auto)[7];
+        grid-template-columns: repeat(7, auto);
     justify-self: end;
     z-index: 1; }
     .menu .links-box li {
@@ -277,34 +289,145 @@ img {
   .description-slider .btn-right-wrapper {
     right: -10%; }
 
-.stories .title {
-  text-align: center; }
-  .stories .title h1 {
-    font-family: "Playfair Display SC", serif;
-    font-size: 3em; }
+.stories {
+  position: relative;
+  padding-bottom: 20vh; }
+  .stories .title {
+    text-align: center; }
+    .stories .title h1 {
+      font-family: "Playfair Display SC", serif;
+      font-size: 3em; }
+  .stories .stories-box {
+    -ms-grid-columns: (minmax(500px, auto))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+    grid-gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -ms-flex-pack: space-evenly;
+        justify-content: space-evenly; }
+    .stories .stories-box .history {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      margin: 0 auto; }
+      .stories .stories-box .history .date {
+        padding: 10px;
+        background-color: #C6282C;
+        font-family: "Cormorant Unicase", serif;
+        font-weight: 900;
+        color: white; }
+      .stories .stories-box .history .text {
+        display: block;
+        padding: 20px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45em;
+        text-align: justify;
+        text-indent: 50px; }
+  .stories::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 15vh solid #f5f5f5;
+    border-left: 100vw solid transparent; }
 
-.stories .stories-box {
-  -ms-grid-columns: (minmax(300px, auto))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-  grid-gap: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  -ms-flex-pack: space-evenly;
-      justify-content: space-evenly; }
-  .stories .stories-box .history {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    margin: 0 auto; }
-    .stories .stories-box .history .date {
-      padding: 10px;
-      background-color: #C6282C;
-      font-family: "Cormorant Unicase", serif;
-      font-weight: 900;
-      color: white; }
-    .stories .stories-box .history .text {
-      display: block;
-      padding: 20px 10px;
+.success {
+  position: relative;
+  padding-bottom: 20vh;
+  background-color: #f5f5f5; }
+  .success .title {
+    text-align: center; }
+    .success .title h1 {
+      font-family: "Playfair Display SC", serif;
+      font-size: 3em; }
+  .success .values-box .values-wrapper {
+    -ms-grid-columns: (1fr)[8];
+        grid-template-columns: repeat(8, 1fr);
+    grid-gap: 20px; }
+    .success .values-box .values-wrapper .value {
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
+      text-align: justify; }
+      .success .values-box .values-wrapper .value .text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45em;
+        padding: 20px;
+        display: block;
+        text-indent: 50px; }
+      .success .values-box .values-wrapper .value:nth-child(1) {
+        grid-column: 1/ 5; }
+      .success .values-box .values-wrapper .value:nth-child(2) {
+        grid-column: 5/ 9; }
+      .success .values-box .values-wrapper .value:nth-child(3) {
+        grid-column: 1/ 4; }
+      .success .values-box .values-wrapper .value:nth-child(4) {
+        grid-column: 4/ 9; }
+        .success .values-box .values-wrapper .value:nth-child(4) .text {
+          line-height: 1.5; }
+  .success:after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 15vh solid white;
+    border-left: 100vw solid transparent; }
+
+.traditions {
+  position: relative;
+  padding-bottom: 20vh; }
+  .traditions .title {
+    text-align: center; }
+    .traditions .title h1 {
+      font-family: "Playfair Display SC", serif;
+      font-size: 3em; }
+  .traditions .principles-box .title {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center; }
+    .traditions .principles-box .title .text {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.3em;
-      text-align: center; }
+      font-size: 2em; }
+  .traditions .principles-box .principles-wrapper {
+    -ms-grid-columns: (auto)[5];
+        grid-template-columns: repeat(5, auto);
+    grid-gap: 20px;
+    padding: 40px 20px;
+    text-align: center; }
+    .traditions .principles-box .principles-wrapper .principe {
+      padding: 10px;
+      border: 1px solid slategray;
+      border-radius: 5px; }
+      .traditions .principles-box .principles-wrapper .principe .text {
+        font-family: "Cormorant Unicase", serif;
+        font-size: 1.5em; }
+  .traditions .values-wrapper {
+    -ms-grid-columns: (1fr)[5];
+        grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 20px; }
+    .traditions .values-wrapper .value {
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
+      background-color: #f5f5f5; }
+      .traditions .values-wrapper .value .hr {
+        width: 100%; }
+      .traditions .values-wrapper .value .text {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45em;
+        padding: 20px;
+        display: block;
+        text-indent: 50px;
+        text-align: justify; }
+      .traditions .values-wrapper .value:nth-child(1) {
+        grid-column: 1/-1; }
+      .traditions .values-wrapper .value:nth-child(2) {
+        grid-column: 1/3; }
+      .traditions .values-wrapper .value:nth-child(3) {
+        grid-column: 3/-1; }
 
 /*# sourceMappingURL=Client.css.map*/

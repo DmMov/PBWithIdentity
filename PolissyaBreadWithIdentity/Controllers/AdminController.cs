@@ -40,7 +40,7 @@ namespace PolissyaBreadWithIdentity.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Product product, HttpPostedFileBase image, Category category)
+        public ActionResult AddProduct(Product product, HttpPostedFileBase image)
         {
             //var originalImage = new Bitmap(image.InputStream, false);
 
@@ -54,7 +54,6 @@ namespace PolissyaBreadWithIdentity.Controllers
 
             product.Id = Guid.NewGuid().ToString();
             product.Image = image.FileName;
-            product.CategoryId = category.Id;
             pc.Products.Add(product);
             pc.SaveChanges();
             return Json(product);

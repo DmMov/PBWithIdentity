@@ -1,6 +1,8 @@
 @import '../Shared/vars.scss';
 
 .stories{
+    position: relative;
+    padding-bottom: 20vh;
     .title{
         text-align: center;
         h1{
@@ -9,7 +11,7 @@
         }
     }
     .stories-box{
-        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+        grid-template-columns: repeat(auto-fit, minmax(500px, auto));
         grid-gap: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -26,11 +28,22 @@
             }
             .text{
                 display: block;
-                padding: 20px $gap;                
+                padding: 20px;                
                 font-family: $garamond;
-                font-size: 1.3em;
-                text-align: center;
+                font-size: 1.45em;
+                text-align: justify;
+                text-indent: 50px;
             }
         }
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+	    height: 0;
+	    border-bottom: 15vh solid #f5f5f5; 
+	    border-left: 100vw solid transparent;
     }
 }

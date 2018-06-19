@@ -30,9 +30,9 @@
             margin-top: 40px;
             .our-pr {
                 padding: 10px 20px;
-                border: 2px solid $accent;
+                border: 1px solid $accent;
                 background-color: $accent;
-                
+                font-family: $condensed;
                 color: white;
                 text-transform: uppercase;
                 transition: all .1s ease;
@@ -53,5 +53,18 @@
         right: 0;
         bottom: 0;
         background-color: rgba(4,9,30,0.5);
+    }
+
+    &::after{
+        content: '';
+        z-index: 1;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+	    height: 0;
+	    border-bottom: 15vh solid white; 
+	    border-left: 100vw solid transparent;
+
     }
 }

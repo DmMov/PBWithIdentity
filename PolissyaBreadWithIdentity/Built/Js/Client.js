@@ -19870,13 +19870,23 @@ var _Stories = __webpack_require__(/*! ./Stories/Stories */ "./Components/Client
 
 var _Stories2 = _interopRequireDefault(_Stories);
 
+var _Success = __webpack_require__(/*! ./Success/Success */ "./Components/Client/Content/Success/Success.jsx");
+
+var _Success2 = _interopRequireDefault(_Success);
+
+var _Traditions = __webpack_require__(/*! ./Traditions/Traditions */ "./Components/Client/Content/Traditions/Traditions.jsx");
+
+var _Traditions2 = _interopRequireDefault(_Traditions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Content = function Content() {
     return _react2.default.createElement(
         'main',
         null,
-        _react2.default.createElement(_Stories2.default, { getUrl: 'Home/GetStories' })
+        _react2.default.createElement(_Stories2.default, { getUrl: 'Home/GetStories' }),
+        _react2.default.createElement(_Success2.default, null),
+        _react2.default.createElement(_Traditions2.default, null)
     );
 };
 
@@ -20022,6 +20032,215 @@ var StoriesList = function (_Component) {
 }(_react.Component);
 
 exports.default = StoriesList;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/Success/Success.jsx":
+/*!*******************************************************!*\
+  !*** ./Components/Client/Content/Success/Success.jsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Success = function (_Component) {
+    _inherits(Success, _Component);
+
+    function Success(props) {
+        _classCallCheck(this, Success);
+
+        var _this = _possibleConstructorReturn(this, (Success.__proto__ || Object.getPrototypeOf(Success)).call(this, props));
+
+        _this.state = {
+            isMore: false
+        };
+        return _this;
+    }
+
+    _createClass(Success, [{
+        key: 'render',
+        value: function render() {
+            var values = ['Одним з найголовніших напрямків ТДВ \"Поліссяхліб\" є забезпечення належних умов роботи персоналу. Керівництво підприємства на чолі з головою правління намагається зробити все, щоб кожен з трьох сотень працівників відчув себе повністю захищеним як в моральному, так і в матеріальному плані. Рівень заробітної плати на сьогодні є одним з найвищих порівняно з іншими підприємствами Рівненської області. Відпрацьована також система фінансового заохочення та виплат матеріальної допомоги тим працівникам, які її потребують.', 'Персонал підприємства впевнений у майбутньому. Цю впевненість вселяє те, що осі уже більше десятка років \"Поліссяхліб\" працює стабільно. Створені умови не лише для праці, а й для добробуту працівників. До послуг працівників сучасні, комфортні душові, кімнати побуту, їдільня. Тож і плинності кадрів тут немає, а середній вік колективу до 40 років. Працівники ТДВ \"Поліссяхліб\" з повною відповідальністю ставляться до роботи. Найкращим доказом цього є постійний попит на продукцію підприємства.', 'На запитання про секрет успіху підприємства його керівник переконливо стверджує: \"Головне - це забезпечення належних умов праці, достойного морального та матеріального захисту працівників. Адже в кожного з них є душа, сім\'я, особисті проблеми. Людина - це найвище...\" ', 'За той час відколи підприємство очолив Віктор Нагорнюк, тут створено 130 робочих місць. Службовці та спеціалісти працюють у кабінетах, обладнаних сучасними меблями, їхні робочі місця комп\'ютеризовані. Обладнаний комп\'ютерною технікою і відділ збуту, що полегшує ведення обліку і звітності. Оновлений автопарк нараховує понад два десятки автомобілів, що дає змогу вчасно доставляти свіжу продукцію в торгівельну мережу міста та області.'];
+            return _react2.default.createElement(
+                'div',
+                { className: 'success container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'title' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        '\u0417\u0430\u043F\u043E\u0440\u0443\u043A\u0430 \u0443\u0441\u043F\u0456\u0445\u0443'
+                    ),
+                    _react2.default.createElement('div', { className: 'hr' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'values-box' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'values-wrapper grid' },
+                        values.map(function (v, i) {
+                            return _react2.default.createElement(
+                                'div',
+                                { key: i, className: 'value' },
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'text' },
+                                    v
+                                ),
+                                _react2.default.createElement('div', { className: 'hr' })
+                            );
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Success;
+}(_react.Component);
+
+exports.default = Success;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/Traditions/Traditions.jsx":
+/*!*************************************************************!*\
+  !*** ./Components/Client/Content/Traditions/Traditions.jsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Traditions = function (_Component) {
+    _inherits(Traditions, _Component);
+
+    function Traditions(props) {
+        _classCallCheck(this, Traditions);
+
+        var _this = _possibleConstructorReturn(this, (Traditions.__proto__ || Object.getPrototypeOf(Traditions)).call(this, props));
+
+        _this.state = {
+            isMore: false
+        };
+        return _this;
+    }
+
+    _createClass(Traditions, [{
+        key: 'render',
+        value: function render() {
+            var values = ['Ця продукція виготовляється без будь-яких шкідливих для організму домішок, у ній значно менший вміст солі у порівнянні з європейськими технологіями. А батони тут печуть на натуральній олії. Крім того, ТДВ\"Поліссяхліб\" принципово працює тільки на відчизняному обладнанні. Це дає змогу забезпечити зберігання всіх смакових якостей справжнього хліба. З цього приводу існує навіть гасло - \"Традиції збережено!\". Повний цикл приготовлення становить 8 годин, що забезпесує рум\'яну скоринку та духмяний м\'якуш. На цьому підприємстві повернулися до старовинних рецептів приготування тіста на густих опарах. Завдяки цьому хліб набуває приємного аромату, м\'якуш стає більш еластичним і об\'ємним. ', 'Працівники підприємства не тільки бережуть традиції нашого народу, які формувалися віками, а й примножують їх. Наприклад, житньо-пшеничні види хліба - \"Колосковай\" і \"Козацікий\" - припали до смаку Рівнянам відразу ж, - як тільки з\'явилися на полицях фірмового магазину \"Колосок\" та в спеціалізованих кіосках - \"Колосочок\". ', 'Уся продукція виготовляється з використанням винятково натуральних харчових інгрідієнтів (без хімічних добавок, розрихлювачів), за умови суворого дотримання санітарно-гігієнічних вимог. У атестованій лабораторії підприємства, 4-8 разів за зміну контролюється якість хлібо-булочних виробів. Ведеться також суворий контроль сировини, що надходить на хлібозавод. Зараз у товаристві впроваджується система управління якістб ISO - 9001. Отож, Придбавши хліб, булки й кондитерські вироби ТДВ \"Поліссяхліб\", ви будите задоволені їх смаком, свіжістю і ціною. '];
+            var principles = ['Натуральна сировина', 'старовинні рецепти', 'екологічно чиста вода', 'традицйні технології', 'тепло людських рук'];
+            return _react2.default.createElement(
+                'div',
+                { className: 'traditions container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'title' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        '\u0422\u0440\u0430\u0434\u0438\u0446\u0456\u0457 \u0437\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u043E'
+                    ),
+                    _react2.default.createElement('div', { className: 'hr' })
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'values-box' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'principles-box' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'title' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'text' },
+                                '\u041F\u0440\u0438 \u0432\u0438\u043F\u0456\u0447\u0446\u0456 \u0445\u043B\u0456\u0431\u043E\u0431\u0443\u043B\u043E\u0447\u043D\u0438\u0445 \u0432\u0438\u0440\u043E\u0431\u0456\u0432 \u043F\u0440\u0430\u0446\u0456\u0432\u043D\u0438\u043A\u0438 \u0422\u0414\u0412 "\u041F\u043E\u043B\u0456\u0441\u0441\u044F\u0445\u043B\u0456\u0431" \u0434\u043E\u0442\u0440\u0438\u043C\u0443\u044E\u0442\u044C\u0441\u044F \u043F\'\u044F\u0442\u0438 \u043F\u0440\u0438\u043D\u0446\u0438\u043F\u0456\u0432:'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'principles-wrapper grid' },
+                            principles.map(function (v, i) {
+                                return _react2.default.createElement(
+                                    'div',
+                                    { key: i, className: 'principe' },
+                                    _react2.default.createElement(
+                                        'span',
+                                        { className: 'text' },
+                                        v
+                                    )
+                                );
+                            })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'values-wrapper grid' },
+                        values.map(function (v, i) {
+                            return _react2.default.createElement(
+                                'div',
+                                { key: i, className: 'value' },
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'text' },
+                                    v
+                                ),
+                                _react2.default.createElement('div', { className: 'hr' })
+                            );
+                        })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Traditions;
+}(_react.Component);
+
+exports.default = Traditions;
 
 /***/ }),
 
@@ -20365,7 +20584,7 @@ var HeaderContent = function HeaderContent() {
             _react2.default.createElement(
                 'a',
                 { className: 'our-pr', href: '#' },
-                '\u041D\u0430\u0448\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F'
+                '\u043F\u0435\u0440\u0435\u0433\u043B\u044F\u043D\u0443\u0442\u0438 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044E'
             )
         )
     );
@@ -20426,7 +20645,7 @@ var Menu = function (_Component) {
     _createClass(Menu, [{
         key: 'render',
         value: function render() {
-            var links = ["історія", "продукція", "запорука успіху", "традиції збережено", "контакти", "новини"];
+            var links = ["історія", "продукція", "запорука успіху", "традиції збережено", "погляд у майбутнє", "контакти", "новини"];
             return _react2.default.createElement(
                 'nav',
                 { className: 'menu grid' },

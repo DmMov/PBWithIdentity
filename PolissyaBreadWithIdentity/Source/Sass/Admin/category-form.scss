@@ -8,13 +8,15 @@
     width: 40%;
     margin: 0 auto;
     margin-bottom: 35vh;
-    .field{
+    .field {
         grid-column: 1/ -1;
+        font-family: $condensed;
+        font-size: 18px;
         padding: $gap;
         border-bottom: 3px solid rgba(0, 0, 0, .1);
         &:focus{
             background-color: #f9f9f9;
-            border-bottom-color: rgb(18, 83, 148);
+            border-bottom-color: $accent;
         }
     }
     .btn{
@@ -22,9 +24,9 @@
         font-size: 15px;
         border: 1px solid rgba(0, 0, 0, .1);
         &:hover{
-            background-color: rgb(18, 83, 148);
-            border-color: rgb(18, 83, 148);
-            color: white;
+            cursor: pointer;
+            border-color: $accent;
+            color: $accent;
         }
     }
 }

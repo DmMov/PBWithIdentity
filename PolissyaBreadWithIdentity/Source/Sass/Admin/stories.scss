@@ -3,32 +3,34 @@
 $histAccent: rgb(35, 35, 35) ;
 
 .list.stories{
+    width: 90%;
+    margin: 0 auto;
     .stories-box{
-        
-        padding: 10px;
         .stories-wrapper{
             grid-template-columns: repeat(auto-fit, minmax(500px, auto));
             grid-gap: 20px;
             .history{
                 margin: 10px 0;
                 position: relative;
-                box-shadow: $bs;
                 margin: 0 auto;
+                border: 1px solid $sg;
             .date{
                 padding: $gap;
-                background-color: $accent;
                 font-family: $unicase;
                 font-weight: 900;
-                color: white;
+                color: black;
             }
             .text{
                 display: block;
                 padding: 20px $gap;                
                 font-family: $garamond;
                 font-size: 1.3em;
-                text-align: center;
+                text-align: justify;
+                text-indent: 50px;
+                color: $sg;
             }
             &:hover{
+                border-color: $accent;
                 .delete.icon{
                     transform: translate(0);
                     opacity: 1;
