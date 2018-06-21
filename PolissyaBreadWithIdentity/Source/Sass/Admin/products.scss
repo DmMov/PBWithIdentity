@@ -1,5 +1,24 @@
 @import '../Shared/vars.scss';
 @import './product-form.scss';
 .list.products{
-    margin: 0;
+    .products-box{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        .product{
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            position: relative;
+            .img-wrapper{
+
+            }
+            .info{
+                grid-template-rows: repeat(auto-fill, 1fr);
+                grid-auto-rows: auto;
+                align-self: start;
+                span{
+                    
+                }
+            }
+        }
+    }
 }

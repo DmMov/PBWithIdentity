@@ -10,7 +10,7 @@ namespace PolissyaBreadWithIdentity.Controllers
 {
     public class HomeController : Controller
     {
-        ProductsContext db = new ProductsContext();
+        ProductsContext pc = new ProductsContext();
         StoriesContext sc = new StoriesContext();
 
         public ActionResult Index()
@@ -20,7 +20,7 @@ namespace PolissyaBreadWithIdentity.Controllers
 
         public ActionResult GetProducts()
         {
-            var Products = from entity in db.Products
+            var Products = from entity in pc.Products
                            select new
                            {
                                entity.Id,
@@ -36,9 +36,9 @@ namespace PolissyaBreadWithIdentity.Controllers
             return Json(Products, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetTypes()
+        public ActionResult GetCategories()
         {
-            var Categories = from entity in db.Categories
+            var Categories = from entity in pc.Categories
                         select new
                         {
                             entity.Id,

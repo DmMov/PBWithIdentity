@@ -356,8 +356,22 @@ img {
     .product-form select option {
       background-color: #C6282C; }
 
-.list.products {
-  margin: 0; }
+.list.products .products-box {
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px; }
+  .list.products .products-box .product {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    position: relative; }
+    .list.products .products-box .product .info {
+      -ms-grid-rows: (1fr)[auto-fill];
+          grid-template-rows: repeat(auto-fill, 1fr);
+      grid-auto-rows: auto;
+      -ms-flex-item-align: start;
+          -ms-grid-row-align: start;
+          align-self: start; }
 
 .menu {
   position: absolute;

@@ -1,0 +1,82 @@
+@import '../Shared/vars.scss';
+
+.products-list{
+    align-self: start;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    .product-wrapper{
+        position: relative;
+        align-self: start;
+        transition: all .1s ease;
+        .product{
+            .img-wrapper{
+                overflow: hidden;
+                img{
+                    transition: all .7s ease-in-out;
+                }
+            }
+            .info{
+                *{
+                    font-family: $ptsans;
+                    transition: $tr;
+                }
+                padding: $gap;
+                .name .text{
+                    font-family: $unicase;
+                    font-size: 1.75em;
+                    color: black;
+                }
+                .mass{
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background-color: white;
+                    .text{
+                        font-size: 1em;
+                    }
+                    .unit{
+                        font-size: 80%;
+                    }
+                    padding: 10px;
+                }
+                .value{
+                    font-size: 1.3em;
+                    &.null{
+                        color: #e1e1e1;
+                        text-decoration: line-through;
+                    }
+                }
+                .text{
+                    font-family: $condensed;
+                    font-size: 1.45em;
+                }
+                .label{
+                    font-size: 80%;
+                    font-family: $condensed;
+                    font-weight: bold;
+                    &.null{
+                        color: #e1e1e1;
+                    }
+                }
+            }
+            
+        }
+        &:hover{
+            box-shadow: $bs;
+            .info{
+                .name{
+                    .text{
+                        color: $accent;
+                    }
+                }
+            }
+            img{
+                transform: scale(1.05);
+            }
+            
+            .value{
+                color: $accent;
+            }
+        }
+    }
+}

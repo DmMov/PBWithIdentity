@@ -19878,19 +19878,486 @@ var _Traditions = __webpack_require__(/*! ./Traditions/Traditions */ "./Componen
 
 var _Traditions2 = _interopRequireDefault(_Traditions);
 
+var _ProductsBlock = __webpack_require__(/*! ./ProductsBlock/ProductsBlock */ "./Components/Client/Content/ProductsBlock/ProductsBlock.jsx");
+
+var _ProductsBlock2 = _interopRequireDefault(_ProductsBlock);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Content = function Content() {
     return _react2.default.createElement(
         'main',
         null,
-        _react2.default.createElement(_Stories2.default, { getUrl: 'Home/GetStories' }),
-        _react2.default.createElement(_Success2.default, null),
-        _react2.default.createElement(_Traditions2.default, null)
+        _react2.default.createElement(_ProductsBlock2.default, null),
+        _react2.default.createElement(_Stories2.default, { getUrl: 'home/GetStories' }),
+        _react2.default.createElement(_Traditions2.default, null),
+        _react2.default.createElement(_Success2.default, null)
     );
 };
 
 exports.default = Content;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/CategoriesList.jsx":
+/*!********************************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/CategoriesList.jsx ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Category = __webpack_require__(/*! ./Category */ "./Components/Client/Content/ProductsBlock/Category.jsx");
+
+var _Category2 = _interopRequireDefault(_Category);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CategoriesList = function (_Component) {
+    _inherits(CategoriesList, _Component);
+
+    function CategoriesList(props) {
+        _classCallCheck(this, CategoriesList);
+
+        var _this = _possibleConstructorReturn(this, (CategoriesList.__proto__ || Object.getPrototypeOf(CategoriesList)).call(this, props));
+
+        _this.state = {
+            categories: []
+        };
+        return _this;
+    }
+
+    _createClass(CategoriesList, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'categories-list grid' },
+                this.state.categories.map(function (v) {
+                    console.log(v);
+                    return _react2.default.createElement(_Category2.default, { key: v.Id, data: v });
+                })
+            );
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData() {
+            var _this2 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this2.setState({ categories: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
+        }
+    }]);
+
+    return CategoriesList;
+}(_react.Component);
+
+exports.default = CategoriesList;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/Category.jsx":
+/*!**************************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/Category.jsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Category = function Category(props) {
+    return _react2.default.createElement(
+        "div",
+        { className: "category" },
+        _react2.default.createElement(
+            "span",
+            { className: "name" },
+            props.data.Name
+        )
+    );
+};
+
+exports.default = Category;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/Price.jsx":
+/*!***********************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/Price.jsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Price = function Price(props) {
+    return props.value === null ? _react2.default.createElement(
+        "div",
+        { className: "price " + props.uniqueClass },
+        _react2.default.createElement(
+            "span",
+            { className: "label null" },
+            props.label,
+            ":"
+        ),
+        _react2.default.createElement(
+            "div",
+            { className: "value-wrapper " + props.uniqueClass },
+            _react2.default.createElement(
+                "span",
+                { className: "value null" },
+                "\u20B40.00"
+            )
+        )
+    ) : _react2.default.createElement(
+        "div",
+        { className: "price " + props.uniqueClass },
+        _react2.default.createElement(
+            "span",
+            { className: "label" },
+            props.label,
+            ":"
+        ),
+        _react2.default.createElement(
+            "div",
+            { className: "value-wrapper " + props.uniqueClass },
+            _react2.default.createElement(
+                "span",
+                { className: "value" },
+                "\u20B4",
+                props.value
+            )
+        )
+    );
+};
+
+exports.default = Price;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/Product.jsx":
+/*!*************************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/Product.jsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Price = __webpack_require__(/*! ./Price */ "./Components/Client/Content/ProductsBlock/Price.jsx");
+
+var _Price2 = _interopRequireDefault(_Price);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Product = function Product(props) {
+    var path = '../../../../../Built/Images/ProductsImages/';
+    var _props$data = props.data,
+        Image = _props$data.Image,
+        Name = _props$data.Name,
+        Price = _props$data.Price,
+        PackedPrice = _props$data.PackedPrice,
+        Mass = _props$data.Mass,
+        Realization = _props$data.Realization,
+        Category = _props$data.Category;
+
+    return _react2.default.createElement(
+        'div',
+        { className: 'product-wrapper' },
+        _react2.default.createElement(
+            'div',
+            { className: 'product' },
+            _react2.default.createElement(
+                'div',
+                { className: 'img-wrapper' },
+                _react2.default.createElement('img', { src: path + Image })
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'info' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'name' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'text' },
+                        Name
+                    )
+                ),
+                _react2.default.createElement(_Price2.default, { uniqueClass: 'simple', label: '\u0426\u0456\u043D\u0430', value: Price }),
+                _react2.default.createElement(_Price2.default, { uniqueClass: 'packed', label: '\u0423\u043F\u0430\u043A\u043E\u0432\u0430\u043D\u0438\u0439', value: PackedPrice }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'mass' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'text' },
+                        Mass,
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'unit' },
+                            '\u0433'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'realization' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'label' },
+                        '\u0422\u0435\u0440\u043C\u0456\u043D \u0440\u0435\u0430\u043B\u0456\u0437\u0430\u0446\u0456\u0457:'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'value-wrapper' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'value' },
+                            Realization
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'category' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'text' },
+                        Category !== null ? null : Category
+                    )
+                )
+            )
+        )
+    );
+};
+
+exports.default = Product;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/ProductsBlock.jsx":
+/*!*******************************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/ProductsBlock.jsx ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ProductsList = __webpack_require__(/*! ./ProductsList */ "./Components/Client/Content/ProductsBlock/ProductsList.jsx");
+
+var _ProductsList2 = _interopRequireDefault(_ProductsList);
+
+var _CategoriesList = __webpack_require__(/*! ./CategoriesList */ "./Components/Client/Content/ProductsBlock/CategoriesList.jsx");
+
+var _CategoriesList2 = _interopRequireDefault(_CategoriesList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductsBlock = function (_Component) {
+    _inherits(ProductsBlock, _Component);
+
+    function ProductsBlock(props) {
+        _classCallCheck(this, ProductsBlock);
+
+        var _this = _possibleConstructorReturn(this, (ProductsBlock.__proto__ || Object.getPrototypeOf(ProductsBlock)).call(this, props));
+
+        _this.state = {
+
+            products: []
+        };
+        return _this;
+    }
+
+    _createClass(ProductsBlock, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'product-block container grid' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'title' },
+                    _react2.default.createElement(
+                        'h1',
+                        null,
+                        '\u041F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F'
+                    ),
+                    _react2.default.createElement('div', { className: 'hr' })
+                ),
+                _react2.default.createElement(_CategoriesList2.default, { getUrl: 'Home/GetCategories' }),
+                _react2.default.createElement(_ProductsList2.default, { getUrl: 'Home/GetProducts' })
+            );
+        }
+    }]);
+
+    return ProductsBlock;
+}(_react.Component);
+
+exports.default = ProductsBlock;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/ProductsBlock/ProductsList.jsx":
+/*!******************************************************************!*\
+  !*** ./Components/Client/Content/ProductsBlock/ProductsList.jsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Product = __webpack_require__(/*! ./Product */ "./Components/Client/Content/ProductsBlock/Product.jsx");
+
+var _Product2 = _interopRequireDefault(_Product);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductsList = function (_Component) {
+    _inherits(ProductsList, _Component);
+
+    function ProductsList(props) {
+        _classCallCheck(this, ProductsList);
+
+        var _this = _possibleConstructorReturn(this, (ProductsList.__proto__ || Object.getPrototypeOf(ProductsList)).call(this, props));
+
+        _this.state = {
+            products: []
+        };
+        return _this;
+    }
+
+    _createClass(ProductsList, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'products-list grid' },
+                this.state.products.map(function (v) {
+                    console.log(v);
+                    return _react2.default.createElement(_Product2.default, { key: v.Id, data: v });
+                })
+            );
+        }
+    }, {
+        key: 'loadData',
+        value: function loadData() {
+            var _this2 = this;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("get", this.props.getUrl, true);
+            xhr.onload = function () {
+                var data = JSON.parse(xhr.responseText);
+                _this2.setState({ products: data });
+            };
+            xhr.send();
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.loadData();
+        }
+    }]);
+
+    return ProductsList;
+}(_react.Component);
+
+exports.default = ProductsList;
 
 /***/ }),
 
@@ -20645,7 +21112,7 @@ var Menu = function (_Component) {
     _createClass(Menu, [{
         key: 'render',
         value: function render() {
-            var links = ["історія", "продукція", "запорука успіху", "традиції збережено", "погляд у майбутнє", "контакти", "новини"];
+            var links = ["продукція", "історія", "традиції збережено", "запорука успіху", "погляд у майбутнє", "контакти", "новини"];
             return _react2.default.createElement(
                 'nav',
                 { className: 'menu grid' },

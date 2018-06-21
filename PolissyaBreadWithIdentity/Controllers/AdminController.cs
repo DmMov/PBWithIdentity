@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,13 +48,14 @@ namespace PolissyaBreadWithIdentity.Controllers
             if (image != null)
             {
                 // получаем имя файла
-                string fileName = System.IO.Path.GetFileName(image.FileName);
-                // сохраняем файл в папку Files в проекте
-                image.SaveAs(Server.MapPath("~/Built/Images/ProductsImages/" + fileName));
-            }
+                string Ext = Path.GetExtension(image.FileName);
 
+                string ImgName = Guid.NewGuid().ToString() + Ext.ToString();
+                // сохраняем файл в папку Files в проекте
+                image.SaveAs(Server.MapPath("~/Built/Images/ProductsImages/" + ImgName));
+                product.Image = ImgName;
+            }
             product.Id = Guid.NewGuid().ToString();
-            product.Image = image.FileName;
             pc.Products.Add(product);
             pc.SaveChanges();
             return Json(product);
@@ -97,8 +99,16 @@ namespace PolissyaBreadWithIdentity.Controllers
         public ActionResult DeleteCategory(string id)
         {
             Category category = new Category { Id = id };
-
+          
             pc.Entry(category).State = EntityState.Deleted;
+
+            var product = pc.Products.Where(p => p.CategoryId == id).SingleOrDefault();
+
+            if(product != null)
+            {
+                product.CategoryId = null;
+            }
+
             pc.SaveChanges();
 
             return Json(category);

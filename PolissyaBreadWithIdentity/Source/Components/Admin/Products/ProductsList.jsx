@@ -21,14 +21,14 @@ class ProductsList extends Component {
     }
     onAddProduct = product => {
         if (product) {
-            const data = new FormData();
+            let data = new FormData();
             data.append("image", product.selectedFile);
             data.append("name", product.name);
             data.append("price", product.price);
-            data.append("packed_price", product.packed_price);
+            data.append("packedprice",product.packedprice);
             data.append("mass", product.mass);
             data.append("realization", product.realization);
-            data.append("category", product.category);
+            data.append("categoryid", product.categoryid);
 
             let xhr = new XMLHttpRequest();
             xhr.open("post", this.props.postUrl, true);
@@ -48,6 +48,7 @@ class ProductsList extends Component {
             xhr.send(data);
         }
     }
+    
     loadDataProducts() {
         let xhr = new XMLHttpRequest();
         xhr.open("get", this.props.getUrl, true);
@@ -80,11 +81,12 @@ class ProductsList extends Component {
             <div className="products list">
                 <Title value="Продукція" />
                 <Panel uniqueClass="products" btnValue="Новий продукт" toggle={this.FormToggle}/>
-                <div className="scroll products-box">
+                <div className="scroll grid products-box">
                     {
                         products.map((v)=>{
                             return <Product key={v.Id} data={v} onRemove={remove}/>
                         })
+                        
                     }
                 </div>  
             </div>

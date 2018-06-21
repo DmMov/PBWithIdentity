@@ -20342,38 +20342,42 @@ var Product = function Product(props) {
 
     return _react2.default.createElement(
         "div",
-        { className: "product" },
+        { className: "product grid" },
         _react2.default.createElement(
             "div",
             { className: "img-wrapper" },
             _react2.default.createElement("img", { src: path + Image, className: "image" })
         ),
         _react2.default.createElement(
-            "span",
-            { className: "name" },
-            Name
-        ),
-        Price === null ? null : _react2.default.createElement(
-            "span",
-            { className: "price" },
-            "\u20B4",
-            Price
-        ),
-        PackedPrice === null ? null : _react2.default.createElement(
-            "span",
-            { className: "price packed" },
-            "\u20B4",
-            PackedPrice
-        ),
-        _react2.default.createElement(
-            "span",
-            { className: "mass" },
-            Mass
-        ),
-        _react2.default.createElement(
-            "span",
-            { className: "realization" },
-            Realization
+            "div",
+            { className: "info grid" },
+            _react2.default.createElement(
+                "span",
+                { className: "name" },
+                Name
+            ),
+            Price === null ? null : _react2.default.createElement(
+                "span",
+                { className: "price" },
+                "\u20B4",
+                Price
+            ),
+            PackedPrice === null ? null : _react2.default.createElement(
+                "span",
+                { className: "price packed" },
+                "\u20B4",
+                PackedPrice
+            ),
+            _react2.default.createElement(
+                "span",
+                { className: "mass" },
+                Mass
+            ),
+            _react2.default.createElement(
+                "span",
+                { className: "realization" },
+                Realization
+            )
         ),
         _react2.default.createElement("button", { onClick: onClick, className: "delete icon" })
     );
@@ -20437,6 +20441,7 @@ var CategoryForm = function (_Component) {
             var name = target.name;
 
             _this.setState(_defineProperty({}, name, value));
+            console.log(value);
         };
 
         _this.onSubmit = function (e) {
@@ -20445,34 +20450,35 @@ var CategoryForm = function (_Component) {
                 selectedFile = _this$state.selectedFile,
                 name = _this$state.name,
                 price = _this$state.price,
-                packed_price = _this$state.packed_price,
+                packedprice = _this$state.packedprice,
                 mass = _this$state.mass,
                 realization = _this$state.realization,
-                category = _this$state.category;
+                categoryid = _this$state.categoryid;
 
-            console.log(category.type);
+            console.log(categoryid);
             var pName = name.trim(),
                 pPrice = price,
-                pPackedPrice = packed_price,
+                pPackedPrice = packedprice,
                 pMass = mass,
                 pRealization = realization.trim(),
                 pImage = selectedFile,
-                pCategory = category;
+                pCategory = categoryid;
             if (!pName || pMass <= 0 || !pRealization || pImage == null) {
                 return;
             }
-            _this.props.onProductSubmit({ selectedFile: pImage, name: pName, price: pPrice, packed_price: pPackedPrice, mass: pMass, realization: pRealization, category: pCategory });
-            _this.setState({ selectedFile: null, name: "", price: "", packed_price: "", mass: 0, realization: "", category: _this.props.data[0].Id });
+            _this.props.onProductSubmit({ selectedFile: pImage, name: pName, price: pPrice, packedprice: pPackedPrice, mass: pMass, realization: pRealization, categoryid: pCategory });
+            _this.setState({ selectedFile: null, name: "", price: "", packedprice: "", mass: 0, realization: "", categoryid: _this.props.data[0].Id });
         };
 
         _this.state = {
             selectedFile: null,
             name: "",
             price: "",
-            packed_price: "",
+            packedprice: "",
             mass: 0,
             realization: "",
-            category: _this.props.data[0].Id
+            categoryid: _this.props.data[0].Id,
+            selectCategoryName: ''
         };
         return _this;
     }
@@ -20483,10 +20489,10 @@ var CategoryForm = function (_Component) {
             var _state = this.state,
                 name = _state.name,
                 price = _state.price,
-                packed_price = _state.packed_price,
+                packedprice = _state.packedprice,
                 mass = _state.mass,
                 realization = _state.realization,
-                category = _state.category;
+                categoryid = _state.categoryid;
             var onFieldsChange = this.onFieldsChange;
 
             return _react2.default.createElement(
@@ -20498,13 +20504,13 @@ var CategoryForm = function (_Component) {
                     { className: 'product-form form grid', onSubmit: this.onSubmit },
                     _react2.default.createElement('input', { className: 'field', name: 'name', type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...', value: name, onChange: onFieldsChange }),
                     _react2.default.createElement('input', { className: 'field', name: 'price', type: 'text', placeholder: '\u0426\u0456\u043D\u0430...', value: price, onChange: onFieldsChange }),
-                    _react2.default.createElement('input', { className: 'field', name: 'packed_price', type: 'text', placeholder: '\u0426\u0456\u043D\u0430 \u0440\u0456\u0437\u0430\u043D\u043E\u0433\u043E \u0442\u0430 \u0443\u043F\u0430\u043A\u043E\u0432\u0430\u043D\u043E\u0433\u043E...', value: packed_price, onChange: onFieldsChange }),
                     _react2.default.createElement('input', { className: 'field', name: 'mass', type: 'number', placeholder: '\u041C\u0430\u0441\u0441\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0443...', value: mass, onChange: onFieldsChange }),
                     _react2.default.createElement('input', { className: 'field', name: 'realization', type: 'text', placeholder: '\u0422\u0435\u0440\u043C\u0456\u043D \u0440\u0435\u0430\u043B\u0456\u0437\u0430\u0446\u0456\u0457...', value: realization, onChange: onFieldsChange }),
+                    _react2.default.createElement('input', { type: 'text', className: 'field', name: 'packedprice', placeholder: '\u0420\u0456\u0437\u0430\u043D\u0438\u0439', value: packedprice, onChange: onFieldsChange }),
                     _react2.default.createElement('input', { className: 'file', type: 'file', onChange: this.fileSelectedHandler }),
                     _react2.default.createElement(
                         'select',
-                        { value: category, name: 'category', onChange: onFieldsChange },
+                        { value: categoryid, name: 'categoryid', onChange: onFieldsChange },
                         this.props.data.map(function (v) {
                             return _react2.default.createElement(
                                 'option',
@@ -20591,10 +20597,10 @@ var ProductsList = function (_Component) {
                 data.append("image", product.selectedFile);
                 data.append("name", product.name);
                 data.append("price", product.price);
-                data.append("packed_price", product.packed_price);
+                data.append("packedprice", product.packedprice);
                 data.append("mass", product.mass);
                 data.append("realization", product.realization);
-                data.append("category", product.category);
+                data.append("categoryid", product.categoryid);
 
                 var xhr = new XMLHttpRequest();
                 xhr.open("post", _this.props.postUrl, true);
@@ -20676,7 +20682,7 @@ var ProductsList = function (_Component) {
                 _react2.default.createElement(_Panel2.default, { uniqueClass: 'products', btnValue: '\u041D\u043E\u0432\u0438\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0442', toggle: this.FormToggle }),
                 _react2.default.createElement(
                     'div',
-                    { className: 'scroll products-box' },
+                    { className: 'scroll grid products-box' },
                     products.map(function (v) {
                         return _react2.default.createElement(_Product2.default, { key: v.Id, data: v, onRemove: remove });
                     })

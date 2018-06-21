@@ -7,15 +7,17 @@ const Product = props => {
     const path = "../../../../Built/Images/ProductsImages/";
     const {Image, Name, Price, PackedPrice, Mass, Realization, Category} = props.data;
     return (
-        <div className="product">
+        <div className="product grid">
             <div className="img-wrapper">
                 <img src={path + Image} className="image"/>
             </div>
-            <span className="name">{Name}</span>
-            {Price === null ? null :<span className="price">₴{Price}</span>}
-            {PackedPrice === null ? null :<span className="price packed">₴{PackedPrice}</span>}
-            <span className="mass">{Mass}</span>
-            <span className="realization">{Realization}</span>
+            <div className="info grid">
+                <span className="name">{Name}</span>
+                {Price === null ? null :<span className="price">₴{Price}</span>}
+                {PackedPrice === null ? null :<span className="price packed">₴{PackedPrice}</span>}
+                <span className="mass">{Mass}</span>
+                <span className="realization">{Realization}</span>
+            </div>
             <button onClick={onClick} className="delete icon"></button>
         </div>
     );
