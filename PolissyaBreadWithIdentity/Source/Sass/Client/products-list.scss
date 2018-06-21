@@ -9,6 +9,8 @@
         align-self: start;
         transition: all .1s ease;
         .product{
+            border: 1px solid white;
+            transition: $tr;
             .img-wrapper{
                 overflow: hidden;
                 img{
@@ -37,7 +39,7 @@
                     .unit{
                         font-size: 80%;
                     }
-                    padding: 10px;
+                    padding: 5px $gap;
                 }
                 .value{
                     font-size: 1.3em;
@@ -63,6 +65,9 @@
         }
         &:hover{
             box-shadow: $bs;
+            .product{
+                border-color: $accent;
+            }
             .info{
                 .name{
                     .text{

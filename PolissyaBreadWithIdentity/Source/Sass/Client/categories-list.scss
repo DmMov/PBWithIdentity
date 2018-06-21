@@ -2,4 +2,12 @@
 
 .categories-list{
     align-self: start;
+    grid-gap: $gap;
+    .category{
+        padding: $gap 20px;
+        .name{
+            font-size: 1.25em;
+            font-family: $unicase;
+        }
+    }
 }

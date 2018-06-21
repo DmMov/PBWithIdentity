@@ -3,6 +3,7 @@
 
 .product-block{
     grid-template-columns: repeat(2, auto);
+    grid-gap: 20px;
     padding-bottom: 20vh;
     position: relative;
     .title{

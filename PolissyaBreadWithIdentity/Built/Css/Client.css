@@ -299,8 +299,8 @@ img {
       font-family: "Playfair Display SC", serif;
       font-size: 3em; }
   .stories .stories-box {
-    -ms-grid-columns: (minmax(500px, auto))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+    -ms-grid-columns: (minmax(350px, auto))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     grid-gap: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -444,7 +444,13 @@ img {
 .categories-list {
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
-      align-self: start; }
+      align-self: start;
+  grid-gap: 10px; }
+  .categories-list .category {
+    padding: 10px 20px; }
+    .categories-list .category .name {
+      font-size: 1.25em;
+      font-family: "Cormorant Unicase", serif; }
 
 .products-list {
   -ms-flex-item-align: start;
@@ -459,45 +465,50 @@ img {
         -ms-grid-row-align: start;
         align-self: start;
     transition: all .1s ease; }
-    .products-list .product-wrapper .product .img-wrapper {
-      overflow: hidden; }
-      .products-list .product-wrapper .product .img-wrapper img {
-        transition: all .7s ease-in-out; }
-    .products-list .product-wrapper .product .info {
-      padding: 10px; }
-      .products-list .product-wrapper .product .info * {
-        font-family: "PT Sans", sans-serif;
-        transition: all 0.1s ease; }
-      .products-list .product-wrapper .product .info .name .text {
-        font-family: "Cormorant Unicase", serif;
-        font-size: 1.75em;
-        color: black; }
-      .products-list .product-wrapper .product .info .mass {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background-color: white;
+    .products-list .product-wrapper .product {
+      border: 1px solid white;
+      transition: all 0.1s ease; }
+      .products-list .product-wrapper .product .img-wrapper {
+        overflow: hidden; }
+        .products-list .product-wrapper .product .img-wrapper img {
+          transition: all .7s ease-in-out; }
+      .products-list .product-wrapper .product .info {
         padding: 10px; }
-        .products-list .product-wrapper .product .info .mass .text {
-          font-size: 1em; }
-        .products-list .product-wrapper .product .info .mass .unit {
-          font-size: 80%; }
-      .products-list .product-wrapper .product .info .value {
-        font-size: 1.3em; }
-        .products-list .product-wrapper .product .info .value.null {
-          color: #e1e1e1;
-          text-decoration: line-through; }
-      .products-list .product-wrapper .product .info .text {
-        font-family: "Roboto Condensed", sans-serif;
-        font-size: 1.45em; }
-      .products-list .product-wrapper .product .info .label {
-        font-size: 80%;
-        font-family: "Roboto Condensed", sans-serif;
-        font-weight: bold; }
-        .products-list .product-wrapper .product .info .label.null {
-          color: #e1e1e1; }
+        .products-list .product-wrapper .product .info * {
+          font-family: "PT Sans", sans-serif;
+          transition: all 0.1s ease; }
+        .products-list .product-wrapper .product .info .name .text {
+          font-family: "Cormorant Unicase", serif;
+          font-size: 1.75em;
+          color: black; }
+        .products-list .product-wrapper .product .info .mass {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background-color: white;
+          padding: 5px 10px; }
+          .products-list .product-wrapper .product .info .mass .text {
+            font-size: 1em; }
+          .products-list .product-wrapper .product .info .mass .unit {
+            font-size: 80%; }
+        .products-list .product-wrapper .product .info .value {
+          font-size: 1.3em; }
+          .products-list .product-wrapper .product .info .value.null {
+            color: #e1e1e1;
+            text-decoration: line-through; }
+        .products-list .product-wrapper .product .info .text {
+          font-family: "Roboto Condensed", sans-serif;
+          font-size: 1.45em; }
+        .products-list .product-wrapper .product .info .label {
+          font-size: 80%;
+          font-family: "Roboto Condensed", sans-serif;
+          font-weight: bold; }
+          .products-list .product-wrapper .product .info .label.null {
+            color: #e1e1e1; }
     .products-list .product-wrapper:hover {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+      .products-list .product-wrapper:hover .product {
+        border-color: #C6282C; }
       .products-list .product-wrapper:hover .info .name .text {
         color: #C6282C; }
       .products-list .product-wrapper:hover img {
@@ -508,6 +519,7 @@ img {
 .product-block {
   -ms-grid-columns: (auto)[2];
       grid-template-columns: repeat(2, auto);
+  grid-gap: 20px;
   padding-bottom: 20vh;
   position: relative; }
   .product-block .title {
