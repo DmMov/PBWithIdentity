@@ -19882,20 +19882,82 @@ var _ProductsBlock = __webpack_require__(/*! ./ProductsBlock/ProductsBlock */ ".
 
 var _ProductsBlock2 = _interopRequireDefault(_ProductsBlock);
 
+var _Future = __webpack_require__(/*! ./Future/Future */ "./Components/Client/Content/Future/Future.jsx");
+
+var _Future2 = _interopRequireDefault(_Future);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Content = function Content() {
     return _react2.default.createElement(
         'main',
-        null,
+        { className: 'content' },
         _react2.default.createElement(_ProductsBlock2.default, null),
         _react2.default.createElement(_Stories2.default, { getUrl: 'home/GetStories' }),
         _react2.default.createElement(_Traditions2.default, null),
-        _react2.default.createElement(_Success2.default, null)
+        _react2.default.createElement(_Success2.default, null),
+        _react2.default.createElement(_Future2.default, null)
     );
 };
 
 exports.default = Content;
+
+/***/ }),
+
+/***/ "./Components/Client/Content/Future/Future.jsx":
+/*!*****************************************************!*\
+  !*** ./Components/Client/Content/Future/Future.jsx ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Future = function Future() {
+    var values = ['На підприємстві постійно реконструюються технологічні лінії, модернізують обладнання, розширюють асортимент продукції, вдосконалюють її якість. Колишній хлібозавод за останні десять років перетворився на сучасне харчове підприємство, про яке добре знають рівняни, бо залюбки споживають його продукцію. І все це завдяки наполегливій праці всього колективу, вмінню господарювати, йдучи в ногу з часом. Кредо кервника - йти вперед, інакше тебе випередять інші. ', 'У кабінеті голови правління ТДВ \"Поліссяхліб\" багато нагород: грамоти, дипломи, подяки за сумлінну працю і колективу підприємства, і особисто його керівнику. Кожну таку відзнаку тут сприймають як аванс на майбутнє. А найвищою нагородою для підприємства є те, що серед різноманіття хлібобулочних виробів, споживачі обирають саме продукцію \"Поліссяхліб\". У найближчих планах підприємства - робота над упаковкою та розширення асортименту. Усе це, а також віра у щасливе майбутнє дозволяють ТДВ \"Поліссяхліб\" і надалі залишатися лідером на ринку харчової промисловості Рівненської області.'];
+    return _react2.default.createElement(
+        'div',
+        { className: 'future container' },
+        _react2.default.createElement(
+            'div',
+            { className: 'title' },
+            _react2.default.createElement(
+                'h1',
+                null,
+                '\u041F\u043E\u0433\u043B\u044F\u0434 \u0443 \u043C\u0430\u0439\u0431\u0443\u0442\u043D\u0454'
+            ),
+            _react2.default.createElement('div', { className: 'hr' })
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'values-box grid' },
+            values.map(function (v, i) {
+                return _react2.default.createElement(
+                    'div',
+                    { key: i, className: 'value-wrapper' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'value' },
+                        v
+                    )
+                );
+            })
+        )
+    );
+};
+
+exports.default = Future;
 
 /***/ }),
 
@@ -19948,25 +20010,35 @@ var CategoriesList = function (_Component) {
     _createClass(CategoriesList, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'categories-list grid' },
+                _react2.default.createElement(
+                    'button',
+                    { className: 'category ' + (this.props.active === "All" ? "active" : ""), name: 'All', onClick: this.props.toggle },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'name' },
+                        '\u0412\u0441\u044F \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044F'
+                    )
+                ),
                 this.state.categories.map(function (v) {
-                    console.log(v);
-                    return _react2.default.createElement(_Category2.default, { key: v.Id, data: v });
+                    return v.Products.length == 0 ? null : _react2.default.createElement(_Category2.default, { active: _this2.props.active, toggle: _this2.props.toggle, key: v.Id, data: v });
                 })
             );
         }
     }, {
         key: 'loadData',
         value: function loadData() {
-            var _this2 = this;
+            var _this3 = this;
 
             var xhr = new XMLHttpRequest();
             xhr.open("get", this.props.getUrl, true);
             xhr.onload = function () {
                 var data = JSON.parse(xhr.responseText);
-                _this2.setState({ categories: data });
+                _this3.setState({ categories: data });
             };
             xhr.send();
         }
@@ -20006,8 +20078,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Category = function Category(props) {
     return _react2.default.createElement(
-        "div",
-        { className: "category" },
+        "button",
+        { className: "category " + (props.active === props.data.Name ? "active" : ""), name: props.data.Name, onClick: props.toggle },
         _react2.default.createElement(
             "span",
             { className: "name" },
@@ -20177,15 +20249,6 @@ var Product = function Product(props) {
                             Realization
                         )
                     )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'category' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'text' },
-                        Category !== null ? null : Category
-                    )
                 )
             )
         )
@@ -20240,9 +20303,16 @@ var ProductsBlock = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (ProductsBlock.__proto__ || Object.getPrototypeOf(ProductsBlock)).call(this, props));
 
-        _this.state = {
+        _this.ActiveToggle = function (e) {
+            _this.setState({
+                activeCategory: e.target.name
+            });
+            console.log(_this.state.activeCategory);
+        };
 
-            products: []
+        _this.state = {
+            products: [],
+            activeCategory: 'All'
         };
         return _this;
     }
@@ -20253,6 +20323,7 @@ var ProductsBlock = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'product-block container grid' },
+                _react2.default.createElement('a', { name: 'product-block' }),
                 _react2.default.createElement(
                     'div',
                     { className: 'title' },
@@ -20263,8 +20334,8 @@ var ProductsBlock = function (_Component) {
                     ),
                     _react2.default.createElement('div', { className: 'hr' })
                 ),
-                _react2.default.createElement(_CategoriesList2.default, { getUrl: 'Home/GetCategories' }),
-                _react2.default.createElement(_ProductsList2.default, { getUrl: 'Home/GetProducts' })
+                _react2.default.createElement(_CategoriesList2.default, { active: this.state.activeCategory, toggle: this.ActiveToggle, getUrl: 'Home/GetCategories' }),
+                _react2.default.createElement(_ProductsList2.default, { active: this.state.activeCategory, getUrl: 'Home/GetProducts' })
             );
         }
     }]);
@@ -20325,25 +20396,30 @@ var ProductsList = function (_Component) {
     _createClass(ProductsList, [{
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'products-list grid' },
-                this.state.products.map(function (v) {
+                this.props.active === "All" ? this.state.products.map(function (v) {
                     console.log(v);
                     return _react2.default.createElement(_Product2.default, { key: v.Id, data: v });
+                }) : this.state.products.map(function (v) {
+                    console.log(v.Category);
+                    return _this2.props.active === v.Category ? _react2.default.createElement(_Product2.default, { key: v.Id, data: v }) : null;
                 })
             );
         }
     }, {
         key: 'loadData',
         value: function loadData() {
-            var _this2 = this;
+            var _this3 = this;
 
             var xhr = new XMLHttpRequest();
             xhr.open("get", this.props.getUrl, true);
             xhr.onload = function () {
                 var data = JSON.parse(xhr.responseText);
-                _this2.setState({ products: data });
+                _this3.setState({ products: data });
             };
             xhr.send();
         }
@@ -20694,8 +20770,7 @@ var Traditions = function (_Component) {
                                     'span',
                                     { className: 'text' },
                                     v
-                                ),
-                                _react2.default.createElement('div', { className: 'hr' })
+                                )
                             );
                         })
                     )
@@ -20732,7 +20807,30 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Footer = function Footer() {
-    return _react2.default.createElement('footer', null);
+    return _react2.default.createElement(
+        "footer",
+        { className: "footer" },
+        _react2.default.createElement(
+            "div",
+            { className: "title" },
+            _react2.default.createElement(
+                "h1",
+                null,
+                "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u043D\u0430 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044F"
+            ),
+            _react2.default.createElement("div", { className: "hr" })
+        ),
+        _react2.default.createElement(
+            "a",
+            { href: "/Admin", style: {
+                    zIndex: '3',
+                    position: 'absolute',
+                    bottom: '0',
+                    right: '0'
+                } },
+            "Admin Panel"
+        )
+    );
 };
 
 exports.default = Footer;
@@ -20991,14 +21089,6 @@ var Header = function Header() {
         'header',
         { className: 'header container grid' },
         _react2.default.createElement(_Menu2.default, null),
-        _react2.default.createElement(
-            'a',
-            { href: '/Admin', style: {
-                    zIndex: '3',
-                    position: 'absolute'
-                } },
-            'Admin Panel'
-        ),
         _react2.default.createElement(_HeaderContent2.default, null)
     );
 };
@@ -21050,7 +21140,7 @@ var HeaderContent = function HeaderContent() {
             { className: 'pr-wrapper' },
             _react2.default.createElement(
                 'a',
-                { className: 'our-pr', href: '#' },
+                { className: 'our-pr', href: '#product-block' },
                 '\u043F\u0435\u0440\u0435\u0433\u043B\u044F\u043D\u0443\u0442\u0438 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0456\u044E'
             )
         )
@@ -21105,7 +21195,33 @@ var Menu = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
-        _this.state = {};
+        _this.FixedToggle = function () {
+
+            _this.setState({
+                isFixed: window.pageYOffset >= 40 ? true : false
+            });
+        };
+
+        _this.componentDidMount = function () {
+            window.addEventListener('scroll', _this.handleScroll);
+        };
+
+        _this.componentWillUnmount = function () {
+            window.removeEventListener('scroll', _this.handleScroll);
+        };
+
+        _this.handleScroll = function (event) {
+            var scrollTop = window.scrollY;
+
+            _this.setState({
+                isFixed: scrollTop >= 40 ? true : false
+            });
+        };
+
+        _this.state = {
+            active: "",
+            isFixed: false
+        };
         return _this;
     }
 
@@ -21113,9 +21229,13 @@ var Menu = function (_Component) {
         key: 'render',
         value: function render() {
             var links = ["продукція", "історія", "традиції збережено", "запорука успіху", "погляд у майбутнє", "контакти", "новини"];
+            var _state = this.state,
+                active = _state.active,
+                isFixed = _state.isFixed;
+
             return _react2.default.createElement(
                 'nav',
-                { className: 'menu grid' },
+                { className: 'menu grid ' + (isFixed ? "fixed" : "absolute") },
                 _react2.default.createElement(
                     'div',
                     { className: 'menu-images grid' },

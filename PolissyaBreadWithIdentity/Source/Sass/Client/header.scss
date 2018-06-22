@@ -1,14 +1,13 @@
 @import '../Shared/vars.scss';
 
 .header{
-    height: 100vh;
+    height: 115vh;
     position: relative;
     background-image: url(/Built/Images/bg2.jpg);
     background-position: center;
     background-size: cover;
     align-content: center;
     justify-content: center;
-    z-index: 0;
     .header-content{
         z-index: 1;
         .header-title{

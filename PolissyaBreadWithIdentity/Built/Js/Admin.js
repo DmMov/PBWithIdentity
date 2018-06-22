@@ -20342,7 +20342,7 @@ var Product = function Product(props) {
 
     return _react2.default.createElement(
         "div",
-        { className: "product grid" },
+        { className: "product" },
         _react2.default.createElement(
             "div",
             { className: "img-wrapper" },
@@ -20350,7 +20350,7 @@ var Product = function Product(props) {
         ),
         _react2.default.createElement(
             "div",
-            { className: "info grid" },
+            { className: "info" },
             _react2.default.createElement(
                 "span",
                 { className: "name" },
@@ -20371,7 +20371,8 @@ var Product = function Product(props) {
             _react2.default.createElement(
                 "span",
                 { className: "mass" },
-                Mass
+                Mass,
+                " \u0433"
             ),
             _react2.default.createElement(
                 "span",
@@ -21071,7 +21072,6 @@ var App = function (_Component) {
             _this.setState({
                 activeList: e.target.name
             });
-            console.log(_this.state.activeList);
         };
 
         _this.state = { activeList: 'stories' };

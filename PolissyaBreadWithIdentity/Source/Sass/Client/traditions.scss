@@ -42,10 +42,7 @@
         padding: 20px;
         .value{
             align-self: center;
-            background-color: #f5f5f5;
-            .hr{
-                width: 100%;
-            }
+            background-color: #f5f5ff;
             .text{
                 font-family: $garamond;
                 font-size: 1.45em;
@@ -57,6 +54,7 @@
             
             &:nth-child(1){
                 grid-column: 1/-1;
+               
             }
 
             &:nth-child(2){
@@ -76,7 +74,7 @@
         right: 0;
         width: 0;
 	    height: 0;
-	    border-bottom: 15vh solid #f5f5f5; 
+	    border-bottom: 15vh solid #f9f9ff; 
 	    border-left: 100vw solid transparent;
     }
 }

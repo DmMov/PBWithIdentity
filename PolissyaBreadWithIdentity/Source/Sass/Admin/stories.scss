@@ -7,7 +7,7 @@ $histAccent: rgb(35, 35, 35) ;
     margin: 0 auto;
     .stories-box{
         .stories-wrapper{
-            grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+            grid-template-columns: repeat(auto-fit, minmax(400px, auto));
             grid-gap: 20px;
             .history{
                 margin: 10px 0;

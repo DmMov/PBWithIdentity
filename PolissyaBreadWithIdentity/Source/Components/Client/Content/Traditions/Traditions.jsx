@@ -60,7 +60,6 @@ class Traditions extends Component {
                                                 v
                                             }
                                         </span>
-                                        <div className="hr"></div>
                                     </div>
                                 );
                             })

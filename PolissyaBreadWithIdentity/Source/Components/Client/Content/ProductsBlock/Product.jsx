@@ -6,7 +6,9 @@ const Product = props => {
     return (
         <div className="product-wrapper">
             <div className="product">
-                <div className="img-wrapper"><img src={path + Image} /></div>
+                <div className="img-wrapper">
+                    <img src={path + Image} />
+                </div>
                 <div className="info">
                     <div className="name">
                         <span className="text">
@@ -26,13 +28,7 @@ const Product = props => {
                             <span className="value">{Realization}</span>
                         </div>
                     </div>
-                    <div className="category">
-                        <div className="text">
-                            {
-                                Category !== null ? null : Category
-                            }
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

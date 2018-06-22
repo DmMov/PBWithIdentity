@@ -18,7 +18,6 @@ export default class App extends Component {
         this.setState({
             activeList: e.target.name
         })
-        console.log(this.state.activeList);
     }
 
     render() {
@@ -34,9 +33,6 @@ export default class App extends Component {
                         <h1>Error</h1>
                     </div>
                 }
-                
-                
-                
             </div>
         );
     }

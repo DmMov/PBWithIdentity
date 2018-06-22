@@ -8,13 +8,7 @@ import HeaderContent from './HeaderContent';
 const Header = () => (
     <header className="header container grid">
         <Menu />
-        <a href="/Admin" style={{
-            zIndex: '3',
-            position: 'absolute',
-        }}>Admin Panel</a>
-        
         <HeaderContent />
-        
     </header>
 );
 

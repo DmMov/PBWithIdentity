@@ -8,7 +8,7 @@ const HeaderContent = () => {
             </div>
             <DescriptionSlider />
             <div className="pr-wrapper">
-                <a className="our-pr" href="#">переглянути продукцію</a>
+                <a className="our-pr" href="#product-block">переглянути продукцію</a>
             </div>
         </div>
     );

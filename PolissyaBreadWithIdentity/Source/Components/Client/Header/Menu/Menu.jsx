@@ -6,7 +6,33 @@ import Image from '../../../Shared/Image';
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            active: "",
+            isFixed: false,
+        };
+    }
+    
+    FixedToggle = () =>{
+        
+        this.setState({
+            isFixed: window.pageYOffset >= 40 ? true : false
+        })
+    }
+
+    componentDidMount = () =>{
+        window.addEventListener('scroll', this.handleScroll);
+    }
+    
+    componentWillUnmount = () => {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+    
+    handleScroll = event => {
+        let scrollTop = window.scrollY;
+        
+        this.setState({
+          isFixed: scrollTop >= 40? true: false
+        });
     }
     render() {
         const links = [
@@ -18,8 +44,9 @@ class Menu extends Component {
             "контакти",
             "новини"
         ];
+        const {active, isFixed} = this.state;
         return (
-            <nav className="menu grid">
+            <nav className={`menu grid ${isFixed ? "fixed" : "absolute"}`}>
                 <div className="menu-images grid">
                     <Image full_path="../../../../../Built/Images/clear.png" />
                     <Image full_path="../../../../../Built/Images/firm.png" />

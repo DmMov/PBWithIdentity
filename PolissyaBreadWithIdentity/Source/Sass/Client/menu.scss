@@ -1,15 +1,32 @@
 @import '../Shared/vars.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 .menu{
-    position: absolute;
-    top: 40px;
-    left: 10%;
-    right: 10%;
-    padding: 20px;
-    z-index: 1;    
-    background-color: white;
-    grid-template-columns: auto auto;
+    &.absolute{
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        right: 10%;
+        padding: 20px;
+        z-index: 100;    
+        background-color: white;
+        grid-template-columns: auto auto;
+        transition: left ease-in-out .5s, right ease-in-out .5s, position ease-in-out .5s;
+    }
+    &.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 20px;
+        grid-template-columns: auto auto;
+        transition: left ease-in-out .5s, right ease-in-out .5s, position ease-in-out .5s;
+        background-color: white;
+        box-shadow: $bs;
+
+    }
     .menu-images{
+        z-index: 100;
         grid-template-columns: 90px 140px;
         grid-gap: 20px;
         .img-wrapper{

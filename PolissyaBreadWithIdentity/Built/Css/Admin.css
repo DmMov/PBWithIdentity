@@ -189,6 +189,7 @@ img {
           color: #C6282C; }
     .app.grid .list .scroll {
       position: absolute;
+      padding: 20px;
       top: 244px;
       bottom: 0;
       left: 0;
@@ -240,8 +241,8 @@ img {
   width: 90%;
   margin: 0 auto; }
   .list.stories .stories-box .stories-wrapper {
-    -ms-grid-columns: (minmax(500px, auto))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+    -ms-grid-columns: (minmax(400px, auto))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(400px, auto));
     grid-gap: 20px; }
     .list.stories .stories-box .stories-wrapper .history {
       margin: 10px 0;
@@ -357,21 +358,51 @@ img {
       background-color: #C6282C; }
 
 .list.products .products-box {
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px; }
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  grid-auto-rows: auto; }
   .list.products .products-box .product {
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    position: relative; }
+    position: relative;
+    border: 1px solid white;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start; }
+    .list.products .products-box .product .img-wrapper {
+      -ms-flex-item-align: start;
+          -ms-grid-row-align: start;
+          align-self: start; }
     .list.products .products-box .product .info {
       -ms-grid-rows: (1fr)[auto-fill];
           grid-template-rows: repeat(auto-fill, 1fr);
       grid-auto-rows: auto;
       -ms-flex-item-align: start;
           -ms-grid-row-align: start;
-          align-self: start; }
+          align-self: start;
+      padding: 10px; }
+      .list.products .products-box .product .info .name {
+        font-size: 1.75em;
+        color: black;
+        font-family: "Cormorant Unicase", serif; }
+      .list.products .products-box .product .info span {
+        display: block;
+        font-family: "PT Sans", sans-serif;
+        font-size: 1em; }
+      .list.products .products-box .product .info .mass {
+        font-weight: bold;
+        position: absolute;
+        padding: 5px 10px;
+        background-color: white;
+        color: black;
+        font-family: "PT Sans", sans-serif;
+        font-size: 1em;
+        top: 10px;
+        left: 10px; }
+    .list.products .products-box .product:hover {
+      border-color: #C6282C; }
+      .list.products .products-box .product:hover .delete.icon {
+        transform: translate(0);
+        opacity: 1; }
 
 .menu {
   position: absolute;

@@ -1,0 +1,17 @@
+@import '../Shared/vars.scss';
+
+.footer{
+    position: relative;
+    min-height: 30vh;
+    background-color: #04091E;
+    .title{
+        grid-column: 1/ -1;
+        padding-bottom: 20px;
+        text-align: center;
+        h1{
+            font-family: $sc;
+            font-size: 3em;
+            color: white;
+        }
+    }
+}

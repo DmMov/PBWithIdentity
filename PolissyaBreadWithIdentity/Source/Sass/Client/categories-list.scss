@@ -4,10 +4,37 @@
     align-self: start;
     grid-gap: $gap;
     .category{
-        padding: $gap 20px;
+        &.active{
+            background-color: $accent;
+
+            .name{
+                background-color: $accent;
+                color: white;
+            }
+            &:hover{
+                .name{
+                    color: white;
+                }
+            }
+        }
+        transition: all ease-in-out .25s;
+        padding: 1px;
+        padding-left: 0;
+        border-left:3px solid $accent;
         .name{
-            font-size: 1.25em;
+            display: block;
+            padding: $gap 20px;
+            background-color: white;
+            color: black;
+            font-size: 1.45em;
             font-family: $unicase;
+        }
+        &:hover{
+            cursor: pointer;
+            background-color: $accent;
+            .name{
+                color: $accent;
+            }
         }
     }
 }

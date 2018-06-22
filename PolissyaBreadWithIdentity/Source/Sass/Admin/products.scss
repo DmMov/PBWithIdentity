@@ -2,21 +2,49 @@
 @import './product-form.scss';
 .list.products{
     .products-box{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         grid-gap: 20px;
+        grid-auto-rows: auto;
         .product{
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 20px;
             position: relative;
+            border: 1px solid white;
+            align-self: start;
             .img-wrapper{
-
+                align-self: start;
             }
             .info{
                 grid-template-rows: repeat(auto-fill, 1fr);
                 grid-auto-rows: auto;
                 align-self: start;
+                padding: 10px;
+                .name{
+                    font-size: 1.75em;
+                    color: black;
+                    font-family: $unicase;
+
+                }
                 span{
-                    
+                    display: block;
+                    font-family: $ptsans;
+                    font-size: 1em;
+                }
+                .mass{
+                    font-weight: bold;
+                    position: absolute;
+                    padding: 5px $gap;
+                    background-color: white;
+                    color: black;
+                    font-family: $ptsans;
+                    font-size: 1em;
+                    top: 10px;
+                    left: 10px;
+                }
+            }
+            &:hover{
+                border-color: $accent;
+                .delete.icon{
+                    transform: translate(0);
+                    opacity: 1;
                 }
             }
         }

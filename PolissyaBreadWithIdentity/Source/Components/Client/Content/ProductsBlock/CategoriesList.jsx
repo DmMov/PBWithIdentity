@@ -11,10 +11,14 @@ export default class CategoriesList extends Component {
     render() {
         return (
             <div className="categories-list grid">
+                <button className={`category ${this.props.active === "All"? "active" : ""}`} name="All" onClick={this.props.toggle}>
+                    <span className="name">
+                        Вся продукція
+                    </span>
+                </button>
                 {
                     this.state.categories.map((v)=>{
-                        console.log(v);
-                        return <Category key={v.Id} data={v} />
+                        return v.Products.length == 0? null : <Category active={this.props.active} toggle={this.props.toggle} key={v.Id} data={v} />
                     })
                 }
             </div>

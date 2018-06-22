@@ -2,12 +2,13 @@
 
 .products-list{
     align-self: start;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 20px;
     .product-wrapper{
         position: relative;
         align-self: start;
         transition: all .1s ease;
+        overflow: hidden;
         .product{
             border: 1px solid white;
             transition: $tr;
@@ -18,26 +19,30 @@
                 }
             }
             .info{
+                padding: $gap;
                 *{
                     font-family: $ptsans;
                     transition: $tr;
                 }
-                padding: $gap;
                 .name .text{
                     font-family: $unicase;
-                    font-size: 1.75em;
+                    font-size: 1.5em;
                     color: black;
                 }
                 .mass{
                     position: absolute;
                     top: 10px;
                     left: 10px;
-                    background-color: white;
+                    background-color: #04091E;
+                    transition: $tr;
                     .text{
                         font-size: 1em;
+                        color: white;
                     }
                     .unit{
                         font-size: 80%;
+                        color: white;
+
                     }
                     padding: 5px $gap;
                 }
@@ -65,14 +70,21 @@
         }
         &:hover{
             box-shadow: $bs;
+            
             .product{
                 border-color: $accent;
+                .category{
+                    opacity: 1;
+                }
             }
             .info{
                 .name{
                     .text{
                         color: $accent;
                     }
+                }
+                .mass{
+                    background-color: $accent;
                 }
             }
             img{
